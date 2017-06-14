@@ -1,0 +1,27 @@
+/* Import Fonts */
+@import url('fonts.css');
+
+/* Navbar */
+.navbar-default {
+	margin: 0 auto 0.5%;
+	border-radius: 0;
+}
+
+/* Alerts */
+.alert {
+	margin: 0 auto 0.5%;
+}
+
+/* Jumbotron Fixes */
+.jumbotron {
+	padding-top: 1.25%;
+	padding-bottom: 1.25%;
+}
+.jumbotron h1 {
+	font-size: 4em;
+}
+.jumbotron p {
+	font-size: 1.15em;
+	text-align: justify;
+}
+

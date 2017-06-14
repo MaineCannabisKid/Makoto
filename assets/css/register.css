@@ -1,0 +1,7 @@
+/* Import Global CSS */
+@import url('global.css');
+
+/* Page Specific CSS */
+.register-form {
+	width: 50%;
+}

@@ -1,0 +1,24 @@
+/* Container */
+.errorPage {
+	text-align: center;
+	font-family: 'Josefin Sans', sans serif;
+	font-weight: 300;
+}
+
+/* Smiley Face */
+.errorPage i {
+	font-size: 20em;
+}
+
+/* 404 */
+.errorPage h1 {
+	margin: 0;
+	line-height: 1;
+	font-size: 4em;
+	font-family: 'Josefin Sans', sans serif;
+	font-weight: 300;
+}
+/* Paragraph Tags */
+.errorPage p {
+	font-size: 1.5em;
+}

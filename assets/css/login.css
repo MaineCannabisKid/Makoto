@@ -1,0 +1,8 @@
+/* Import Global CSS */
+@import url('global.css');
+
+
+/* Login Form */
+.login-form {
+	width: 50%;
+}
