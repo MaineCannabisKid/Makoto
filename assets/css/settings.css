@@ -1,0 +1,27 @@
+/* Import Global CSS */
+@import url('global.css');
+
+/* Page Specific CSS */
+
+/* Columns */
+.col-sm-6 {
+	text-align: center;
+}
+/* Images */
+.col-sm-6 img {
+	width: 30%;
+}
+
+/* Paragraph */
+.col-sm-6 p {
+	margin: 1% auto;
+}
+/* Links */
+.col-sm-6 a {
+	font-size: 1.5em;
+	color: white;
+}
+.col-sm-6 a:hover {
+	text-decoration: none;
+	color: #00bc8c;
+}

@@ -35,10 +35,8 @@
 						echo 	"<li class='dropdown'>
 									<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Profile <span class='caret'></span></a>
 									<ul class='dropdown-menu'>
-										<li><a href='" . Config::get('links/app_root') . "update.php'>Change Name</a></li>
-										<li><a href='" . Config::get('links/app_root') . "changepassword.php'>Change Password</a></li>
 										<li><a href='" . Config::get('links/app_root') . "profile.php?user={$user->data()->username}'>Your Profile</a></li>
-										<li><a href='" . Config::get('links/app_root') . "settings.php?user={$user->data()->username}'>Settings</a></li>
+										<li><a href='" . Config::get('links/app_root') . "settings.php'>Settings</a></li>
 										<li role='separator' class='divider'></li>
 										<li><a href='" . Config::get('links/app_root') . "logout.php'>Logout</a></li>
 									</ul>
