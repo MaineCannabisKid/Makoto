@@ -11,16 +11,16 @@ class Session {
 
 			switch($type) {
 				case 'success':
-					$msg .= '<div class="container"><div class="alert alert-success"><p>';
+					$msg .= '<div class="container"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img class="svg" src="assets/imgs/icons/success.png" style="padding-right: 1%;"><strong>Success:</strong> ';
 				break;
 				case 'info':
-					$msg .= '<div class="container"><div class="alert alert-info"><p>';
+					$msg .= '<div class="container"><div class="alert alert-info alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img class="svg" src="assets/imgs/icons/info.png" style="padding-right: 1%;"><strong>Information:</strong> ';
 				break;
 				case 'warning':
-					$msg .= '<div class="container"><div class="alert alert-warning"><p>';
+					$msg .= '<div class="container"><div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img class="svg" src="assets/imgs/icons/warning.png" style="padding-right: 1%;"><strong>Warning:</strong> ';
 				break;
 				case 'danger':
-					$msg .= '<div class="container"><div class="alert alert-danger"><p>';
+					$msg .= '<div class="container"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img class="svg" src="assets/imgs/icons/danger.png" style="padding-right: 1%;"><strong>Error:</strong> ';
 				break;
 
 			}
