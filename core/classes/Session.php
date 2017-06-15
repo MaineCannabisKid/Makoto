@@ -8,7 +8,7 @@ class Session {
 		if($type != '') {
 			// Define $msg as blank string
 			$msg = '';
-
+			// Switch on $type, and display properly formatted alert box
 			switch($type) {
 				case 'success':
 					$msg .= '<div class="container"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img class="svg" src="assets/imgs/icons/success.png" style="padding-right: 1%;"><strong>Success:</strong> ';
@@ -35,6 +35,7 @@ class Session {
 			return $_SESSION[$name] = $msg;
 
 		} else {
+			// just store the information in the session
 			return $_SESSION[$name] = $value;
 		}
 		
