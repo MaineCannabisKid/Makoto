@@ -3,34 +3,41 @@
 class Session {
 
 	// Put the value into a variable
-	public static function put($name, $value, $type) {
-		// Define $msg as blank string
-		$msg = '';
+	public static function put($name, $value, $type = '') {
+		
+		if($type != '') {
+			// Define $msg as blank string
+			$msg = '';
 
-		switch($type) {
-			case 'success':
-				$msg .= '<div class="container"><div class="alert alert-success"><p>';
-			break;
-			case 'info':
-				$msg .= '<div class="container"><div class="alert alert-info"><p>';
-			break;
-			case 'warning':
-				$msg .= '<div class="container"><div class="alert alert-warning"><p>';
-			break;
-			case 'danger':
-				$msg .= '<div class="container"><div class="alert alert-danger"><p>';
-			break;
+			switch($type) {
+				case 'success':
+					$msg .= '<div class="container"><div class="alert alert-success"><p>';
+				break;
+				case 'info':
+					$msg .= '<div class="container"><div class="alert alert-info"><p>';
+				break;
+				case 'warning':
+					$msg .= '<div class="container"><div class="alert alert-warning"><p>';
+				break;
+				case 'danger':
+					$msg .= '<div class="container"><div class="alert alert-danger"><p>';
+				break;
 
+			}
+
+			// Add Message
+			$msg .= $value;
+
+			// End HTML
+			$msg .= '</p></div></div>';
+
+			// Store Message into Session
+			return $_SESSION[$name] = $msg;
+
+		} else {
+			return $_SESSION[$name] = $value;
 		}
-
-		// Add Message
-		$msg .= $value;
-
-		// End HTML
-		$msg .= '</p></div></div>';
-
-		// Store Message into Session
-		return $_SESSION[$name] = $msg;
+		
 	}
 
 	// Check if session variable exists
@@ -51,7 +58,7 @@ class Session {
 	}
 
 	// Flash a message to the user
-	public static function flash($name, $string = '', $type = 'info') {
+	public static function flash($name, $string = '', $type = '') {
 
 		// If the session exists, return the message
 		if(self::exists($name)) {
