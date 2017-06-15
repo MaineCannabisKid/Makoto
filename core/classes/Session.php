@@ -3,8 +3,34 @@
 class Session {
 
 	// Put the value into a variable
-	public static function put($name, $value) {
-		return $_SESSION[$name] = $value;
+	public static function put($name, $value, $type) {
+		// Define $msg as blank string
+		$msg = '';
+
+		switch($type) {
+			case 'success':
+				$msg .= '<div class="container"><div class="alert alert-success"><p>';
+			break;
+			case 'info':
+				$msg .= '<div class="container"><div class="alert alert-info"><p>';
+			break;
+			case 'warning':
+				$msg .= '<div class="container"><div class="alert alert-warning"><p>';
+			break;
+			case 'danger':
+				$msg .= '<div class="container"><div class="alert alert-danger"><p>';
+			break;
+
+		}
+
+		// Add Message
+		$msg .= $value;
+
+		// End HTML
+		$msg .= '</p></div></div>';
+
+		// Store Message into Session
+		return $_SESSION[$name] = $msg;
 	}
 
 	// Check if session variable exists
@@ -25,14 +51,29 @@ class Session {
 	}
 
 	// Flash a message to the user
-	public static function flash($name, $string = '') {
+	public static function flash($name, $string = '', $type = 'info') {
+
+		// If the session exists, return the message
 		if(self::exists($name)) {
+			// Get the value stored in the session, assign to $session
 			$session = self::get($name);
+			// Delete the Session
 			self::delete($name);
+			// Return the Message
 			return $session;
 		} else {
-			self::put($name, $string);
+			// Store the message in the session, passing which type of alert to display
+			self::put($name, $string, $type);
 		}
+
+
 	}
+
+
+
+
+
+
+
 
 }

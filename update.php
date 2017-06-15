@@ -7,7 +7,7 @@
 	$user = new User;
 	// Check if User Is Logged In
 	if(!$user->isLoggedIn()) {
-		Session::flash('home', 'You must login first');
+		Session::flash('home', 'You must login first', 'danger');
 		Redirect::to('index.php');
 	}
 	// Did User Change Name
@@ -68,7 +68,7 @@
 		<?php
 			// Session Flash Message
 			if(Session::exists('update')) {
-				echo '<div class="container"><div class="alert alert-danger"><p>' . Session::flash('update') . '</p></div></div>';
+				echo Session::flash('update');
 			}
 		?>
 		

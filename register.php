@@ -48,7 +48,7 @@
 					));
 
 					// Flash Message
-					Session::flash('home', 'You have been registered and can now log in!');
+					Session::flash('home', 'You have been registered and can now log in!', 'success');
 					// Redirect User
 					Redirect::to('index.php');
 
@@ -58,13 +58,13 @@
 
 			} else {
 				// Define registrationErrors
-				$registrationErrors = '';
+				$registrationErrors = '<strong>Some errors occured when registering: </strong><br>';
 				// Output Errors
 				foreach($validation->errors() as $error) {
 					// Add to registrationErrors, then display array as session flash on register
 					$registrationErrors .= $error . "<br>";
 				}
-				Session::flash('register', "<strong>Some errors occured when registering: </strong><br>" . $registrationErrors);
+				Session::flash('register', $registrationErrors, 'danger');
 			}
 		}
 
@@ -89,7 +89,7 @@
 		<?php
 			// Session Flash Message
 			if(Session::exists('register')) {
-				echo '<div class="container"><div class="alert alert-danger"><p>' . Session::flash('register') . '</p></div></div>';
+				echo Session::flash('register');
 			}
 		?>
 		

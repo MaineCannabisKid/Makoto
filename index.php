@@ -25,7 +25,7 @@
 		<?php
 			// Session Flash Message
 			if(Session::exists('home')) {
-				echo '<div class="container"><div class="alert alert-danger"><p>' . Session::flash('home') . '</p></div></div>';
+				echo Session::flash('home');
 			}
 		?>
 		

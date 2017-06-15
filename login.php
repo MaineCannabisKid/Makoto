@@ -8,7 +8,7 @@
 
 	// If user is logged in, no reason to go to the login page
 	if($user->isLoggedIn()) {
-		Session::flash('home', 'You are already logged in');
+		Session::flash('home', 'You are already logged in', 'warning');
 		Redirect::to('index.php');			
 	}
 
@@ -28,7 +28,7 @@
 			if($login) {
 				Redirect::to('index.php');
 			} else {
-				Session::flash('login', 'Login Failed, Please try again.');
+				Session::flash('login', 'Login Failed, Please try again.', 'danger');
 				Redirect::to('login.php');
 			}
 
@@ -55,7 +55,7 @@
 	<?php
 		// Session Flash Message
 		if(Session::exists('login')) {
-			echo '<div class="container"><div class="alert alert-danger"><p>' . Session::flash('login') . '</p></div></div>';
+			echo Session::flash('login');
 		}
 	?>
 

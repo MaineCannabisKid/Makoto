@@ -8,7 +8,7 @@
 	$user = new User;
 	// Check if User Is Logged In
 	if(!$user->isLoggedIn()) {
-		Session::flash('home', 'You must login first');
+		Session::flash('home', 'You must login first', 'danger');
 		Redirect::to('index.php');
 	}
 	// If User Tried to Change Password
@@ -48,7 +48,7 @@
 					));
 
 					// Session & Redirect
-					Session::flash('home', 'Your password has been updated');
+					Session::flash('home', 'Your password has been updated', 'success');
 					Redirect::to('index.php');
 				}
 
@@ -56,14 +56,14 @@
 
 
 			} else { 
-				// Define registrationErrors
-				$registrationErrors = '';
+				// Define passwordErrors
+				$passwordErrors = '<strong>Some errors occured when changing your password: </strong><br>';
 				// Output Errors
 				foreach($validation->errors() as $error) {
-					// Add to registrationErrors, then display array as session flash on register
-					$registrationErrors .= $error . "<br>";
+					// Add to passwordErrors, then display array as session flash on register
+					$passwordErrors .= $error . "<br>";
 				}
-				Session::flash('password', "<strong>Some errors occured when changing your password: </strong><br>" . $registrationErrors);
+				Session::flash('password', $passwordErrors, 'danger');
 			}
 
 
@@ -88,7 +88,7 @@
 		<?php
 			// Session Flash Message
 			if(Session::exists('password')) {
-				echo '<div class="container"><div class="alert alert-danger"><p>' . Session::flash('password') . '</p></div></div>';
+				echo Session::flash('password');
 			}
 		?>
 		

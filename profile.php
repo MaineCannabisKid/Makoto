@@ -60,7 +60,7 @@
 		}
 		// Session Flash Message
 		if(Session::exists('profile')) {
-			echo '<div class="container"><div class="alert alert-danger"><p>' . Session::flash('profile') . '</p></div></div>';
+			echo Session::flash('profile');
 		}
 	?>
 	
