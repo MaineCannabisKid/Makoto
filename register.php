@@ -98,22 +98,22 @@
 			<form action="" method="post">
 				<div class="form-group">
 					<label for="username">Username</label>
-					<input type="text" class="form-control" name="username" id="username" value="<?php  echo escape(Input::get('username')); ?>" autocomplete="off" required>
+					<input type="text" class="form-control" placeholder="Username" name="username" id="username" value="<?php  echo escape(Input::get('username')); ?>" autocomplete="off" required>
 				</div>
 
 				<div class="form-group">
 					<label for="password">Choose a Password</label>
-					<input type="password" class="form-control" name="password" id="password" required>
+					<input type="password" placeholder="Choose a password..." class="form-control" name="password" id="password" required>
 				</div>
 
 				<div class="form-group">
 					<label for="password_again">Enter your password again</label>
-					<input type="password" class="form-control" name="password_again" id="password_again" required>
+					<input type="password" placeholder="Enter the password again..." class="form-control" name="password_again" id="password_again" required>
 				</div>
 
 				<div class="form-group">
 					<label for="name">Your Name</label>
-					<input type="text" class="form-control" name="name" id="name" value="<?php echo escape(Input::get('name')); ?>" required>
+					<input type="text" placeholder="Your First Name" class="form-control" name="name" id="name" value="<?php echo escape(Input::get('name')); ?>" required>
 				</div>
 
 				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">

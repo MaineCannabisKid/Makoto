@@ -18,8 +18,8 @@
 						<li><a href="#">Link</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Link</a></li>
-				<li><a href="#">Link</a></li>
+				<li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp;&nbsp;Forums</a></li>
+				<li><a href="<?php echo Config::get('links/app_root'); ?>users.php"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;Members</a></li>
 
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -29,7 +29,7 @@
 						// Check to see if user has admin permissions
 						if($user->hasPermission('admin')) {
 							// Display Admin Backpage Link
-							echo "<li><a href='" . Config::get('links/app_root') . "admin/'>Admin</a></li>";
+							echo "<li><a href='" . Config::get('links/app_root') . "admin/'><i class='fa fa-wrench' aria-hidden='true'></i>&nbsp;&nbsp;Admin Page</a></li>";
 						}
 						// Display the rest of the links
 						echo 	"<li class='dropdown'>
@@ -44,8 +44,8 @@
 
 					} else {
 						// Ask user to sign up or login
-						echo "<li><a href='" . Config::get('links/app_root') . "register.php'>Sign Up</a></li>";
-						echo "<li><a href='" . Config::get('links/app_root') . "login.php'>Login</a></li>";
+						echo "<li><a href='" . Config::get('links/app_root') . "register.php'><i class='fa fa-user-plus' aria-hidden='true'></i>&nbsp;&nbsp;Sign Up</a></li>";
+						echo "<li><a href='" . Config::get('links/app_root') . "login.php'><i class='fa fa-sign-in' aria-hidden='true'></i>&nbsp;&nbsp;Login</a></li>";
 					}
 				?>
 			</ul>

@@ -44,7 +44,7 @@ if($_SERVER['HTTP_HOST'] == 'localhost') { // If website is in Development Mode,
 		'mysql' => array(
 			'host' => 'mysqlcluster20',
 			'username' => 'modelawiki',
-			'password' => 'Jonathan7829',
+			'password' => '************',
 			'db' => 'modelawiki'
 		)
 	);
