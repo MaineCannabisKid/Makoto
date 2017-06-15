@@ -6,6 +6,10 @@
 	margin: 0 auto 0.5%;
 	border-radius: 0;
 }
+.dropdown-icon {
+	font-size: 1.1em;
+	padding-right: 5%;
+}
 
 /* Alerts */
 .alert {

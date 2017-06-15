@@ -17,6 +17,17 @@
 		if(!$user->exists()) {
 			$error = true;
 		} else {
+			// Figure out what group user is apart of
+			$group = null;
+			if($user->hasPermission('admin')) {
+				$group = '<span style="color: rgba(192, 57, 43,1.0); font-size: .5em">(Admin) </span>';
+			} else if($user->hasPermission('moderator')) {
+				$group = '<span style="color: rgba(39, 174, 96,1.0); font-size: .5em">(Moderator) </span>';
+			} else {
+				$group = '<span style="color: rgba(119, 119, 119,1.0); font-size: .5em">';
+				$group .= $user->data()->name;
+				$group .= '</span>';
+			}
 			// Grab user data and assign to variable for easier access
 			$data = $user->data();
 			// *******************************************
@@ -28,13 +39,7 @@
 
 	// Grab current user to display things correctly
 	$user = new User;
-	// Figure out what group user is apart of
-	$group = null;
-	if($user->hasPermission('admin')) {
-		$group = '<span style="color: rgba(192, 57, 43,1.0); font-size: .5em">(Admin) </span>';
-	} else if($user->hasPermission('moderator')) {
-		$group = '<span style="color: rgba(39, 174, 96,1.0); font-size: .5em">(Moderator) </span>';
-	}
+	
 
 ?>
 <!DOCTYPE html>
