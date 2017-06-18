@@ -62,12 +62,25 @@
 
 					// Echo Out all the Users
 					foreach($users as $user) {
+						switch($user->groups) {
+							case "3":
+								echo "<tr class='danger'>";
+								$role = "Administrator";
+							break;
+							case "2":
+								echo "<tr class='success'>";
+								$role = "Moderator";
+							break;
+							default:
+								echo "<tr>";
+								$role = "User";
+							break;
+						}
 						echo "
-							<tr>
 								<td><a href='" . Config::get('links/app_root') . "profile.php?user={$user->id}'>@{$user->username}</a></td>
 								<td>{$user->name}</td>
 								<td>{$user->joined}</td>
-								<td>Admin</td>
+								<td>{$role}</td>
 								<td>
 									<a href='deluser.php?user={$user->id}' class='btn btn-danger btn-xs' type='submit'><i class='fa fa-trash' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
 									<a href='edituser.php?user={$user->id}' class='btn btn-info btn-xs' type='submit'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit</a>
