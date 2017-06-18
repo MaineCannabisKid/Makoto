@@ -153,7 +153,7 @@ class User {
 		return $this->_data;
 	}
 
-	// 
+	// Is the User Logged In
 	public function isLoggedIn() {
 		return $this->_isLoggedIn;
 	}

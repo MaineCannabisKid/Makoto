@@ -44,55 +44,40 @@
 						<th>Username</th>
 						<th>Name</th>
 						<th>Date Joined</th>
+						<th>Role</th>
 						<th>Action</th>
 					</tr>
 				</thead>
 				
 				<tbody>
 				
-					<tr>
-						<td><a href="#">@username</a></td>
-						<td>Name Test</td>
-						<td>2017-09-06 11:33:11</td>
-						<td>
-							<a href="#"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;Delete&nbsp;&nbsp;</a>
-							<a href="#"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp;&nbsp;Ban&nbsp;&nbsp;</a>
-							<a href="#"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Edit</a>
-						</td>
-					</tr>
 					
-					<tr>
-						<td><a href="#">@username</a></td>
-						<td>Name Test</td>
-						<td>2017-09-06 11:33:11</td>
-						<td>
-							<a href="#"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;Delete&nbsp;&nbsp;</a>
-							<a href="#"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp;&nbsp;Ban&nbsp;&nbsp;</a>
-							<a href="#"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Edit</a>
-						</td>
-					</tr>
+					<?php
 
-					<tr>
-						<td><a href="#">@username</a></td>
-						<td>Name Test</td>
-						<td>2017-09-06 11:33:11</td>
-						<td>
-							<a href="#"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;Delete&nbsp;&nbsp;</a>
-							<a href="#"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp;&nbsp;Ban&nbsp;&nbsp;</a>
-							<a href="#"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Edit</a>
-						</td>
-					</tr>
+					// Get a New Database Instance
+					$_db = DB::getInstance();
+					// Grab all users
+					$users = $_db->getAll('users');
 
-					<tr>
-						<td><a href="#">@username</a></td>
-						<td>Name Test</td>
-						<td>2017-09-06 11:33:11</td>
-						<td>
-							<a href="#"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;Delete&nbsp;&nbsp;</a>
-							<a href="#"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp;&nbsp;Ban&nbsp;&nbsp;</a>
-							<a href="#"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Edit</a>
-						</td>
-					</tr>
+
+					// Echo Out all the Users
+					foreach($users as $user) {
+						echo "
+							<tr>
+								<td><a href='" . Config::get('links/app_root') . "profile.php?user={$user->id}'>@{$user->username}</a></td>
+								<td>{$user->name}</td>
+								<td>{$user->joined}</td>
+								<td>Admin</td>
+								<td>
+									<a href='deluser.php?user={$user->id}' class='btn btn-danger btn-xs' type='submit'><i class='fa fa-trash' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
+									<a href='edituser.php?user={$user->id}' class='btn btn-info btn-xs' type='submit'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit</a>
+								</td>
+							</tr>
+						";
+					}
+
+
+					?>
 					
 
 				</tbody>
