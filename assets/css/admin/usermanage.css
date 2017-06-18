@@ -1,0 +1,16 @@
+/* Import Global */
+@import url('../global.css');
+
+/* Page Specific CSS */
+.table th, .table td, .table tr {
+	text-align: center;
+}
+
+td a, table a:not(.btn), .table a:not(.btn) {
+	color: white;
+	text-decoration: none;
+}
+td a:hover, table a:not(.btn):hover, .table a:not(.btn):hover {
+	color: #00bc8c;
+	text-decoration: none;
+}

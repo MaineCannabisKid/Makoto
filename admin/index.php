@@ -29,7 +29,34 @@
 			}
 		?>
 		
-		<div class="container"><div class="jumbotron"><h1>Admin Home</h1><p>This is the Administration Home Page.</p></div></div>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Admin Home</h1>
+				<p>This is the Administration Home Page.</p>
+			</div>
+		</div>
 
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3" id="usermanage">
+					<img class="img-sm" src="<?php echo Config::get('links/app_root') . 'assets/imgs/icons/users.png'; ?>">
+					<p>User Management</p>
+				</div>
+
+				<div class="col-sm-3" id="#">
+					<img class="img-sm" src="<?php echo Config::get('links/app_root') . 'assets/imgs/icons/placeholder.png'; ?>">
+					<p>Placeholder</p>
+				</div>
+
+				<div class="col-sm-3" id="#">
+					<img class="img-sm" src="<?php echo Config::get('links/app_root') . 'assets/imgs/icons/placeholder.png'; ?>">
+					<p>Placeholder</p>
+				</div>
+			</div>
+		</div>
+
+
+<!-- jQuery Click Handlers -->
+<script type="text/javascript" src="<?php echo Config::get('links/app_root'); ?>assets/js/admin/index.js"></script>
 </body>
 </html>

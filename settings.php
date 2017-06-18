@@ -42,14 +42,14 @@
 			<div class="row">
 
 				<div class="col-sm-6">
-					<img src="assets/imgs/icons/id.png">
+					<img src="assets/imgs/icons/settings-id.png">
 					<p>
 						<a href="update.php">Change Your Name</a>
 					</p>
 				</div>
 
 				<div class="col-sm-6">
-					<img src="assets/imgs/icons/lock.png">
+					<img src="assets/imgs/icons/settings-lock.png">
 					<p>
 						<a href="changepassword.php">Change Password</a>
 					</p>

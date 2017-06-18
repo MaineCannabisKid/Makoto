@@ -11,16 +11,16 @@ class Session {
 			// Switch on $type, and display properly formatted alert box
 			switch($type) {
 				case 'success':
-					$msg .= '<div class="container"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img class="svg" src="assets/imgs/icons/success.png" style="padding-right: 1%;"><strong>Success:</strong> ';
+					$msg .= '<div class="container"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img src="assets/imgs/icons/alert-success.png" style="padding-right: 1%;"><strong>Success:</strong> ';
 				break;
 				case 'info':
-					$msg .= '<div class="container"><div class="alert alert-info alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img class="svg" src="assets/imgs/icons/info.png" style="padding-right: 1%;"><strong>Information:</strong> ';
+					$msg .= '<div class="container"><div class="alert alert-info alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img src="assets/imgs/icons/alert-info.png" style="padding-right: 1%;"><strong>Information:</strong> ';
 				break;
 				case 'warning':
-					$msg .= '<div class="container"><div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img class="svg" src="assets/imgs/icons/warning.png" style="padding-right: 1%;"><strong>Warning:</strong> ';
+					$msg .= '<div class="container"><div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img src="assets/imgs/icons/alert-warning.png" style="padding-right: 1%;"><strong>Warning:</strong> ';
 				break;
 				case 'danger':
-					$msg .= '<div class="container"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img class="svg" src="assets/imgs/icons/danger.png" style="padding-right: 1%;"><strong>Error:</strong> ';
+					$msg .= '<div class="container"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img src="assets/imgs/icons/alert-danger.png" style="padding-right: 1%;"><strong>Error:</strong> ';
 				break;
 
 			}

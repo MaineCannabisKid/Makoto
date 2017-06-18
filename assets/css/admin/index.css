@@ -1,2 +1,26 @@
 /* Import Global */
 @import url('../global.css');
+
+/* Page Specific CSS */
+.row {
+	display: flex;
+	justify-content: center;
+}
+.col-sm-3 {
+	text-align: center;
+	background: #303030;
+	padding: 2.5% 0;
+	border-radius: 25px;
+	margin: 0 2.5%;
+}
+.col-sm-3:hover {
+	opacity: 0.9;
+}
+.col-sm-3 p {
+	font-size: 1.5em;
+	color: white;
+}
+
+.img-sm {
+	width: 30%;
+}
