@@ -16,6 +16,16 @@
 	margin: 0 auto 0.5%;
 }
 
+/* Links */
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    color: #00bc8c;
+    text-decoration: none;
+}
+
 /* Jumbotron Fixes */
 .jumbotron {
 	padding-top: 1.25%;

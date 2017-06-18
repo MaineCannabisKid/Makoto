@@ -43,6 +43,17 @@ class User {
 	public function create($fields = array()) {
 		if(!$this->_db->insert('users', $fields)) {
 			throw new Exception('There was a problem creating a new account');
+		} else {
+			return true;
+		}
+	}
+
+	// Delete a user from the database
+	public function delete($userID) {
+		if(!$this->_db->delete('users', array('id', '=', $userID))) {
+			throw new Exception('There was a problem deleting the user ' . $userID);
+		} else {
+			return true;
 		}
 	}
 

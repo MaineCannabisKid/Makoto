@@ -6,6 +6,20 @@
 	// Load User
 	$user = new User;
 
+	// Is the user logged in
+	if($user->isLoggedIn()) {
+		// If the user does NOT have admin permission
+		if(!$user->hasPermission('admin')) {
+			// User Not Logged In Redirect to Home Page
+			Session::flash('home', 'You do not have permission to view that page', 'danger');
+			Redirect::to('index.php');
+		}
+	} else {
+		// User Not Logged In Redirect to Home Page
+		Session::flash('home', 'You are not logged in.', 'warning');
+		Redirect::to('index.php');
+	}
+
 
 ?>
 <!DOCTYPE html>

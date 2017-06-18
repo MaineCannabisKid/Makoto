@@ -62,28 +62,28 @@
 
 					// Echo Out all the Users
 					foreach($users as $user) {
+						// Assign the correct table cell for corresponding role
 						switch($user->groups) {
 							case "3":
-								echo "<tr class='danger'>";
-								$role = "Administrator";
+								$role = "<td class='danger'>Administrator</td>";
 							break;
 							case "2":
-								echo "<tr class='success'>";
-								$role = "Moderator";
+								$role = "<td class='success'>Moderator</td>";
 							break;
 							default:
-								echo "<tr>";
-								$role = "User";
+								$role = "<td>User</td>";
 							break;
 						}
+						// Echo out the rest of the table row
 						echo "
+							<tr>
 								<td><a href='" . Config::get('links/app_root') . "profile.php?user={$user->id}'>@{$user->username}</a></td>
 								<td>{$user->name}</td>
 								<td>{$user->joined}</td>
-								<td>{$role}</td>
+								{$role}
 								<td>
-									<a href='deluser.php?user={$user->id}' class='btn btn-danger btn-xs' type='submit'><i class='fa fa-trash' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
-									<a href='edituser.php?user={$user->id}' class='btn btn-info btn-xs' type='submit'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit</a>
+									<a href='deluser.php?id={$user->id}' class='btn btn-danger btn-xs' type='submit'><i class='fa fa-trash' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
+									<a href='edituser.php?id={$user->id}' class='btn btn-info btn-xs' type='submit'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit</a>
 								</td>
 							</tr>
 						";
