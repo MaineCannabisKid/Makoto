@@ -18,8 +18,16 @@
 			if(Input::exists('get')) {
 				// Grab the ID from the URL using GET
 				$userDelID = intval(Input::get('id'));
+				if($userDelID == "" || $userDelID == null) {
+					$error404 = true;
+				}
 				// Grab User from DB to Delete
 				$userToDel = new User($userDelID);
+				// If the user doesn't exist 404
+				if(!$userToDel->exists()) {
+					$error404 = true;
+				} 
+				// Store data in userToDel
 				$userToDel = $userToDel->data();
 			} else { // Input does not exist
 				$error404 = true;
@@ -39,7 +47,7 @@ $user = new User;
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin - Delete User Confirmation - OOP Login System</title>
+	<title>Admin - Delete User<?php if(isset($userToDel->username)) { echo ' @' . $userToDel->username; } ?> - OOP Login System</title>
 	<!-- Load Head Contents -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->
@@ -58,7 +66,7 @@ $user = new User;
 			}
 
 			// If 404 Error Occurs
-			if($error404) {
+			if(isset($error404)) {
 				Redirect::to(404);
 			}
 		?>
@@ -78,7 +86,7 @@ $user = new User;
 
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6"><a href="usermanage.php" class="btn btn-block btn-primary">Go Back</a></div>
+					<div class="col-sm-6"><a href="usermanage.php" class="btn btn-block btn-warning">Go Back</a></div>
 					<div class="col-sm-6"><button class="btn btn-block btn-danger" type="submit">Delete</button></div>
 				</div>
 			</div>

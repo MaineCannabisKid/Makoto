@@ -1,0 +1,7 @@
+/* Import Global */
+@import url('../global.css');
+
+/* Page Specific CSS */
+.form {
+	width: 50%;
+}

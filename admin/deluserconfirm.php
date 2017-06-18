@@ -17,17 +17,17 @@
 			if(Input::exists()) {
 				if(Token::check(Input::get('token'))) {
 				
-				// Grab the ID from the URL using GET
-				echo $userDelID = intval(Input::get('idToDel'));
+					// Grab the ID from the URL using GET
+					echo $userDelID = intval(Input::get('idToDel'));
 
-				// Delete User From Database
-				if($user->delete($userDelID)) {
-					Session::flash('admin-user-manage', 'Deleted User without any problems', 'success');
-					Redirect::to('admin/usermanage.php');
-				} else { // If Unsuccessful, then display error message
-					Session::flash('admin-user-manage', 'Something went wrong', 'danger');
-					Redirect::to('admin/usermanage.php');
-				}
+					// Delete User From Database
+					if($user->delete($userDelID)) {
+						Session::flash('admin-user-manage', 'Deleted User without any problems', 'success');
+						Redirect::to('admin/usermanage.php');
+					} else { // If Unsuccessful, then display error message
+						Session::flash('admin-user-manage', 'Something went wrong', 'danger');
+						Redirect::to('admin/usermanage.php');
+					}
 
 				}
 			}
