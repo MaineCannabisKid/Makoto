@@ -13,15 +13,16 @@
 			// User Not Logged In Redirect to Home Page
 			Session::flash('home', 'You do not have permission to view that page', 'danger');
 			Redirect::to('index.php');
-		} else {
-			// Authorization correct
-			if(Input::exists()) {
+		} else { // Authorization correct
+			// Does input in the URL exist?
+			if(Input::exists('get')) {
 				// Grab the ID from the URL using GET
 				$userDelID = intval(Input::get('id'));
-
 				// Grab User from DB to Delete
 				$userToDel = new User($userDelID);
 				$userToDel = $userToDel->data();
+			} else { // Input does not exist
+				$error404 = true;
 			}
 
 		}
@@ -54,6 +55,11 @@ $user = new User;
 			// Session Flash Message
 			if(Session::exists('admin-user-del')) {
 				echo Session::flash('admin-user-del');
+			}
+
+			// If 404 Error Occurs
+			if($error404) {
+				Redirect::to(404);
 			}
 		?>
 		
