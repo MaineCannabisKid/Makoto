@@ -6,8 +6,5 @@
 	// Load the User
 	$user = new User;
 
-	echo $field1type = Input::get('field1type') . "<br>";
-	echo $field2type = Input::get('field2type') . "<br>";
-	echo $field3type = Input::get('field3type') . "<br>";
-	echo $field4type = Input::get('field4type') . "<br>";
+	
 ?>

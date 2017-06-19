@@ -98,6 +98,12 @@ $user = new User;
 		<div class="container form-wrapper">
 			<h3>Fields & Values</h3>
 			<form class="form-horizontal" action="createtablesummary.php" method="post">
+				<!-- Generate Token -->
+				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+				<!-- number of fields wanted in the table -->
+				<input type="hidden" name="numFields" value="<?php echo $numFields; ?>">
+
+
 				<div class="form-group">
 					<label for="tableID" class="col-sm-2 control-label">ID</label>
 					<div class="col-sm-10">
