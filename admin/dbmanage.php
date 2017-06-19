@@ -49,11 +49,12 @@
 			<div class="jumbotron">
 				<h1>Database Management</h1>
 				<p>This is the Database Management Page.</p>
-				<p class="text-warning">On this page you can create, manage, and delete tables in your MySQL Database. This is a very simple version of PHPMyAdmin, and is not to replace PHPMyAdmin when creating complex databases.</p>
+				<p class="text-primary">On this page you can create, manage, and delete tables in your MySQL Database. This is a very simple version of PHPMyAdmin, and is not to replace PHPMyAdmin when creating complex databases.</p>
 			</div>
 		</div>
 
 		<div class="container create-form">
+			
 			<form action="createtable.php" method="post" class="form-horizontal">
 				<div class="form-group">
 					<label for="numFields" class="col-sm-2 control-label">Number of Columns/Fields</label>
@@ -61,13 +62,18 @@
 						<input class="form-control" id="numFields" placeholder="Numeric Values Only" name="numFields" type="number" required>
 					</div>
 				</div>
+				<div class="form-group">
+					<label for="tableName" class="col-sm-2 control-label">Table Name</label>
+					<div class="col-sm-10">
+						<input class="form-control" id="tableName" placeholder="Table Name" name="tableName" type="text" required>
+					</div>
+				</div>
 
 				<div class="btn-wrapper">
 					<button type="submit" class="btn btn-success">Create Table</button>
 				</div>
-
-
 			</form>
+
 		</div>
 
 		<div class="container">

@@ -1,0 +1,8 @@
+/* Import Global */
+@import url('../global.css');
+
+/* Page Specific CSS */
+.form-wrapper {
+	width: 50%;
+}
+
