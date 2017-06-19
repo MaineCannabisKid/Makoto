@@ -2,8 +2,19 @@
 @import url('../global.css');
 
 /* Page Specific CSS */
-.table th, .table td, .table tr {
+
+.create-btn-wrapper {
 	text-align: center;
+	width: 50%;
+	margin: 1.25% auto;
+}
+.create-btn-wrapper a {
+	width: 75%;
+}
+
+/* Table of Tables (Laugh Out Loud)*/
+.table th, .table td, .table tr {
+	text-align: center;	
 }
 
 .table th {
@@ -14,9 +25,14 @@
      vertical-align: middle;
 }
 
+.btn {
+	margin-bottom: 1.25%;
+}
+
 td a, table a:not(.btn), .table a:not(.btn) {
 	color: white;
 	text-decoration: none;
+	
 }
 td a:hover, table a:not(.btn):hover, .table a:not(.btn):hover {
 	color: #00bc8c;

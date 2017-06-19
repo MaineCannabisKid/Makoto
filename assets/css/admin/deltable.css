@@ -1,0 +1,7 @@
+/* Import Global */
+@import url('../global.css');
+
+/* Page Specific CSS */
+.col-sm-6 {
+	text-align: center;
+}

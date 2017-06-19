@@ -6,7 +6,6 @@
 	// Load User
 	$user = new User;
 
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -82,8 +81,8 @@
 								<td>{$user->joined}</td>
 								{$role}
 								<td>
-									<a href='deluser.php?id={$user->id}' class='btn btn-danger btn-xs' type='submit'><i class='fa fa-trash' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
-									<a href='edituser.php?id={$user->id}' class='btn btn-info btn-xs' type='submit'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit</a>
+									<a href='deluser.php?id={$user->id}' class='btn btn-danger btn-xs'><i class='fa fa-trash' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
+									<a href='edituser.php?id={$user->id}' class='btn btn-info btn-xs'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit</a>
 								</td>
 							</tr>
 						";

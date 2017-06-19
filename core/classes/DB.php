@@ -156,6 +156,67 @@ class DB {
 		}
 	}
 
+	// Get the Number of total entries in the table
+	public function getEntriesCount($table) {
+		$sql = "SELECT * FROM {$table}";
+
+		if(!$this->query($sql)->error()) {
+			// Return the number of entries
+			return $this->_count;
+		}
+	}
+
+	// Check to see if table exists
+	public function tableExists($table) {
+		$sql = "SELECT 1 FROM {$table} LIMIT 1";
+
+		if(!$this->query($sql)->error()) {
+			// If count is null, table doesn't exist, return false
+			if(is_null($this->_count)) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+	}
+
+	// Delete Table from DB
+	public function tableDel($table) {
+		$sql = "DROP TABLE {$table}";
+
+		// If there is no errors
+		if(!$this->query($sql)->error()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// List Table Names
+	public function getTables() {
+		$sql = "SHOW TABLES";
+
+		if(!$this->query($sql)->error()) {
+			// If entered correctly Return True
+			return $this->_results;
+		}
+	}
+
+	// Get Number of Fields/Columns of Specified Table
+	public function getFieldCount($table) {
+		$sql = "SHOW COLUMNS FROM {$table}";
+
+		if(!$this->query($sql)->error()) {
+			$results = $this->_results;
+			$count = 0;
+			foreach($results as $field) {
+				$count++;
+			}
+			// If entered correctly Return True
+			return $count;
+		}
+	}
+
 	// Get
 	public function get($table, $where) {
 		return $this->action('SELECT *', $table, $where);

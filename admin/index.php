@@ -3,7 +3,7 @@
 	require_once '../core/init.php';
 	// Load CSS Name
 	$cssFileName = Config::get('links/css_root') . 'admin/' . basename(__FILE__, '.php') . '.css';
-	// Load User
+	// Load Current User
 	$user = new User;
 
 	// Is the user logged in
@@ -57,9 +57,9 @@
 					<p>User Management</p>
 				</div>
 
-				<div class="col-sm-3" id="#">
-					<img class="img-sm" src="<?php echo Config::get('links/app_root') . 'assets/imgs/icons/placeholder.png'; ?>">
-					<p>Placeholder</p>
+				<div class="col-sm-3" id="dbmanage">
+					<img class="img-sm" src="<?php echo Config::get('links/app_root') . 'assets/imgs/icons/database.png'; ?>">
+					<p>Database Management</p>
 				</div>
 
 				<div class="col-sm-3" id="#">
