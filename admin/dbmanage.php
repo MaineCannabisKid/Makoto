@@ -53,8 +53,21 @@
 			</div>
 		</div>
 
-		<div class="container create-btn-wrapper">
-			<a href="createtable.php" class="btn btn-success">Create A New Table</a>
+		<div class="container create-form">
+			<form action="createtable.php" method="post" class="form-horizontal">
+				<div class="form-group">
+					<label for="numFields" class="col-sm-2 control-label">Number of Columns/Fields</label>
+					<div class="col-sm-10">
+						<input class="form-control" id="numFields" placeholder="Numeric Values Only" name="numFields" type="number" required>
+					</div>
+				</div>
+
+				<div class="btn-wrapper">
+					<button type="submit" class="btn btn-success">Create Table</button>
+				</div>
+
+
+			</form>
 		</div>
 
 		<div class="container">
@@ -94,7 +107,7 @@
 											<td class='text-muted'>{$name}</td>
 											<td class='text-muted'>{$numFields}</td>
 											<td class='text-muted'>{$numEntries}</td>
-											<td class='text-muted'>None</td>
+											<td class='text-muted'>Can Not Edit</td>
 										</tr>
 									";
 								break;

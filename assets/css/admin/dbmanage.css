@@ -3,13 +3,19 @@
 
 /* Page Specific CSS */
 
-.create-btn-wrapper {
-	text-align: center;
-	width: 50%;
-	margin: 1.25% auto;
+.create-form {
+	width: 40%;
 }
-.create-btn-wrapper a {
-	width: 75%;
+.btn-wrapper {
+	width: 100%;
+	text-align: center;
+}
+.create-form label {
+	font-size: .8em;
+}
+.btn-wrapper button {
+	width: 50%;
+	margin-bottom: 2.5%;
 }
 
 /* Table of Tables (Laugh Out Loud)*/
