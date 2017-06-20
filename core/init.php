@@ -42,10 +42,10 @@ if($_SERVER['HTTP_HOST'] == 'localhost') { // If website is in Development Mode,
 } else { // If Website is Live, Use Network Solutions Database
 	$GLOBALS['config'] += array(
 		'mysql' => array(
-			'host' => 'mysqlcluster20',
-			'username' => 'modelawiki',
+			'host' => '************',
+			'username' => '************',
 			'password' => '************',
-			'db' => 'modelawiki'
+			'db' => '************'
 		)
 	);
 }

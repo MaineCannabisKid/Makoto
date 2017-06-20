@@ -14,7 +14,10 @@
 	if(Input::exists()) {
 		if(Token::check(Input::get('token'))) {
 
+			// Grab the Validate Class
 			$validate = new Validate;
+			// Check if the input's validate ok or not
+			// Basically checking the Inputs against the values
 			$validation = $validate->check($_POST, array(
 				'name' => array(
 					'required' => true,
@@ -22,29 +25,40 @@
 					'max' => 50
 				)
 			));
+			// If validation passed
 			if($validation->passed()) {
-
+				// Do a try catch block to catch any errors from the PDO handler
 				try {
 					// Update the user
 					$user->update(array(
 						'name' => Input::get('name')
 					));
 					// Flash Message
-					Session::flash('home', 'Your details have been updated');
+					// Flash Message stores a message in a SESSION and then
+					// displays it on the 'home' screen which is index.php
+					// 'success' is the color of alert to give user
+					Session::flash('home', 'Your details have been updated', 'success');
+					// Redirect to index.php
+					// Once there Session::flash() will display the message
 					Redirect::to('index.php');
 
-				} catch(Exception $e) {
+				} catch(Exception $e) { // if something went wrong
+					// Die and echo message
 					die($e->getMessage());
 				}
-			} else {
-				// Define registrationErrors
-				$registrationErrors = '';
-				// Output Errors
+			} else { // Validation didn't pass
+
+				// Define updateErrors as empty string
+				$updateErrors = '';
+
+				// Loop through the errors as error
 				foreach($validation->errors() as $error) {
-					// Add to registrationErrors, then display array as session flash on register
-					$registrationErrors .= $error . "<br>";
+					// Add error to updateErrors
+					$updateErrors .= $error . "<br>";
 				}
-				Session::flash('update', "<strong>Some errors occured when updating your Name: </strong><br>" . $registrationErrors);
+				// Session Flash message
+				// No redirect necessary as this is the 'update' page
+				Session::flash('update', "<strong>Some errors occured when updating your Name: </strong><br>" . $updateErrors);
 			}
 
 
@@ -66,7 +80,7 @@
 
 	
 		<?php
-			// Session Flash Message
+			// Display the Flash Message
 			if(Session::exists('update')) {
 				echo Session::flash('update');
 			}
