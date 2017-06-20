@@ -43,6 +43,9 @@
 			if(Session::exists('admin-dbmanage')) {
 				echo Session::flash('admin-dbmanage');
 			}
+			if(Session::exists('admin-dbmanage2')) {
+				echo Session::flash('admin-dbmanage2');
+			}
 		?>
 		
 		<div class="container">
@@ -56,6 +59,9 @@
 		<div class="container create-form">
 			
 			<form action="createtable.php" method="post" class="form-horizontal">
+				<!-- Generate Token -->
+				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+
 				<div class="form-group">
 					<label for="numFields" class="col-sm-2 control-label">Number of Columns/Fields</label>
 					<div class="col-sm-10">
@@ -80,7 +86,7 @@
 			<table class="table table-bordered table-hover table-condensed">
 				<thead>
 					<tr>
-						<th>Table Name</th>
+						<th>Table Name (Protected)</th>
 						<th>Number of Columns/Fields</th>
 						<th>Number of Entries</th>
 						<th>Action</th>
@@ -105,15 +111,24 @@
 							$numEntries = $_db->getEntriesCount($name);
 
 							switch($name) {
-								case "users":
 								case "user_session":
 								case "groups":
 									echo "
-										<tr class='bg-danger'>
+										<tr>
+											<td class='text-muted'>{$name} (P)</td>
+											<td class='text-muted'>{$numFields}</td>
+											<td class='text-muted'>{$numEntries}</td>
+											<td class='text-danger'>Can Not Edit</td>
+										</tr>
+									";
+								break;
+								case "users":
+									echo "
+										<tr>
 											<td class='text-muted'>{$name}</td>
 											<td class='text-muted'>{$numFields}</td>
 											<td class='text-muted'>{$numEntries}</td>
-											<td class='text-muted'>Can Not Edit</td>
+											<td class='text-danger'><a href='usermanage.php' class='btn btn-info btn-xs'>User Management</a></td>
 										</tr>
 									";
 								break;

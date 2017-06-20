@@ -56,6 +56,8 @@ class DB {
 				$this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
 				$this->_count = $this->_query->rowCount();
 			} else {
+				// Print the PDO Error
+				// print_r($this->_query->errorInfo());
 				// Something went wrong? Make Error = true
 				$this->_error = true;
 			}
@@ -189,6 +191,16 @@ class DB {
 			return true;
 		} else {
 			return false;
+		}
+	}
+
+	// Create Table in the DB
+	public function tableCreate($sql) {
+		// If there is no errors
+		if(!$this->query($sql)->error()) {
+			return "true";
+		} else {
+			return "false";
 		}
 	}
 

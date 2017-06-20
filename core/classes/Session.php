@@ -3,7 +3,7 @@
 class Session {
 
 	// Put the value into a variable
-	public static function put($name, $value, $type = '') {
+	public static function put($name, $value, $type = null) {
 		
 		if($type != '') {
 			// Define $msg as blank string
@@ -21,6 +21,10 @@ class Session {
 				break;
 				case 'danger':
 					$msg .= '<div class="container"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img src="' . Config::get('links/app_root') . 'assets/imgs/icons/alert-danger.png" style="padding-right: 1%;"><strong>Error:</strong> ';
+				break;
+				default:
+					$msg .= "Alert Error: Contact an Administrator<br>";
+					$msg .= '<div class="container"><div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img src="' . Config::get('links/app_root') . 'assets/imgs/icons/alert-warning.png" style="padding-right: 1%;"><strong>Warning:</strong> ';
 				break;
 
 			}
@@ -59,7 +63,7 @@ class Session {
 	}
 
 	// Flash a message to the user
-	public static function flash($name, $string = '', $type = '') {
+	public static function flash($name, $string = '', $type = 'warning') {
 
 		// If the session exists, return the message
 		if(self::exists($name)) {
