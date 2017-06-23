@@ -32,8 +32,10 @@ $GLOBALS['config'] =
 		)
 	);
 
-// Define Which Host to Connect To
-if($_SERVER['HTTP_HOST'] == 'localhost') { // If website is in Development Mode, Use localhost
+// Define Variables for Production vs. Development
+if($_SERVER['HTTP_HOST'] == 'localhost') { // Development Mode
+
+	// Set the MySQL Connection Variables
 	$GLOBALS['config'] += array(
 		'mysql' => array(
 			'host' => 'localhost',
@@ -42,7 +44,9 @@ if($_SERVER['HTTP_HOST'] == 'localhost') { // If website is in Development Mode,
 			'db' => 'modelawiki'
 		)
 	);
-} else { // If Website is Live, Use Network Solutions Database
+} else { // Production Mode
+	
+	// Set MySQL Connection Variables
 	$GLOBALS['config'] += array(
 		'mysql' => array(
 			'host' => '************',
@@ -52,7 +56,6 @@ if($_SERVER['HTTP_HOST'] == 'localhost') { // If website is in Development Mode,
 		)
 	);
 }
-
 
 // Auto Load Classes
 spl_autoload_register(function($class) {
@@ -79,5 +82,7 @@ if(Cookie::exists($cookieName) && !Session::exists($sessionName)) {
 
 
 }
+
+
 
 ?>

@@ -18,12 +18,13 @@ class User {
 
 		// If user was not defined upon calling user object
 		if(!$user) {
-			// Check if session exists
+			// Check if OOP Login Session was set
 			if(Session::exists($this->_sessionName)) {
-				// Define the user
+				// Grab current User ID from the Session
 				$user = Session::get($this->_sessionName);
-				// Check if the user actually exists or not
+				// Check if the user actually exists or not in the users DB
 				if($this->find($user)) {
+					// If everything is good, the user is logged in
 					$this->_isLoggedIn = true;
 				} else {
 					// process logout
@@ -238,6 +239,7 @@ class User {
 		if(isset($_SESSION['access_token'])) {
 			$this->_isLoggedIn = true;
 		}
+		// Return _isLoggedIn;
 		return $this->_isLoggedIn;
 	}
 

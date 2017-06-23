@@ -16,6 +16,7 @@
 		Redirect::to('index.php');			
 	}
 
+	
 	// If form was submitted do this
 	if(Input::exists()) {
 		// If token check is valid
