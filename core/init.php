@@ -3,6 +3,9 @@
 // Start a Session
 session_start();
 
+// Autoload Vendor Folder
+require_once dirname(__FILE__) . '/vendor/autoload.php';
+
 // Create a Config Variable
 $GLOBALS['config'] = 
 	array(

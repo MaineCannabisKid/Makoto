@@ -6,3 +6,12 @@
 .login-form {
 	width: 50%;
 }
+
+/* Login Button Wrapper */
+.login-btn-wrapper {
+	margin-top: 2.5%;
+	width: 40%;
+}
+.login-btn {
+	width: 50%;
+}

@@ -48,6 +48,7 @@ class User {
 		}
 	}
 
+
 	// Delete a user from the database
 	public function delete($userID) {
 		if(!$this->_db->delete('users', array('id', '=', $userID))) {
@@ -60,7 +61,7 @@ class User {
 	// Find a user in the database
 	public function find($user = null) {
 		if($user) {
-			$field = (is_numeric($user)) ? 'id' : 'username';
+			$field = (is_numeric($user)) ? 'id' : 'email';
 			$data = $this->_db->get('users', array($field, '=', $user));
 
 			if($data->count()) {
@@ -72,14 +73,15 @@ class User {
 	}
 
 	// Login
-	public function login($username = null, $password = null, $remember = false) {
+	public function login($email = null, $password = null, $remember = false) {
 
 		// Check if user logged in
-		if(!$username && !$password && $this->exists()) {
+		if(!$email && !$password && $this->exists()) {
 			Session::put($this->_sessionName, $this->data()->id);
 
 		} else {
-			$user = $this->find($username);
+			// Find the user in the database
+			$user = $this->find($email);
 			// If user is found
 			if($user) {
 				// If the passwords match
@@ -116,6 +118,68 @@ class User {
 		return false;
 	}
 
+	// Google Login
+	public function googleLogin($googleUser) {
+		
+		// Log User In by Creating a session and storing the user ID in it
+		Session::put($this->_sessionName, $this->data()->id);
+
+		// Check the user_session table to see if user if logged in
+		$hashCheck = $this->_db->get('user_session', array('user_id', '=', $this->data()->id));
+
+		// If user is not in the user_session table
+		if(!$hashCheck->count()) {
+			// Make a new hash
+			$hash = Hash::unique();
+			// Insert user into the user_session table
+			$this->_db->insert('user_session', array(
+				'user_id' => $this->data()->id,
+				'hash' => $hash
+			));
+		} else {
+			// User must be logged in so grab the hash from the Database
+			$hash = $hashCheck->first()->hash;
+		}
+
+		// Set a cookie with the hash in it
+		Cookie::put($this->_cookieName, $hash, Config::get('remember/cookie_expiry'));
+
+		// Check google information against our own, and update if needed
+		if(!$this->checkGoogleInfo($googleUser)) {
+			// Update the system if out of date
+			$this->updateGoogleInfo($googleUser);
+		}
+
+		return true;
+	}
+
+	// Check Google Information and compare it to our own information
+	private function checkGoogleInfo($googleUser) {
+		// Define the GoogleId from OUR systems
+		$userGoogleId = $this->data()->google_id;
+		// Check and see if googleId in our system is NULL
+		if($userGoogleId === null) { // If the GoogleId in the system is NULL
+			return false;
+		}
+		// Else Google Information is fine
+		return true;
+	}
+
+	private function updateGoogleInfo($googleUser) {
+		// If the Update to reflect google's info in our system fails
+		if($this->update(array(
+			'google_id' => $googleUser['sub'],
+			'name' => $googleUser['name'],
+			'picture' => $googleUser['picture'],
+			'email_verified' => $googleUser['email_verified']
+		), $this->data()->id)) { // Updated sucessfully
+			return true;
+		} else { 
+			// Do thise
+			die("Something went wrong updating the users table during googleLogin()");
+		}
+	}
+
 	// Update User
 	public function update($fields = array(), $id = null) {
 		// If id is null but user is logged in use the current user's id
@@ -125,6 +189,8 @@ class User {
 		// If there were errors Updating, throw new Exception
 		if(!$this->_db->update('users', $id, $fields)) {
 			throw new Exception('There was a problem updating');
+		} else {
+			return true;
 		}
 	}
 
@@ -152,11 +218,13 @@ class User {
 
 	// Logout
 	public function logout() {
-
-		$this->_db->delete('user_session', array('user_id', '=', $this->data()->id));
-
+		// Sign Out from Google
+		Session::delete('access_token');
+		// Sign out from OOP Login System
 		Session::delete($this->_sessionName);
 		Cookie::delete($this->_cookieName);
+		$this->_db->delete('user_session', array('user_id', '=', $this->data()->id));
+
 	}
 
 	// Return data
@@ -166,6 +234,10 @@ class User {
 
 	// Is the User Logged In
 	public function isLoggedIn() {
+		// Check if user logged in via Google Auth
+		if(isset($_SESSION['access_token'])) {
+			$this->_isLoggedIn = true;
+		}
 		return $this->_isLoggedIn;
 	}
 
