@@ -29,11 +29,23 @@ $GLOBALS['config'] =
 			// Application Root Folder
 			'app_root' =>  dirname(substr(dirname(__FILE__),strlen($_SERVER['DOCUMENT_ROOT']))) . '/',
 			'css_root' =>  dirname(substr(dirname(__FILE__),strlen($_SERVER['DOCUMENT_ROOT']))) . '/assets/css/'
-		)
+		),
 	);
 
 // Define Variables for Production vs. Development
 if($_SERVER['HTTP_HOST'] == 'localhost') { // Development Mode
+	
+
+	// // Set INI to log errors
+	// ini_set('log_errors', 1);
+	// // Set Error Log Path Variable (Grabs the Root Directory of the Project, then appends on the path)
+	// $errorPath = dirname(substr(dirname(__FILE__),strlen($_SERVER['DOCUMENT_ROOT']))) . '/logs/php/error.log';
+	// var_dump($errorPath);
+	// // Set INI for error_log path
+	// ini_set('error_log', $errorPath);
+	// // Give some code thats going to throw an error
+	// $db = new PDO("mysql:host=a;dbname=test", "root", "");
+
 
 	// Set the MySQL Connection Variables
 	$GLOBALS['config'] += array(
@@ -83,6 +95,8 @@ if(Cookie::exists($cookieName) && !Session::exists($sessionName)) {
 
 }
 
+// Call a new PHPMailer Object
+$mail = new PHPMailer;
 
 
 ?>
