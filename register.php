@@ -129,7 +129,7 @@
 				</div>
 
 				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-				<button type="submit" class="btn btn-default">Register</button>
+				<button type="submit" class="btn btn-primary hvr-float-shadow">Register</button>
 			</form>
 
 		</div>

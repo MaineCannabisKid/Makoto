@@ -95,7 +95,7 @@
 				</div>
 
 				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-				<button type="submit" class="btn btn-default">Change Name</button>
+				<button type="submit" class="btn btn-primary hvr-float-shadow">Change Name</button>
 			</form>
 
 		</div>

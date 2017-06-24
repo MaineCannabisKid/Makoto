@@ -111,7 +111,7 @@
 					<input type="password" class="form-control" name="password_new_again" id="password_new_again" />
 				</div>
 
-				<button type="submit" class="btn btn-default">Change Password</button>
+				<button type="submit" class="btn btn-primary hvr-float-shadow">Change Password</button>
 				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
 
 			</form>
