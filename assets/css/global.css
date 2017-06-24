@@ -3,6 +3,11 @@
 /* Import Hover.css from IanLunn/Hover */
 @import url('hover.css');
 
+/* Ubuntu Orange */
+/* #e95420 */
+/* Dark Hover Orange */
+/* #ac3911 */
+
 /* Navbar */
 .navbar-default {
 	margin: 0 auto 0.5%;
@@ -19,8 +24,11 @@
     background: none;
 }
 .dropdown-menu .hvr-forward a:hover {
+    color: black;
     background: none;
 }
+
+
 
 /* Alerts */
 .alert {
@@ -29,11 +37,9 @@
 
 /* Links */
 a {
-    color: white;
     text-decoration: none;
 }
 a:hover {
-    color: #00bc8c;
     text-decoration: none;
 }
 

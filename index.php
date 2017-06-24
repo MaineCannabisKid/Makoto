@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home - OOP Login System</title>
+	<title>Home - Makoto</title>
 	<!-- Load Head Contents -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->
@@ -29,7 +29,10 @@
 			}
 		?>
 		
-		<div class="container"><div class="jumbotron"><h1>Home</h1><p>This is the App home page.</p></div></div>
+		<div class="splash-wrapper">
+			<p class="jpn-char">真</p>
+			<p class="title">Makoto</p>
+		</div>
 
 </body>
 </html>

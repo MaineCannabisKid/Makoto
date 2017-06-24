@@ -7,11 +7,11 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="<?php echo Config::get('links/app_root'); ?>" class="navbar-brand hvr-grow">OOP Login System</a>
+			<a href="<?php echo Config::get('links/app_root'); ?>" class="navbar-brand hvr-grow">真 Makoto</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-nav-demo">
 			<ul class="nav navbar-nav">
-				<li class='dropdown'>
+				<li class='dropdown hvr-sweep-to-bottom'>
 					<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Dropdown <span class='caret'></span></a>
 					<ul class='dropdown-menu'>
 						<li class='hvr-forward'><a href='#'><i class='fa fa-link dropdown-icon' aria-hidden='true'></i> Link</a></li>
@@ -20,8 +20,8 @@
 						<li class='hvr-forward'><a href='#'><i class='fa fa-link dropdown-icon' aria-hidden='true'></i> Link</a></li>
 					</ul>
 				</li>
-				<li class="hvr-pulse-grow"><a href="#"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;&nbsp;Link</a></li>
-				<li class="hvr-pulse-grow"><a href="<?php echo Config::get('links/app_root'); ?>users.php"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;Members</a></li>
+				<li><a class="hvr-sweep-to-bottom" href="#"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;&nbsp;Link</a></li>
+				<li><a class="hvr-sweep-to-bottom" href="<?php echo Config::get('links/app_root'); ?>users.php"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;Members</a></li>
 
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -31,10 +31,10 @@
 						// Check to see if user has admin permissions
 						if($user->hasPermission('admin')) {
 							// Display Admin Backpage Link
-							echo "<li class='hvr-pulse-grow'><a href='" . Config::get('links/app_root') . "admin/'><i class='fa fa-wrench' aria-hidden='true'></i>&nbsp;&nbsp;Admin Page</a></li>";
+							echo "<li><a class='hvr-sweep-to-bottom' href='" . Config::get('links/app_root') . "admin/'><i class='fa fa-wrench' aria-hidden='true'></i>&nbsp;&nbsp;Admin Page</a></li>";
 						}
 						// Display the rest of the links
-						echo 	"<li class='dropdown'>
+						echo 	"<li class='dropdown hvr-sweep-to-bottom'>
 									<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>{$user->data()->username} <span class='caret'></span></a>
 									<ul class='dropdown-menu'>
 										<li class='hvr-forward'><a href='" . Config::get('links/app_root') . "profile.php?user={$user->data()->id}'><i class='fa fa-user-circle dropdown-icon' aria-hidden='true'></i> Your Profile</a></li>
@@ -46,8 +46,8 @@
 
 					} else {
 						// Ask user to sign up or login
-						echo "<li class='hvr-pulse-grow'><a href='" . Config::get('links/app_root') . "register.php'><i class='fa fa-user-plus' aria-hidden='true'></i>&nbsp;&nbsp;Sign Up</a></li>";
-						echo "<li class='hvr-pulse-grow'><a href='" . Config::get('links/app_root') . "login.php'><i class='fa fa-sign-in' aria-hidden='true'></i>&nbsp;&nbsp;Login</a></li>";
+						echo "<li><a class='hvr-sweep-to-bottom' href='" . Config::get('links/app_root') . "register.php'><i class='fa fa-user-plus' aria-hidden='true'></i>&nbsp;&nbsp;Sign Up</a></li>";
+						echo "<li><a class='hvr-sweep-to-bottom' href='" . Config::get('links/app_root') . "login.php'><i class='fa fa-sign-in' aria-hidden='true'></i>&nbsp;&nbsp;Login</a></li>";
 					}
 				?>
 			</ul>

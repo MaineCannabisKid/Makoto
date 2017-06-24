@@ -56,7 +56,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Profile <?php echo (isset($data->username)) ? 'of ' . $data->username : 'Page'; ?> - OOP Login System</title>
+	<title>Profile <?php echo (isset($data->username)) ? 'of ' . $data->username : 'Page'; ?> - Makoto</title>
 	<!-- Load Head Contents -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->

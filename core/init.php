@@ -1,11 +1,5 @@
 <?php
 
-// Start a Session
-session_start();
-
-// Autoload Vendor Folder
-require_once dirname(__FILE__) . '/vendor/autoload.php';
-
 // Create a Config Variable
 $GLOBALS['config'] = 
 	array(
@@ -53,7 +47,7 @@ if($_SERVER['HTTP_HOST'] == 'localhost') { // Development Mode
 			'host' => 'localhost',
 			'username' => 'root',
 			'password' => '',
-			'db' => 'modelawiki'
+			'db' => 'Makoto'
 		)
 	);
 } else { // Production Mode
@@ -64,10 +58,20 @@ if($_SERVER['HTTP_HOST'] == 'localhost') { // Development Mode
 			'host' => '************',
 			'username' => '************',
 			'password' => '************',
-			'db' => '************'
+			'db' => 'Makoto'
 		)
 	);
 }
+
+//-----------------------------//
+// DO NOT EDIT BELOW THIS LINE //
+//-----------------------------//
+
+// Start a Session
+session_start();
+
+// Autoload Vendor Folder
+require_once dirname(__FILE__) . '/vendor/autoload.php';
 
 // Auto Load Classes
 spl_autoload_register(function($class) {

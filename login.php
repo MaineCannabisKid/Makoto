@@ -44,7 +44,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login - OOP Login System</title>
+	<title>Login - Makoto</title>
 	<!-- Load HTML Headers -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->

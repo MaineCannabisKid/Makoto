@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Profile Settings - OOP Login System</title>
+	<title>Profile Settings - Makoto</title>
 	<!-- Load Head Contents -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->

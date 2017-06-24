@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin - User Management - OOP Login System</title>
+	<title>Admin - User Management - Makoto</title>
 	<!-- Load Head Contents -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->

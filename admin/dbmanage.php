@@ -27,7 +27,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin - Database Management - OOP Login System</title>
+	<title>Admin - Database Management - Makoto</title>
 	<!-- Load Head Contents -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->

@@ -1,9 +1,8 @@
-<?php
-
-?>
 <!-- Latest compiled and minified Bootstrap CSS -->
 <!-- Using Darkly Bootstrap Theme from Bootswatch -->
-<link rel="stylesheet" type="text/css" href="http://bootswatch.com/darkly/bootstrap.css">
+<!-- <link rel="stylesheet" type="text/css" href="http://bootswatch.com/darkly/bootstrap.css"> -->
+<!-- Use the United Boostrap Theme from Bootswatch -->
+<link rel="stylesheet" type="text/css" href="https://bootswatch.com/united/bootstrap.css">
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <!-- Latest compiled and minified Bootstrap JavaScript

@@ -19,9 +19,7 @@
 /* Links */
 .col-sm-6 a {
 	font-size: 1.5em;
-	color: white;
 }
 .col-sm-6 a:hover {
 	text-decoration: none;
-	color: #00bc8c;
 }

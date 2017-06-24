@@ -52,7 +52,7 @@ $user = new User;
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin - Edit User<?php if(isset($userToEdit->username)) { echo ' @' . $userToEdit->username; } ?> - OOP Login System</title>
+	<title>Admin - Edit User<?php if(isset($userToEdit->username)) { echo ' @' . $userToEdit->username; } ?> - Makoto</title>
 	<!-- Load Head Contents -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->
@@ -147,8 +147,8 @@ $user = new User;
 
 				<!-- Submit & Go Back Buttons -->
 				<div class="row">
-					<div class="col-sm-6"><a href="usermanage.php" class="btn btn-block btn-warning">Go Back</a></div>
-					<div class="col-sm-6"><button class="btn btn-block btn-success" type="submit">Save</button></div>
+					<div class="col-sm-6"><a href="usermanage.php" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+					<div class="col-sm-6"><button class="btn btn-block btn-success hvr-pop" type="submit">Save</button></div>
 				</div>
 			
 

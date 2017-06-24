@@ -81,7 +81,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Register - OOP Login System</title>
+	<title>Register - Makoto</title>
 	<!-- Load Head Contents -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->

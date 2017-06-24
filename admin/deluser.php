@@ -47,7 +47,7 @@ $user = new User;
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin - Delete User<?php if(isset($userToDel->username)) { echo ' @' . $userToDel->username; } ?> - OOP Login System</title>
+	<title>Admin - Delete User<?php if(isset($userToDel->username)) { echo ' @' . $userToDel->username; } ?> - Makoto</title>
 	<!-- Load Head Contents -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->

@@ -68,7 +68,7 @@ $user = new User;
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin - Create Table - OOP Login System</title>
+	<title>Admin - Create Table - Makoto</title>
 	<!-- Load Head Contents -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->

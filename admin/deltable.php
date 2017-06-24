@@ -60,7 +60,7 @@ $user = new User;
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin - Delete Table<?php if(isset($tableToDel)) { echo ' @' . $tableToDel; } ?> - OOP Login System</title>
+	<title>Admin - Delete Table<?php if(isset($tableToDel)) { echo ' @' . $tableToDel; } ?> - Makoto</title>
 	<!-- Load Head Contents -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->
@@ -100,8 +100,8 @@ $user = new User;
 
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6"><a href="dbmanage.php" class="btn btn-block btn-warning hvr-float-shadow">Go Back</a></div>
-					<div class="col-sm-6"><button class="btn btn-block btn-danger hvr-float-shadow" type="submit">Delete</button></div>
+					<div class="col-sm-6"><a href="dbmanage.php" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+					<div class="col-sm-6"><button class="btn btn-block btn-danger hvr-pop" type="submit">Delete</button></div>
 				</div>
 			</div>
 		</form>

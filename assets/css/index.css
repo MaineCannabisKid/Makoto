@@ -2,3 +2,27 @@
 @import url('global.css');
 
 
+/* Page Specific CSS */
+.splash-wrapper {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.jpn-char {
+	font-size: 15em;
+}
+.title {
+	font-family: 'Josefin Sans';
+	font-weight: 300;
+	margin: 0 auto;
+	padding: 0 0;
+	font-size: 5em;
+}
