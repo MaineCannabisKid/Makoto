@@ -1,2 +1,4 @@
-# OOP-Login-System
-This is the framework for the Object Oriented Login System designed in PHP
+# Makoto
+Please visit the wiki on gitHub for more information.
+
+https://github.com/MaineCannabisKid/Makoto/wiki
