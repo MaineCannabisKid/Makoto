@@ -42,7 +42,7 @@
 		} else { // User Not Found so...
 			// Force user to register first
 			// Flash the Message on the REGISTER PAGE and tell user to register in our system first
-			Session::flash('register', 'You must register with our system first before loggin in with Google. Please fill out the following information, then click register.', 'warning');
+			Session::flash('register', 'You must register with our system first before logging in with Google. Please fill out the following information, then click register.', 'warning');
 			// Redirect to logout first to log the user out of the Google API System
 			Redirect::to('logout.php');
 			

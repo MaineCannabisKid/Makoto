@@ -17,7 +17,7 @@
 			// Does input in the URL exist?
 			if(Input::exists()) {
 				if(Token::check(Input::get('token'))) {
-				
+				 
 					// Grab Inputs
 					$tableName = Input::get('tableName');
 					$numFields = intval(Input::get('numFields'));
@@ -170,8 +170,8 @@ $user = new User;
 				?>
 
 				<div class="row">
-					<div class="col-sm-6"><a href="dbmanage.php" class="btn btn-block btn-warning">Go Back</a></div>
-					<div class="col-sm-6"><button class="btn btn-block btn-info" type="submit">Go To Summary Page</button></div>
+					<div class="col-sm-6"><a href="dbmanage.php" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+					<div class="col-sm-6"><button class="btn btn-block btn-info hvr-pop" type="submit">Go To Summary Page</button></div>
 				</div>
 
 			</form>

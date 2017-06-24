@@ -86,8 +86,8 @@ $user = new User;
 
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6"><a href="usermanage.php" class="btn btn-block btn-warning">Go Back</a></div>
-					<div class="col-sm-6"><button class="btn btn-block btn-danger" type="submit">Delete</button></div>
+					<div class="col-sm-6"><a href="usermanage.php" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+					<div class="col-sm-6"><button class="btn btn-block btn-danger hvr-pop" type="submit">Delete</button></div>
 				</div>
 			</div>
 		</form>

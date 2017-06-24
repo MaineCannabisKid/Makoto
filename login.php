@@ -82,18 +82,16 @@
 						</label>
 					</div>
 					<input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
-					<button type="submit" class="btn btn-default">Submit</button>
+					<button type="submit" class="btn btn-default hvr-float-shadow">Log In</button>
+					<a href="<?php echo $auth->getAuthUrl(); ?>" class="hvr-float-shadow">
+						<img src="assets/imgs/buttons/login-google.png" class="login-btn">
+					</a>
 				</form>
 			</div>
 		</form>
 
 	</div>
 
-	<div class="container login-btn-wrapper">
-		<a href="<?php echo $auth->getAuthUrl(); ?>">
-			<img src="assets/imgs/buttons/login-google.png" class="login-btn">
-		</a>
-	</div>
 
 
 </body>

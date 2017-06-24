@@ -8,10 +8,6 @@
 }
 
 /* Login Button Wrapper */
-.login-btn-wrapper {
-	margin-top: 2.5%;
-	width: 40%;
-}
 .login-btn {
-	width: 50%;
+	height: 45px;
 }

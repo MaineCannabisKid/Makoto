@@ -87,7 +87,6 @@ class User {
 			if($user) {
 				// If the passwords match
 				if($this->data()->password === Hash::make($password, $this->data()->salt)) {
-
 					// Log User In by Creating a session and storing the user ID in it
 					Session::put($this->_sessionName, $this->data()->id);
 
@@ -111,7 +110,17 @@ class User {
 					}
 
 					return true;
+				} else {
+					// Password didn't match the system, display Reset Password Page (Once created)
+					Session::flash('login', 'Did you forget your password? Click here to reset', 'warning');
+					Redirect::to('login.php');
 				}
+				
+			} else {
+				// User was not found
+				// Redirect to Register Page
+				Session::flash('register', 'That e-mail is not a registered user. Please register to log in', 'warning');
+				Redirect::to('register.php');
 			}
 		}
 		

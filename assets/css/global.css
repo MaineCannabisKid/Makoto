@@ -1,14 +1,25 @@
 /* Import Fonts */
 @import url('fonts.css');
+/* Import Hover.css from IanLunn/Hover */
+@import url('hover.css');
 
 /* Navbar */
 .navbar-default {
 	margin: 0 auto 0.5%;
 	border-radius: 0;
 }
+/* Icon inside of the drop down menu */
 .dropdown-icon {
 	font-size: 1.1em;
 	padding-right: 5%;
+}
+/* Dropdown menu hover LI hover */
+.dropdown-menu .hvr-forward {
+    width: 100%;
+    background: none;
+}
+.dropdown-menu .hvr-forward a:hover {
+    background: none;
 }
 
 /* Alerts */

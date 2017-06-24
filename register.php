@@ -119,6 +119,7 @@
 				
 				<div class="form-group">
 					<label for="email">Email</label>
+					<p class="text-info">If you want to link your account with Google, enter your gMail address below. Once registered, login via the "Log in with Google" button.</p>
 					<input type="email" placeholder="E-mail" class="form-control" name="email" id="email" required>
 				</div>
 
