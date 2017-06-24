@@ -34,6 +34,17 @@
 			// Do NOT forget to escape() all data values!
 			// escape($data->value)
 			// *******************************************
+			// Defining User Data Variables Below
+			// *******************************************
+			
+			// If the profile image is there
+			if(isset($data->picture)) {
+				// Display Profile Image
+				$picture = "<img class='profile-img' src='{$data->picture}'>";
+			} else {
+				// Display Default Profile Image
+				$picture = "<img class='profile-img' src='assets/imgs/profile/default.png'>";
+			}
 		}
 	}
 
@@ -45,7 +56,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home - OOP Login System</title>
+	<title>Profile <?php echo (isset($data->username)) ? 'of ' . $data->username : 'Page'; ?> - OOP Login System</title>
 	<!-- Load Head Contents -->
 	<?php include(Config::get('file/head_contents')); ?>
 	<!-- Page Specfic CSS -->
@@ -71,10 +82,12 @@
 	
 	<div class="container">
 		<div class="jumbotron">
-			<h1>@<?php echo escape($data->username); ?> <?php echo $group; ?></h1>
+			<h1><?php echo $picture; ?> @<?php echo escape($data->username); ?> <?php echo $group; ?></h1>
 			<p>Bio will go here</p>
+			
 		</div>
 	</div>
 
+	
 </body>
 </html>

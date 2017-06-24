@@ -52,17 +52,17 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3" id="usermanage">
+				<div class="col-sm-3 hvr-grow-shadow" id="usermanage">
 					<img class="img-sm" src="<?php echo Config::get('links/app_root') . 'assets/imgs/icons/users.png'; ?>">
 					<p>User Management</p>
 				</div>
 
-				<div class="col-sm-3" id="dbmanage">
+				<div class="col-sm-3 hvr-grow-shadow" id="dbmanage">
 					<img class="img-sm" src="<?php echo Config::get('links/app_root') . 'assets/imgs/icons/database.png'; ?>">
 					<p>Database Management</p>
 				</div>
 
-				<div class="col-sm-3" id="#">
+				<div class="col-sm-3 hvr-grow-shadow" id="#">
 					<img class="img-sm" src="<?php echo Config::get('links/app_root') . 'assets/imgs/icons/placeholder.png'; ?>">
 					<p>Placeholder</p>
 				</div>

@@ -5,6 +5,10 @@
 	$cssFileName = Config::get('links/css_root') . basename(__FILE__, '.php') . '.css';
 	// Grab User
 	$user = new User;
+	// Grab Instance of Google Client
+	$googleClient = new Google_Client;
+	// Load Google Auth
+	$auth = new GoogleAuth($googleClient);
 
 	// If user is logged in, no reason to go to the login page
 	if($user->isLoggedIn()) {
@@ -12,6 +16,7 @@
 		Redirect::to('index.php');			
 	}
 
+	
 	// If form was submitted do this
 	if(Input::exists()) {
 		// If token check is valid
@@ -20,9 +25,7 @@
 			// Log User In
 			$user = new User();
 			$remember = (Input::get('remember') === 'on') ? true : false;
-			$login = $user->login(Input::get('username'), Input::get('password'), $remember);
-			// $login = true;
-
+			$login = $user->login(Input::get('email'), Input::get('password'), $remember);
 
 			// Check if login was sucessful
 			if($login) {
@@ -66,8 +69,8 @@
 				<h2>Login</h2>
 				<form>
 					<div class="form-group">
-						<label for="username">Username</label>
-						<input type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" required>
+						<label for="email">E-Mail</label>
+						<input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" autocomplete="off" required>
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label>
@@ -79,14 +82,16 @@
 						</label>
 					</div>
 					<input type="hidden" name="token" value="<?php echo Token::generate(); ?>" />
-					<button type="submit" class="btn btn-default">Submit</button>
+					<button type="submit" class="btn btn-default hvr-float-shadow">Log In</button>
+					<a href="<?php echo $auth->getAuthUrl(); ?>" class="hvr-float-shadow">
+						<img src="assets/imgs/buttons/login-google.png" class="login-btn">
+					</a>
 				</form>
 			</div>
 		</form>
 
-
-
 	</div>
+
 
 
 </body>

@@ -221,8 +221,8 @@
 				?>
 
 				<div class="row">
-					<div class="col-sm-6"><a href="dbmanage.php" class="btn btn-block btn-warning">Go Back</a></div>
-					<div class="col-sm-6"><button class="btn btn-block btn-success" type="submit">Create Table</button></div>
+					<div class="col-sm-6"><a href="dbmanage.php" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+					<div class="col-sm-6"><button class="btn btn-block btn-success hvr-pop" type="submit">Create Table</button></div>
 				</div>
 
 			</form>

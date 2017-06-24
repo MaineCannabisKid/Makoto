@@ -1,2 +1,8 @@
 /* Import Global CSS */
 @import url('global.css');
+
+/* Page Specific CSS */
+.profile-img {
+	width: 100px;
+	border-radius: 50%;
+}

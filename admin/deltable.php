@@ -100,8 +100,8 @@ $user = new User;
 
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6"><a href="dbmanage.php" class="btn btn-block btn-warning">Go Back</a></div>
-					<div class="col-sm-6"><button class="btn btn-block btn-danger" type="submit">Delete</button></div>
+					<div class="col-sm-6"><a href="dbmanage.php" class="btn btn-block btn-warning hvr-float-shadow">Go Back</a></div>
+					<div class="col-sm-6"><button class="btn btn-block btn-danger hvr-float-shadow" type="submit">Delete</button></div>
 				</div>
 			</div>
 		</form>

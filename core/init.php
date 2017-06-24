@@ -3,6 +3,9 @@
 // Start a Session
 session_start();
 
+// Autoload Vendor Folder
+require_once dirname(__FILE__) . '/vendor/autoload.php';
+
 // Create a Config Variable
 $GLOBALS['config'] = 
 	array(
@@ -26,11 +29,25 @@ $GLOBALS['config'] =
 			// Application Root Folder
 			'app_root' =>  dirname(substr(dirname(__FILE__),strlen($_SERVER['DOCUMENT_ROOT']))) . '/',
 			'css_root' =>  dirname(substr(dirname(__FILE__),strlen($_SERVER['DOCUMENT_ROOT']))) . '/assets/css/'
-		)
+		),
 	);
 
-// Define Which Host to Connect To
-if($_SERVER['HTTP_HOST'] == 'localhost') { // If website is in Development Mode, Use localhost
+// Define Variables for Production vs. Development
+if($_SERVER['HTTP_HOST'] == 'localhost') { // Development Mode
+	
+
+	// // Set INI to log errors
+	// ini_set('log_errors', 1);
+	// // Set Error Log Path Variable (Grabs the Root Directory of the Project, then appends on the path)
+	// $errorPath = dirname(substr(dirname(__FILE__),strlen($_SERVER['DOCUMENT_ROOT']))) . '/logs/php/error.log';
+	// var_dump($errorPath);
+	// // Set INI for error_log path
+	// ini_set('error_log', $errorPath);
+	// // Give some code thats going to throw an error
+	// $db = new PDO("mysql:host=a;dbname=test", "root", "");
+
+
+	// Set the MySQL Connection Variables
 	$GLOBALS['config'] += array(
 		'mysql' => array(
 			'host' => 'localhost',
@@ -39,7 +56,9 @@ if($_SERVER['HTTP_HOST'] == 'localhost') { // If website is in Development Mode,
 			'db' => 'modelawiki'
 		)
 	);
-} else { // If Website is Live, Use Network Solutions Database
+} else { // Production Mode
+	
+	// Set MySQL Connection Variables
 	$GLOBALS['config'] += array(
 		'mysql' => array(
 			'host' => '************',
@@ -49,7 +68,6 @@ if($_SERVER['HTTP_HOST'] == 'localhost') { // If website is in Development Mode,
 		)
 	);
 }
-
 
 // Auto Load Classes
 spl_autoload_register(function($class) {
@@ -76,5 +94,9 @@ if(Cookie::exists($cookieName) && !Session::exists($sessionName)) {
 
 
 }
+
+// Call a new PHPMailer Object
+$mail = new PHPMailer;
+
 
 ?>

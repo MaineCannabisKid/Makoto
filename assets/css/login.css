@@ -6,3 +6,8 @@
 .login-form {
 	width: 50%;
 }
+
+/* Login Button Wrapper */
+.login-btn {
+	height: 45px;
+}

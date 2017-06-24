@@ -37,7 +37,7 @@
 		</div>
 
 		<div class="container">
-			<table class="table table-bordered table-hover table-condensed">
+			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
 						<th>Username</th>
@@ -81,8 +81,8 @@
 								<td>{$user->joined}</td>
 								{$role}
 								<td>
-									<a href='deluser.php?id={$user->id}' class='btn btn-danger btn-xs'><i class='fa fa-trash' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
-									<a href='edituser.php?id={$user->id}' class='btn btn-info btn-xs'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit</a>
+									<a href='deluser.php?id={$user->id}' class='btn btn-danger btn-xs hvr-float-shadow'><i class='fa fa-trash' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
+									<a href='edituser.php?id={$user->id}' class='btn btn-info btn-xs hvr-float-shadow'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit</a>
 								</td>
 							</tr>
 						";

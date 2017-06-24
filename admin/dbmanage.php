@@ -76,14 +76,14 @@
 				</div>
 
 				<div class="btn-wrapper">
-					<button type="submit" class="btn btn-success">Create Table</button>
+					<button type="submit" class="btn btn-success hvr-grow-shadow">Create Table</button>
 				</div>
 			</form>
 
 		</div>
 
 		<div class="container">
-			<table class="table table-bordered table-hover table-condensed">
+			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
 						<th>Table Name (Protected)</th>
@@ -128,7 +128,7 @@
 											<td class='text-muted'>{$name}</td>
 											<td class='text-muted'>{$numFields}</td>
 											<td class='text-muted'>{$numEntries}</td>
-											<td class='text-danger'><a href='usermanage.php' class='btn btn-info btn-xs'>User Management</a></td>
+											<td class='text-danger'><a href='usermanage.php' class='btn btn-info btn-xs hvr-float-shadow'>User Management</a></td>
 										</tr>
 									";
 								break;
@@ -140,10 +140,10 @@
 											<td>{$numFields}</td>
 											<td>{$numEntries}</td>
 											<td>
-												<a href='deltable.php?table={$name}' class='btn btn-danger btn-xs'><i class='fa fa-trash' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
+												<a href='deltable.php?table={$name}' class='btn btn-danger btn-xs hvr-float-shadow' style='margin-bottom: 10px;'><i class='fa fa-trash' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
 												<br>
-												<a href='edittablefields.php?table={$name}' class='btn btn-info btn-xs'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit Fields</a>
-												<a href='edittableentries.php?table={$name}' class='btn btn-info btn-xs'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit Entries</a>
+												<a href='edittablefields.php?table={$name}' class='btn btn-info btn-xs hvr-float-shadow'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit Fields</a>
+												<a href='edittableentries.php?table={$name}' class='btn btn-info btn-xs hvr-float-shadow'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit Entries</a>
 											</td>
 										</tr>
 									";

@@ -18,6 +18,11 @@
 					'unique' => 'users',
 					'numeric' => false
 				),
+				'email' => array(
+					'min' => 6,
+					'max' => 255,
+					'unique' => 'users',
+				),
 				'password' => array(
 					'min' => 6,
 				),
@@ -39,6 +44,7 @@
 				try {
 
 					$user->create(array(
+						'email' => Input::get('email'),
 						'username' => Input::get('username'),
 						'password' => Hash::make(Input::get('password'), $salt),
 						'salt' => $salt,
@@ -48,9 +54,9 @@
 					));
 
 					// Flash Message
-					Session::flash('home', 'You have been registered and can now log in!', 'success');
+					Session::flash('login', 'You have been registered and can now log in!', 'success');
 					// Redirect User
-					Redirect::to('index.php');
+					Redirect::to('login.php');
 
 				} catch(Exception $e) {
 					die($e->getMessage());
@@ -109,6 +115,12 @@
 				<div class="form-group">
 					<label for="password_again">Enter your password again</label>
 					<input type="password" placeholder="Enter the password again..." class="form-control" name="password_again" id="password_again" required>
+				</div>
+				
+				<div class="form-group">
+					<label for="email">Email</label>
+					<p class="text-info">If you want to link your account with Google, enter your gMail address below. Once registered, login via the "Log in with Google" button.</p>
+					<input type="email" placeholder="E-mail" class="form-control" name="email" id="email" required>
 				</div>
 
 				<div class="form-group">
