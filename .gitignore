@@ -1,2 +1,12 @@
 
 core/classes/.DS_Store
+core/vendor/firebase/.DS_Store
+core/vendor/phpmailer/.DS_Store
+core/vendor/google/apiclient/src/Google/.DS_Store
+core/vendor/google/apiclient/src/.DS_Store
+core/vendor/google/apiclient/.DS_Store
+core/vendor/google/.DS_Store
+core/vendor/firebase/php-jwt/.DS_Store
+core/vendor/.DS_Store
+core/.DS_Store
+core/.DS_Store
