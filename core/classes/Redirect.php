@@ -25,8 +25,6 @@ class Redirect {
 			if(is_numeric($location)) {
 				switch($location) {
 					case 404:
-						// Give a header of 404
-						header('HTTP/1.0 404 Not Found');
 						// Grab the root directory
 						$rootDir = dirname(dirname(__FILE__));
 						// include the 404 page
