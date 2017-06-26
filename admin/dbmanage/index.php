@@ -1,8 +1,8 @@
 <?php 
 	// Load Initialization File
-	require_once '../core/init.php';
+	require_once '../../core/init.php';
 	// Load CSS Name
-	$cssFileName = Config::get('links/css_root') . 'admin/' . basename(__FILE__, '.php') . '.css';
+	$cssFileName = Config::get('links/css_root') . 'admin/dbmanage/' . basename(__FILE__, '.php') . '.css';
 	// Load Current User
 	$user = new User;
 
@@ -36,7 +36,14 @@
 <body>
 
 	<?php include(Config::get('file/navbar/default')); ?>
-
+		
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+				<li><a href="../">Admin</a></li>
+				<li class="active">Database Management</li>
+			</ol>	
+		</div>
 	
 		<?php
 			// Session Flash Message
@@ -47,6 +54,8 @@
 				echo Session::flash('admin-dbmanage2');
 			}
 		?>
+
+		
 		
 		<div class="container">
 			<div class="jumbotron">

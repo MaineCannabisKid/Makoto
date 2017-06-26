@@ -1,6 +1,6 @@
 <?php 
 	// Load Initialization File
-	require_once '../core/init.php';
+	require_once '../../core/init.php';
 	// Load CSS Name
 	$cssFileName = Config::get('links/css_root') . 'admin/' . basename(__FILE__, '.php') . '.css';
 	// Load the User
@@ -24,13 +24,13 @@
 						case "":
 						case null:
 							Session::flash('admin-dbmanage', 'No table to delete', 'danger');
-							Redirect::to('admin/dbmanage.php');
+							Redirect::to('admin/dbmanage');
 						break;
 						case "users":
 						case "user_session":
 						case "groups":
 							Session::flash('admin-dbmanage', 'The table <strong>' . $tableToDel . '</strong> can not be deleted', 'danger');
-							Redirect::to('admin/dbmanage.php');
+							Redirect::to('admin/dbmanage');
 						break;
 					}
 
@@ -40,14 +40,14 @@
 					// Check and see if the table exists first, if it doesn't redirect
 					if(!$_db->tableExists($tableToDel)) {
 						Session::flash('admin-dbmanage', 'The table <strong>' . $tableToDel . '</strong> does not exist', 'danger');
-						Redirect::to('admin/dbmanage.php');
+						Redirect::to('admin/dbmanage');
 					} else { // Table does exist
 						if($_db->tableDel($tableToDel)) { // If table was deleted
 							Session::flash('admin-dbmanage', 'The table <strong>' . $tableToDel . '</strong> has been successfully deleted', 'success');
-							Redirect::to('admin/dbmanage.php');
+							Redirect::to('admin/dbmanage');
 						} else { // If something went wrong
 							Session::flash('admin-dbmanage', 'Something went wrong when deleting the table', 'danger');
-							Redirect::to('admin/dbmanage.php');
+							Redirect::to('admin/dbmanage');
 						}
 					}
 				

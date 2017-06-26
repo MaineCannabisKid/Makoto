@@ -66,7 +66,13 @@
 
 	<!-- Navbar -->
 	<?php include(Config::get('file/navbar/default')); ?>
-
+	
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+			<li class="active">Profile</li>
+		</ol>	
+	</div>
 	
 	<?php
 		// If there is an error grabbing the user
@@ -80,6 +86,8 @@
 		}
 	?>
 	
+	
+
 	<div class="container">
 		<div class="jumbotron">
 			<h1><?php echo $picture; ?> @<?php echo escape($data->username); ?> <?php echo $group; ?></h1>
@@ -87,6 +95,8 @@
 			
 		</div>
 	</div>
+
+	
 
 	
 </body>

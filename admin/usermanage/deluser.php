@@ -1,8 +1,8 @@
 <?php 
 	// Load Initialization File
-	require_once '../core/init.php';
+	require_once '../../core/init.php';
 	// Load CSS Name
-	$cssFileName = Config::get('links/css_root') . 'admin/' . basename(__FILE__, '.php') . '.css';
+	$cssFileName = Config::get('links/css_root') . 'admin/usermanage/' . basename(__FILE__, '.php') . '.css';
 	// Load the User
 	$user = new User;
 
@@ -57,7 +57,15 @@ $user = new User;
 
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
-
+		
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+				<li><a href="../">Admin</a></li>
+				<li><a href="./">User Management</a></li>
+				<li class="active">Delete User</li>
+			</ol>	
+		</div>
 	
 		<?php
 			// Session Flash Message
@@ -70,6 +78,8 @@ $user = new User;
 				Redirect::to(404);
 			}
 		?>
+
+		
 		
 		<div class="container">
 			<div class="jumbotron">
@@ -77,6 +87,8 @@ $user = new User;
 				<p>Please confirm that this is the user you would like to delete</p>
 			</div>
 		</div>
+
+		
 
 		<form action="deluserconfirm.php" method="post">
 			<!-- Generate Token -->
@@ -86,7 +98,7 @@ $user = new User;
 
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6"><a href="usermanage.php" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+					<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
 					<div class="col-sm-6"><button class="btn btn-block btn-danger hvr-pop" type="submit">Delete</button></div>
 				</div>
 			</div>

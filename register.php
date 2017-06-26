@@ -90,7 +90,13 @@
 <body>
 
 	<?php include(Config::get('file/navbar/default')); ?>
-
+		
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+				<li class="active">New User Registration</li>
+			</ol>	
+		</div>
 	
 		<?php
 			// Session Flash Message
@@ -98,9 +104,11 @@
 				echo Session::flash('register');
 			}
 		?>
+
+		
 		
 		<div class="container register-form">
-			<h2>Register</h2>
+			<h2>Sign Up</h2>
 			<form action="" method="post">
 				<div class="form-group">
 					<label for="username">Username</label>

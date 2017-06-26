@@ -1,8 +1,8 @@
 <?php 
 	// Load Initialization File
-	require_once '../core/init.php';
+	require_once '../../core/init.php';
 	// Load CSS Name
-	$cssFileName = Config::get('links/css_root') . 'admin/' . basename(__FILE__, '.php') . '.css';
+	$cssFileName = Config::get('links/css_root') . 'admin/usermanage/' . basename(__FILE__, '.php') . '.css';
 	// Load the User
 	$user = new User;
 
@@ -63,6 +63,14 @@ $user = new User;
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
 
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+				<li><a href="../">Admin</a></li>
+				<li><a href="./">User Management</a></li>
+				<li class="active">Edit User</li>
+			</ol>	
+		</div>
 	
 		<?php
 			// Session Flash Message
@@ -76,12 +84,17 @@ $user = new User;
 			}
 		?>
 		
+
+		
+
+
 		<div class="container">
 			<div class="jumbotron">
 				<h1>Editing <a target="_blank" href="<?php echo Config::get('links/app_root');?>profile.php?user=<?php echo $userToEdit->username; ?>">@<?php echo $userToEdit->username; ?></a></h1>
 				<p>Please make the changes you wish to make, then click save.</p>
 			</div>
 		</div>
+
 
 		<div class="container form">
 			<form action="edituserconfirm.php" method="post" class="form-horizontal">
@@ -147,7 +160,7 @@ $user = new User;
 
 				<!-- Submit & Go Back Buttons -->
 				<div class="row">
-					<div class="col-sm-6"><a href="usermanage.php" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+					<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
 					<div class="col-sm-6"><button class="btn btn-block btn-success hvr-pop" type="submit">Save</button></div>
 				</div>
 			

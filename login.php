@@ -54,7 +54,14 @@
 
 	<!-- Navbar -->
 	<?php include(Config::get('file/navbar/default')); ?>
-
+	
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+			<li class="active">Login</li>
+		</ol>	
+	</div>
+	
 	<?php
 		// Session Flash Message
 		if(Session::exists('login')) {
@@ -62,8 +69,11 @@
 		}
 	?>
 
-	<div class="container">
+	
 
+
+
+	<div class="container">
 		<form method="post" action="">
 			<div class="container login-form">
 				<h2>Login</h2>

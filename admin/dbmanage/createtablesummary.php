@@ -1,8 +1,8 @@
 <?php
 	// Load Initialization File
-	require_once '../core/init.php';
+	require_once '../../core/init.php';
 	// Load CSS Name
-	$cssFileName = Config::get('links/css_root') . 'admin/' . basename(__FILE__, '.php') . '.css';
+	$cssFileName = Config::get('links/css_root') . 'admin/dbmanage/' . basename(__FILE__, '.php') . '.css';
 	// Load the User
 	$user = new User;
 
@@ -63,7 +63,7 @@
 				} else {
 					Session::flash('admin-dbmanage', 'Something went wrong when creating the table <strong>' . $tableName . '</strong>. Please try again. <strong>Error Code:</strong> createtableconfirm', 'danger');
 					Session::flash('admin-dbmanage2', 'We have detected that you might have refreshed the page. Thats not allowed. Please use the \'Go Back\' button instead.');
-					Redirect::to('admin/dbmanage.php');
+					Redirect::to('admin/dbmanage');
 				}
 			}
 			
@@ -92,7 +92,15 @@
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
 
-	
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+				<li><a href="../">Admin</a></li>
+				<li><a href="./">Database Management</a></li>
+				<li class="active">Create Table</li>
+			</ol>	
+		</div>
+		
 		<?php
 			// Session Flash Message
 			if(Session::exists('admin-create-table')) {
@@ -104,6 +112,8 @@
 				Redirect::to(404);
 			}
 		?>
+
+		
 		
 		<div class="container">
 			<div class="jumbotron bg-primary">
@@ -142,7 +152,7 @@
 						$fieldName = Input::get("field" . $i . "name");
 						if($fieldName == "id" || $fieldName == "datetime") {
 							Session::flash('admin-create-table', 'You can not use the field name \'' . $fieldName . '\' when creating your table.', 'warning');
-							Redirect::to('admin/createtable.php');
+							Redirect::to('admin/dbmanage/createtable.php');
 						}
 
 						$fieldType = Input::get("field" . $i . "type");
@@ -221,7 +231,7 @@
 				?>
 
 				<div class="row">
-					<div class="col-sm-6"><a href="dbmanage.php" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+					<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
 					<div class="col-sm-6"><button class="btn btn-block btn-success hvr-pop" type="submit">Create Table</button></div>
 				</div>
 

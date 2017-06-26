@@ -28,6 +28,11 @@
     background: none;
 }
 
+/* Bread Crumbs */
+.breadcrumb {
+    background: #ededed;
+    margin-bottom: 15px;
+}
 
 
 /* Alerts */
@@ -45,8 +50,10 @@ a:hover {
 
 /* Jumbotron Fixes */
 .jumbotron {
+    background: #e6e6e6;
 	padding-top: 1.25%;
 	padding-bottom: 1.25%;
+    margin-bottom: 15px;
 }
 .jumbotron h1 {
 	font-size: 4em;

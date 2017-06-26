@@ -1,8 +1,8 @@
 <?php 
 	// Load Initialization File
-	require_once '../core/init.php';
+	require_once '../../core/init.php';
 	// Load CSS Name
-	$cssFileName = Config::get('links/css_root') . 'admin/' . basename(__FILE__, '.php') . '.css';
+	$cssFileName = Config::get('links/css_root') . 'admin/dbmanage/' . basename(__FILE__, '.php') . '.css';
 	// Load the User
 	$user = new User;
 
@@ -25,12 +25,12 @@
 					// Check to see if numFields is 0
 					if($numFields === 0) {
 						Session::flash('admin-dbmanage', 'The table <strong>' . $tableName . '</strong> must have at least one (1) field.', 'warning');
-						Redirect::to('admin/dbmanage.php');
+						Redirect::to('admin/dbmanage');
 					}
 					// Check to see if numFields is greater then 25
 					if($numFields > 25) {
 						Session::flash('admin-dbmanage', 'The table <strong>' . $tableName . '</strong> can not have more then twenty-five (25) fields.', 'warning');
-						Redirect::to('admin/dbmanage.php');
+						Redirect::to('admin/dbmanage');
 					}
 
 
@@ -40,13 +40,13 @@
 					// Check if table Exists in Database already
 					if($_db->tableExists($tableName)) {
 						Session::flash('admin-dbmanage', 'The table <strong>' . $tableName . '</strong> already exists in the Database', 'danger');
-						Redirect::to('admin/dbmanage.php');
+						Redirect::to('admin/dbmanage');
 					}
 				
 				} else {
 					Session::flash('admin-dbmanage', 'Something went wrong when creating the table <strong>' . $tableName . '</strong>. Please try again. <strong>Error Code:</strong> createtable', 'danger');
 					Session::flash('admin-dbmanage2', 'We have detected that you might have refreshed the page. Thats not allowed. Please use the \'Go Back\' button instead.');
-					Redirect::to('admin/dbmanage.php');
+					Redirect::to('admin/dbmanage');
 				}
 
 
@@ -79,6 +79,14 @@ $user = new User;
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
 
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+				<li><a href="../">Admin</a></li>
+				<li><a href="./">Database Management</a></li>
+				<li class="active">Create Table</li>
+			</ol>	
+		</div>
 	
 		<?php
 			// Session Flash Message
@@ -170,7 +178,7 @@ $user = new User;
 				?>
 
 				<div class="row">
-					<div class="col-sm-6"><a href="dbmanage.php" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+					<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
 					<div class="col-sm-6"><button class="btn btn-block btn-info hvr-pop" type="submit">Go To Summary Page</button></div>
 				</div>
 

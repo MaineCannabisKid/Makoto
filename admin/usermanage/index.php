@@ -1,8 +1,8 @@
 <?php 
 	// Load Initialization File
-	require_once '../core/init.php';
+	require_once '../../core/init.php';
 	// Load CSS Name
-	$cssFileName = Config::get('links/css_root') . 'admin/' . basename(__FILE__, '.php') . '.css';
+	$cssFileName = Config::get('links/css_root') . 'admin/usermanage/' . basename(__FILE__, '.php') . '.css';
 	// Load User
 	$user = new User;
 
@@ -21,13 +21,24 @@
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
 
-	
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+				<li><a href="../">Admin</a></li>
+				<li class="active">User Management</li>
+			</ol>	
+		</div>
+		
 		<?php
 			// Session Flash Message
 			if(Session::exists('admin-user-manage')) {
 				echo Session::flash('admin-user-manage');
 			}
 		?>
+		
+
+		
+
 		
 		<div class="container">
 			<div class="jumbotron">

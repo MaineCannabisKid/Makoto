@@ -1,6 +1,6 @@
 <?php
 	// Load Initialization File
-	require_once '../core/init.php';
+	require_once '../../core/init.php';
 	// Load CSS Name
 	$cssFileName = Config::get('links/css_root') . 'admin/' . basename(__FILE__, '.php') . '.css';
 	// Load the User
@@ -76,17 +76,17 @@
 					// Submit the SQL to the DB Handler
 					if($_db->tableCreate($sql)) {
 						Session::flash('admin-dbmanage', 'You have successfully created the ' . $tableName . ' table.', 'success');
-						Redirect::to('admin/dbmanage.php');
+						Redirect::to('admin/dbmanage');
 					} else { // Something went wrong when creating the table
 						Session::flash('admin-dbmanage', 'Something went wrong when creating the table ' . $tableName , '.', 'danger');
-						Redirect::to('admin/dbmanage.php');
+						Redirect::to('admin/dbmanage');
 					}
 
 
 				} else {
 					Session::flash('admin-dbmanage', 'Something went wrong when creating the table <strong>' . $tableName . '</strong>. Please try again. <strong>Error Code:</strong> createtableconfirm', 'danger');
 					Session::flash('admin-dbmanage2', 'We have detected that you might have refreshed the page. Thats not allowed. Please use the \'Go Back\' button instead.');
-					Redirect::to('admin/dbmanage.php');
+					Redirect::to('admin/dbmanage');
 				}
 			}
 			

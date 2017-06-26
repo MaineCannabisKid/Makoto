@@ -35,7 +35,13 @@
 
 	<?php include(Config::get('file/navbar/default')); ?>
 
-	
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+				<li class="active">Admin</li>
+			</ol>	
+		</div>
+		
 		<?php
 			// Session Flash Message
 			if(Session::exists('admin-home')) {
@@ -43,6 +49,8 @@
 			}
 		?>
 		
+		
+
 		<div class="container">
 			<div class="jumbotron">
 				<h1>Admin Home</h1>

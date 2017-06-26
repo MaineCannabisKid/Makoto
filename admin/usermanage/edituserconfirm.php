@@ -1,7 +1,7 @@
 <?php
 
 	// Load Initialization File
-	require_once '../core/init.php';
+	require_once '../../core/init.php';
 	// Load the Current User
 	$user = new User;
 

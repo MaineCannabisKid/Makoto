@@ -1,26 +1,9 @@
 /* Import Global */
-@import url('../global.css');
+@import url('../../global.css');
 
 /* Page Specific CSS */
-
-.create-form {
-	width: 40%;
-}
-.btn-wrapper {
-	width: 100%;
-	text-align: center;
-}
-.create-form label {
-	font-size: .8em;
-}
-.btn-wrapper button {
-	width: 50%;
-	margin-bottom: 2.5%;
-}
-
-/* Table of Tables (Laugh Out Loud)*/
 .table th, .table td, .table tr {
-	text-align: center;	
+	text-align: center;
 }
 
 .table th {
@@ -31,13 +14,8 @@
      vertical-align: middle;
 }
 
-.btn {
-	margin-bottom: 1.25%;
-}
-
 td a, table a:not(.btn), .table a:not(.btn) {
 	text-decoration: none;
-	
 }
 td a:hover, table a:not(.btn):hover, .table a:not(.btn):hover {
 	text-decoration: none;

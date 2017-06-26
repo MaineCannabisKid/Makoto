@@ -1,8 +1,9 @@
 /* Import Global */
-@import url('../global.css');
+@import url('../../global.css');
 
 /* Page Specific CSS */
 .form-wrapper {
 	width: 50%;
 	margin-bottom: 5%;
 }
+

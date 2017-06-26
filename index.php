@@ -20,7 +20,7 @@
 <body>
 
 	<?php include(Config::get('file/navbar/default')); ?>
-
+	
 	
 		<?php
 			// Session Flash Message
@@ -28,7 +28,15 @@
 				echo Session::flash('home');
 			}
 		?>
-		
+
+		<!-- Enable Breadcrumbs If Not A Splash Page -->
+		<!-- <div class="container">
+			<ol class="breadcrumb">
+				<li class="active">Home</li>
+			</ol>	
+		</div> -->
+
+
 		<div class="splash-wrapper">
 			<p class="jpn-char">真</p>
 			<p class="title">Makoto</p>
