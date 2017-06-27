@@ -31,7 +31,7 @@
 		<div class="container">
 			<ol class="breadcrumb">
 				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
-				<li><a href="profile.php?user=<?php echo $user->data()->id; ?>">Profile</a></li>
+				<li><a href="<?php echo '../index.php?user=' . $user->data()->id; ?>">Profile</a></li>
 				<li class="active">Settings</li>
 			</ol>	
 		</div>
