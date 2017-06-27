@@ -161,7 +161,7 @@
 							case "text":
 								$fieldTypeHTML = "
 									<input type='hidden' name='field{$i}type' value='text'>
-									<select class='form-control' required>
+									<select class='form-control' disabled required>
 										<option title='Holds a string with a maximum length of 65,535 characters' selected>Text</option>
 									</select>
 								";

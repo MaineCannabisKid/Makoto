@@ -17,7 +17,7 @@
 			// Does input in the URL exist?
 			if(Input::exists('get')) {
 				// Grab the ID from the URL using GET
-				$tableToDel = Input::get('table');
+				$tableToDel = Input::get('tableName');
 				switch($tableToDel) {
 					case "":
 					case null:

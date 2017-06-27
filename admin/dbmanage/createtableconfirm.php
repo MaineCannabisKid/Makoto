@@ -28,7 +28,7 @@
 					$sql = "CREATE TABLE {$tableName} ( id INT NOT NULL AUTO_INCREMENT , ";
 
 					// Check Date Time
-					if($dateTime === true) {
+					if($dateTime == true) {
 						$sql .= "datetime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , ";
 					}
 
@@ -68,16 +68,18 @@
 					// Finish the SQL
 					$sql .= "PRIMARY KEY (id))";
 
-					// echo $sql;
+					echo $sql;
 
 					// Grab new DB Instance
 					$_db = DB::getInstance();
 
 					// Submit the SQL to the DB Handler
 					if($_db->tableCreate($sql)) {
+						echo "Created Table";
 						Session::flash('admin-dbmanage', 'You have successfully created the ' . $tableName . ' table.', 'success');
 						Redirect::to('admin/dbmanage');
 					} else { // Something went wrong when creating the table
+						echo "Something went wrong";
 						Session::flash('admin-dbmanage', 'Something went wrong when creating the table ' . $tableName , '.', 'danger');
 						Redirect::to('admin/dbmanage');
 					}

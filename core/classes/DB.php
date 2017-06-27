@@ -158,6 +158,26 @@ class DB {
 		}
 	}
 
+	// Get Table Fields from Table
+	public function getTableFields($table) {
+		$sql = "DESCRIBE {$table}";
+		// IF query, doesn't return any errors
+		if(!$this->query($sql)->error()) {
+			// If entered correctly Return True
+			return $this->_results;
+		}
+	}
+
+	// Edit the Table
+	public function editTable($sql) {
+		if(!$this->query($sql)->error()) {
+			// If entered correctly Return True
+			return true;
+		} else {
+			echo $this->error();
+		}
+	}
+
 	// Get the Number of total entries in the table
 	public function getEntriesCount($table) {
 		$sql = "SELECT * FROM {$table}";
