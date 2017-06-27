@@ -125,8 +125,8 @@
 									echo "
 										<tr>
 											<td class='text-muted'>{$name} (P)</td>
-											<td class='text-muted'>{$numFields}</td>
-											<td class='text-muted'>{$numEntries}</td>
+											<td class='text-muted'>Protected</td>
+											<td class='text-muted'>Protected</td>
 											<td class='text-danger'>Can Not Edit</td>
 										</tr>
 									";
@@ -135,7 +135,7 @@
 									echo "
 										<tr>
 											<td class='text-muted'>{$name}</td>
-											<td class='text-muted'>{$numFields}</td>
+											<td class='text-muted'>Protected</td>
 											<td class='text-muted'>{$numEntries}</td>
 											<td class='text-danger'><a href='usermanage.php' class='btn btn-info btn-xs hvr-float-shadow'>User Management</a></td>
 										</tr>
