@@ -8,6 +8,15 @@
 /* Dark Hover Orange */
 /* #ac3911 */
 
+body {
+    font-family: 'Josefin Sans';
+    font-weight: 300;
+    font-size: 15px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Josefin Sans';
+    font-weight: 600;
+}
 /* Navbar */
 .navbar-default {
 	margin: 0 auto 0.5%;
