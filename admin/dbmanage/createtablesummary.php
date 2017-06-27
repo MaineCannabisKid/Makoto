@@ -56,7 +56,94 @@
 						';
 					}
 
+					// Dynamically generate number of fields and type
+					$fieldHTML = '';
+					for($i = 1; $i <= $numFields; $i++) {
+						
+						$fieldName = Input::get("field" . $i . "name");
+						// Blacklist words as field name
+						switch($fieldName) {
 
+							case "id":
+							case "desc":
+							case "datetime":
+								Session::flash('admin-dbmanage', 'You can not use the field name \'' . $fieldName . '\' when creating your table.', 'warning');
+								Redirect::to('admin/dbmanage');
+							break;
+
+						}
+
+						$fieldType = Input::get("field" . $i . "type");
+
+						switch($fieldType) {
+							case "text":
+								$fieldTypeHTML = "
+									<input type='hidden' name='field{$i}type' value='text'>
+									<select class='form-control' disabled required>
+										<option title='Holds a string with a maximum length of 65,535 characters' selected>Text</option>
+									</select>
+								";
+							break;
+							case "int":
+								$fieldTypeHTML = "
+									<input type='hidden' name='field{$i}type' value='int'>
+									<select class='form-control' disabled required>
+										<option title='-2147483648 to 2147483647 normal. 0 to 4294967295 UNSIGNED*.'>Integer</option>
+									</select>
+								";
+							break;
+							case "varchar32":
+								$fieldTypeHTML = "
+									<input type='hidden' name='field{$i}type' value='varchar32'>
+									<select class='form-control' disabled required>
+										<option title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (32)</option>
+									</select>
+								";
+							break;
+							case "varchar64":
+								$fieldTypeHTML = "
+									<input type='hidden' name='field{$i}type' value='varchar64'>
+									<select class='form-control' disabled required>
+										<option title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (64)</option>
+									</select>
+								";
+							break;
+							case "varchar128":
+								$fieldTypeHTML = "
+									<input type='hidden' name='field{$i}type' value='varchar128'>
+									<select class='form-control' disabled required>
+										<option title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (128)</option>
+									</select>
+								";
+							break;
+							case "varchar255":
+								$fieldTypeHTML = "
+									<input type='hidden' name='field{$i}type' value='varchar255'>
+									<select class='form-control' disabled required>
+										<option title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (255)</option>
+									</select>
+								";
+							break;
+							
+						}
+						
+						$fieldHTML .= "
+
+							<div class='form-group'>
+								<label for='field{$i}' class='col-sm-2 control-label'>Field {$i}</label>
+								<div class='col-sm-10'>
+									<div class='col-sm-6'>
+										<input type='text' class='form-control' id='field{$i}' name='field{$i}name' value='" . $fieldName . "' pattern='^\S+$' title='No Spaces are allowed' readonly required>
+									</div>
+									<div class='col-sm-6'>
+										" . $fieldTypeHTML . "
+									</div>
+								</div>
+							</div>
+
+						";
+
+					}
 
 
 
@@ -145,88 +232,9 @@
 					// Display the date time Form Information
 					echo $dateTimeHTML;
 
-					// Dynamically generate number of fields and type
 					
-					for($i = 1; $i <= $numFields; $i++) {
-
-						$fieldName = Input::get("field" . $i . "name");
-						if($fieldName == "id" || $fieldName == "datetime") {
-							Session::flash('admin-create-table', 'You can not use the field name \'' . $fieldName . '\' when creating your table.', 'warning');
-							Redirect::to('admin/dbmanage/createtable.php');
-						}
-
-						$fieldType = Input::get("field" . $i . "type");
-
-						switch($fieldType) {
-							case "text":
-								$fieldTypeHTML = "
-									<input type='hidden' name='field{$i}type' value='text'>
-									<select class='form-control' disabled required>
-										<option title='Holds a string with a maximum length of 65,535 characters' selected>Text</option>
-									</select>
-								";
-							break;
-							case "int":
-								$fieldTypeHTML = "
-									<input type='hidden' name='field{$i}type' value='int'>
-									<select class='form-control' disabled required>
-										<option title='-2147483648 to 2147483647 normal. 0 to 4294967295 UNSIGNED*.'>Integer</option>
-									</select>
-								";
-							break;
-							case "varchar32":
-								$fieldTypeHTML = "
-									<input type='hidden' name='field{$i}type' value='varchar32'>
-									<select class='form-control' disabled required>
-										<option title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (32)</option>
-									</select>
-								";
-							break;
-							case "varchar64":
-								$fieldTypeHTML = "
-									<input type='hidden' name='field{$i}type' value='varchar64'>
-									<select class='form-control' disabled required>
-										<option title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (64)</option>
-									</select>
-								";
-							break;
-							case "varchar128":
-								$fieldTypeHTML = "
-									<input type='hidden' name='field{$i}type' value='varchar128'>
-									<select class='form-control' disabled required>
-										<option title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (128)</option>
-									</select>
-								";
-							break;
-							case "varchar255":
-								$fieldTypeHTML = "
-									<input type='hidden' name='field{$i}type' value='varchar255'>
-									<select class='form-control' disabled required>
-										<option title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (255)</option>
-									</select>
-								";
-							break;
-							
-						}
-						
-						echo "
-
-							<div class='form-group'>
-								<label for='field{$i}' class='col-sm-2 control-label'>Field {$i}</label>
-								<div class='col-sm-10'>
-									<div class='col-sm-6'>
-										<input type='text' class='form-control' id='field{$i}' name='field{$i}name' value='" . $fieldName . "' pattern='^\S+$' title='No Spaces are allowed' readonly required>
-									</div>
-									<div class='col-sm-6'>
-										" . $fieldTypeHTML . "
-									</div>
-								</div>
-							</div>
-
-						";
-
-					}
-
+					// Display The Field Information
+					echo $fieldHTML;
 
 				?>
 

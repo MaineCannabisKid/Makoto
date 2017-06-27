@@ -1,0 +1,11 @@
+/* Import Global CSS */
+@import url('../../global.css');
+
+/* Page Specific CSS */
+.splash, .alert {
+	text-align: center;
+}
+.splash h1 {
+	font-family: 'Josefin Sans';
+	font-weight: 300;
+}

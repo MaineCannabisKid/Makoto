@@ -1,0 +1,15 @@
+/* Import Global CSS */
+@import url('../../global.css');
+
+/* Page Specific CSS */
+.update-form {
+	width: 80%;
+}
+
+input[type='text'] {
+	width: 60%;
+}
+
+.alert {
+	text-align: center;
+}

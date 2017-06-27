@@ -1,16 +1,12 @@
 <?php
 
 	// Load Initialization File
-	require_once 'core/init.php';
+	require_once '../../core/init.php';
 	// Load CSS Name
-	$cssFileName = Config::get('links/css_root') . basename(__FILE__, '.php') . '.css';
+	$cssFileName = Config::get('links/css_root') . 'profile/settings/' . basename(__FILE__, '.php') . '.css';
 	// Load User
 	$user = new User;
-	// Check if User Is Logged In
-	if(!$user->isLoggedIn()) {
-		Session::flash('home', 'You must login first', 'danger');
-		Redirect::to('index.php');
-	}
+	
 	// If User Tried to Change Password
 	if(Input::exists()) {
 		if(Token::check(Input::get('token'))) {
@@ -37,7 +33,7 @@
 
 				// Check if input password is as same as users current pass
 				if(Hash::make(Input::get('password_current'), $user->data()->salt) !== $user->data()->password) {
-					echo "Your current password is wrong. Please try again.";
+					Session::flash('password', 'Your current password is wrong. Please try again.', 'danger');
 				} else {
 					// Current password matches DB
 					// Update User Info
@@ -48,8 +44,8 @@
 					));
 
 					// Session & Redirect
-					Session::flash('home', 'Your password has been updated', 'success');
-					Redirect::to('index.php');
+					Session::flash('iframe-home', 'Your password has been updated', 'success');
+					Redirect::to('profile/settings/iframe-home.php');
 				}
 
 
@@ -81,8 +77,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $cssFileName; ?>">
 	</head>
 <body>
-
-	<?php include(Config::get('file/navbar/default')); ?>
 
 	
 		<?php

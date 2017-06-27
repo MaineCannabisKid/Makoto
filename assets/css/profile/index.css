@@ -1,5 +1,5 @@
 /* Import Global CSS */
-@import url('global.css');
+@import url('../global.css');
 
 /* Page Specific CSS */
 .profile-img {

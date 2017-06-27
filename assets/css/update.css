@@ -1,7 +1,0 @@
-/* Import Global CSS */
-@import url('global.css');
-
-/* Page Specific CSS */
-.update-form {
-	width: 50%;
-}

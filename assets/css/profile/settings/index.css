@@ -1,0 +1,11 @@
+/* Import Global CSS */
+@import url('../../global.css');
+
+/* Page Specific CSS */
+
+/* Iframe */
+.iframe-wrapper iframe {
+	width: 100%;
+	height: 80vh;
+	border: none;
+}

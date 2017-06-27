@@ -37,8 +37,8 @@
 						echo 	"<li class='dropdown hvr-sweep-to-bottom'>
 									<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>{$user->data()->username} <span class='caret'></span></a>
 									<ul class='dropdown-menu'>
-										<li class='hvr-forward'><a href='" . Config::get('links/app_root') . "profile.php?user={$user->data()->id}'><i class='fa fa-user-circle dropdown-icon' aria-hidden='true'></i> Your Profile</a></li>
-										<li class='hvr-forward'><a href='" . Config::get('links/app_root') . "settings.php'><i class='fa fa-cog dropdown-icon' aria-hidden='true'></i> Settings</a></li>
+										<li class='hvr-forward'><a href='" . Config::get('links/app_root') . "profile/index.php?user={$user->data()->id}'><i class='fa fa-user-circle dropdown-icon' aria-hidden='true'></i> Your Profile</a></li>
+										<li class='hvr-forward'><a href='" . Config::get('links/app_root') . "profile/settings/'><i class='fa fa-cog dropdown-icon' aria-hidden='true'></i> Settings</a></li>
 										<li role='separator' class='divider'></li>
 										<li class='hvr-forward'><a href='" . Config::get('links/app_root') . "logout.php'><i class='fa fa-sign-out dropdown-icon' aria-hidden='true'></i> Logout</a></li>
 									</ul>

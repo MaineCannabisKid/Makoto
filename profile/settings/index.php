@@ -1,8 +1,8 @@
 <?php
 	// Include Core File
-	require_once 'core/init.php';
+	require_once '../../core/init.php';
 	// Load CSS Name
-	$cssFileName = Config::get('links/css_root') . basename(__FILE__, '.php') . '.css';
+	$cssFileName = Config::get('links/css_root') . 'profile/settings/' . basename(__FILE__, '.php') . '.css';
 	// Grab User
 	$user = new User;
 
@@ -39,31 +39,31 @@
 		<?php
 			// Session Flash Message
 			if(Session::exists('settings')) {
-				echo '<div class="container"><div class="alert alert-danger"><p>' . Session::flash('settings') . '</p></div></div>';
+				echo Session::flash('settings');
 			}
 		?>
 		
-		<div class="container"><div class="jumbotron"><h1>Settings</h1><p>What would you like to change?</p></div></div>
-
-		<div class="container">
+		<!-- Container -->
+		<div class="container settings-wrapper">
 			<div class="row">
-
-				<div class="col-sm-6">
-					<img src="assets/imgs/icons/settings-id.png">
-					<p>
-						<a href="update.php">Change Your Name</a>
-					</p>
+				<div class="col-sm-3">
+					<div class="list-group">
+						<a id="home" class="list-group-item active">
+							Settings Home
+						</a>
+						<a id="password" class="list-group-item">Update Password</a>
+						<a id="name" class="list-group-item">Change Name</a>
+					</div>
 				</div>
-
-				<div class="col-sm-6">
-					<img src="assets/imgs/icons/settings-lock.png">
-					<p>
-						<a href="changepassword.php">Change Password</a>
-					</p>
+				<div class="col-sm-9 iframe-wrapper">
+					<iframe src="iframe-home.php" id="settings-iframe" name="settings-iframe">
+						
+					</iframe>
 				</div>
-
 			</div>
+
 		</div>
 
+<script src="<?php echo Config::get('links/app_root') . 'assets/js/profile/settings/index.js'; ?>"></script>
 </body>
 </html>

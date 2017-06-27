@@ -1,8 +1,8 @@
 <?php
 	// Require Initialization File
-	require_once 'core/init.php';
+	require_once '../core/init.php';
 	// Load CSS Name
-	$cssFileName = Config::get('links/css_root') . basename(__FILE__, '.php') . '.css';
+	$cssFileName = Config::get('links/css_root') . 'profile/' . basename(__FILE__, '.php') . '.css';
 
 	// Define error
 	$error = false;
