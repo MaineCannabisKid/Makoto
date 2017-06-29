@@ -102,5 +102,7 @@ if(Cookie::exists($cookieName) && !Session::exists($sessionName)) {
 // Call a new PHPMailer Object
 $mail = new PHPMailer;
 
+// Load Kint (Debug Program - kint-php/kint)
+require 'vendor/kint-php/kint/init.php';
 
 ?>

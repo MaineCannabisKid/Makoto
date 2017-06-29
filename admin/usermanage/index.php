@@ -6,6 +6,8 @@
 	// Load User
 	$user = new User;
 
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -99,6 +101,8 @@
 						";
 					}
 
+
+					
 
 					?>
 					
