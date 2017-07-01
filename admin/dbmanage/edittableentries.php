@@ -62,17 +62,21 @@
 							foreach($tableData as $tableEntry) {
 								// Start the Table Row
 								$pageHTML .= "<tr>";
-								// Grab each entry from the data and loop through that
+
+								// Grab each field value in the entry
 								foreach($tableEntry as $fieldName => $value) {
 									$pageHTML .= "
 										<td>{$value}</td>
 									";
 								}
-								// Add Action Buttons
+								
+								// Grab the ID of the entry
+								$id = $tableEntry->id;
+
 								$pageHTML .= "
 									<td>
-										<a href='editentry.php?tableName={$tableName}' class='btn btn-info btn-xs hvr-float-shadow'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit</a>
-										<a href='deleteentry.php?tableName={$tableName}' class='btn btn-danger btn-xs hvr-float-shadow'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
+										<a href='editentry.php?tableName={$tableName}&id={$id}' class='btn btn-info btn-xs hvr-float-shadow'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit</a>
+										<a href='delentry.php?tableName={$tableName}&id={$id}' class='btn btn-danger btn-xs hvr-float-shadow'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
 									</td>
 								";
 								// End the Table Row

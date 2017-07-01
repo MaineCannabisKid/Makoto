@@ -87,6 +87,7 @@ class DB {
 				}
 			}
 		}
+
 		// Something went wrong? Return False;
 		return false;
 	}

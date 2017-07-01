@@ -33,7 +33,7 @@
 					}
 					
 					// Check and see if Form was Submitted
-					if(Token::check(Input::get('token'))) {
+					if(Input::exists('post') && Token::check(Input::get('token'))) {
 						// Form was submitted now do something
 						
 						// Define the FieldName Array
