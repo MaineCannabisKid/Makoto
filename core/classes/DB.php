@@ -10,7 +10,7 @@ class DB {
 	 */
 	private static $_instance = null;
 
-	private $_pdo, // Instanciate PDO Object
+	private $_pdo, // Stores the PDO Object
 			$_query, // Last Query That was Executed
 			$_error = false, // Whether Query Failed or not
 			$_results, // Results Set from Query

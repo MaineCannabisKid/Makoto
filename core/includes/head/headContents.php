@@ -25,6 +25,6 @@ Example: <div class="row flex"><div class="col-lg-12"></div></div>
 <!-- Ensuring Proper Rendering & Touch Zooming on Mobile Devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Improving Cross-Browser Rendering -->
-<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css">
+<link rel="stylesheet" type="Stylesheet" href="https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css">
 <!-- Favicon  -->
 <link rel="icon" type="image/x-icon" href="<?php echo Config::get('links/app_root') . '/assets/imgs/favicon.ico'?>" />
