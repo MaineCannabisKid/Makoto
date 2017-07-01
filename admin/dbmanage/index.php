@@ -122,14 +122,16 @@
 							switch($name) {
 								case "user_session":
 								case "groups":
-									echo "
-										<tr>
-											<td class='text-muted'>{$name} (P)</td>
-											<td class='text-muted'>Protected</td>
-											<td class='text-muted'>Protected</td>
-											<td class='text-danger'>Can Not Edit</td>
-										</tr>
-									";
+									// Enable these lines if you want groups and user_session visible
+									
+									// echo "
+									// 	<tr>
+									// 		<td class='text-muted'>{$name} (P)</td>
+									// 		<td class='text-muted'>Protected</td>
+									// 		<td class='text-muted'>Protected</td>
+									// 		<td class='text-danger'>Can Not Edit</td>
+									// 	</tr>
+									// ";
 								break;
 								case "users":
 									echo "
