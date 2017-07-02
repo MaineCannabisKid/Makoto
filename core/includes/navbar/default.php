@@ -21,7 +21,7 @@
 					</ul>
 				</li>
 				<li><a class="hvr-sweep-to-bottom" href="#"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;&nbsp;Link</a></li>
-				<li><a class="hvr-sweep-to-bottom" href="<?php echo Config::get('links/app_root'); ?>users.php"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;Members</a></li>
+				<li><a class="hvr-sweep-to-bottom" href="<?php echo Config::get('links/app_root'); ?>team.php"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;The Team</a></li>
 
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

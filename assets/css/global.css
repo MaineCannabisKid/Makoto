@@ -50,6 +50,11 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 auto 0.5%;
 }
 
+/* Horitonztal Rule */
+hr {
+    border-color: rgba(0,0,0,0.2);
+    margin: 0.5% auto;
+}
 /* Text Warning */
 .text-warning, .text-danger {
     font-family: 'Josefin Sans' !important;

@@ -139,7 +139,7 @@
 											<td class='text-muted'>{$name}</td>
 											<td class='text-muted'>Protected</td>
 											<td class='text-muted'>{$numEntries}</td>
-											<td class='text-danger'><a href='usermanage.php' class='btn btn-info btn-xs hvr-float-shadow'>User Management</a></td>
+											<td class='text-danger'><a href='usermanage.php' class='btn btn-info btn-xs hvr-float-shadow'><i class='fa fa-users' aria-hidden='true'></i> User Management</a></td>
 										</tr>
 									";
 								break;

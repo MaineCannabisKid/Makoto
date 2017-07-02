@@ -1,0 +1,15 @@
+/* Import Global CSS File */
+@import url('global.css');
+
+/* Page Specific CSS */
+
+/* Users Wrapper */
+.users-wrapper {
+	width: 50%;
+}
+/* Profile Img */
+.media-left a img {
+	width: 96px;
+	height: 96px;
+	border-radius: 50%;
+}
