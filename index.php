@@ -28,7 +28,7 @@
 				echo Session::flash('home');
 			}
 		?>
-
+		
 		<!-- Enable Breadcrumbs If Not A Splash Page -->
 		<!-- <div class="container">
 			<ol class="breadcrumb">

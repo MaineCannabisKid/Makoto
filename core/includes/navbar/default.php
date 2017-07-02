@@ -29,7 +29,7 @@
 					// If the user is logged in
 					if($user->isLoggedIn()) {
 						// Check to see if user has admin permissions
-						if($user->hasPermission('admin')) {
+						if($user->hasPermission(array('admin', 'moderator'))) {
 							// Display Admin Backpage Link
 							echo "<li><a class='hvr-sweep-to-bottom' href='" . Config::get('links/app_root') . "admin/'><i class='fa fa-wrench' aria-hidden='true'></i>&nbsp;&nbsp;Admin Page</a></li>";
 						}

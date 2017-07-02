@@ -26,41 +26,11 @@ $GLOBALS['config'] =
 		),
 	);
 
-// Define Variables for Production vs. Development
-if($_SERVER['HTTP_HOST'] == 'localhost') { // Development Mode
-	
-
-	// // Set INI to log errors
-	// ini_set('log_errors', 1);
-	// // Set Error Log Path Variable (Grabs the Root Directory of the Project, then appends on the path)
-	// $errorPath = dirname(substr(dirname(__FILE__),strlen($_SERVER['DOCUMENT_ROOT']))) . '/logs/php/error.log';
-	// var_dump($errorPath);
-	// // Set INI for error_log path
-	// ini_set('error_log', $errorPath);
-	// // Give some code thats going to throw an error
-	// $db = new PDO("mysql:host=a;dbname=test", "root", "");
-
-
-	// Set the MySQL Connection Variables
-	$GLOBALS['config'] += array(
-		'mysql' => array(
-			'host' => 'localhost',
-			'username' => 'root',
-			'password' => '',
-			'db' => 'Makoto'
-		)
-	);
-} else { // Production Mode
-	
-	// Set MySQL Connection Variables
-	$GLOBALS['config'] += array(
-		'mysql' => array(
-			'host' => '************',
-			'username' => '************',
-			'password' => '************',
-			'db' => 'Makoto'
-		)
-	);
+// Load Config for Production vs. Development
+if($_SERVER['HTTP_HOST'] == 'localhost') { 
+	require_once('devConfig.php'); // Require in the Development Configuration File
+} else { 	
+	require_once('prodConfig.php');// Require in the Development Configuration File
 }
 
 //-----------------------------//
@@ -103,6 +73,6 @@ if(Cookie::exists($cookieName) && !Session::exists($sessionName)) {
 $mail = new PHPMailer;
 
 // Load Kint (Debug Program - kint-php/kint)
-require 'vendor/kint-php/kint/init.php';
+require_once('vendor/kint-php/kint/init.php');
 
 ?>

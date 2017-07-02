@@ -19,9 +19,9 @@
 		} else {
 			// Figure out what group user is apart of
 			$group = null;
-			if($user->hasPermission('admin')) {
+			if($user->hasPermission(array('admin'))) {
 				$group = '<span style="color: rgba(192, 57, 43,1.0); font-size: .5em">(Admin) </span>';
-			} else if($user->hasPermission('moderator')) {
+			} else if($user->hasPermission(array('moderator'))) {
 				$group = '<span style="color: rgba(39, 174, 96,1.0); font-size: .5em">(Moderator) </span>';
 			} else {
 				$group = '<span style="color: rgba(119, 119, 119,1.0); font-size: .5em">';

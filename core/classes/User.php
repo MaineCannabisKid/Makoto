@@ -205,14 +205,17 @@ class User {
 	}
 
 	// User Has Permission Check
-	public function hasPermission($key) {
+	public function hasPermission($key = array('admin')) {
 		$groups = $this->_db->get('groups', array('id', '=', $this->data()->groups));
 
 		// Check if user is in a group or not
 		if($groups->count()) {
+			// Grab the json from the user
 			$permissions = json_decode($groups->first()->permissions, true);
-			if(!empty($permissions[$key])) {
-				return true;
+			for($i=0;$i<=count($key)-1; $i++) {
+				if(isset($permissions[$key[$i]])) {
+					return true;
+				}
 			}
 		}
 
