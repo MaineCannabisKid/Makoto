@@ -75,8 +75,8 @@
 
 								$pageHTML .= "
 									<td>
-										<a href='editentry.php?tableName={$tableName}&id={$id}' class='btn btn-info btn-xs hvr-float-shadow'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Edit</a>
-										<a href='delentry.php?tableName={$tableName}&id={$id}' class='btn btn-danger btn-xs hvr-float-shadow'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;&nbsp;Delete</a>
+										<a href='editentry.php?tableName={$tableName}&id={$id}' class='btn btn-info btn-xs hvr-grow'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+										<a href='delentry.php?tableName={$tableName}&id={$id}' class='btn btn-danger btn-xs hvr-grow'><i class='fa fa-trash' aria-hidden='true'></i></a>
 									</td>
 								";
 								// End the Table Row
@@ -159,7 +159,8 @@
 		<div class="container">
 			<div class="jumbotron">
 				<h1>Edit Entries - '<?php if(isset($tableName)) { echo $tableName; } ?>'</h1>
-				<p>Please choose an action below</p>
+				<p>Please choose an action below.</p>
+				<p class="text-info">This section will edit the raw table entry data, no pretty frilly things here.</p>
 			</div>
 		</div>
 

@@ -16,7 +16,12 @@
 		} else { // Authorization correct
 			// Does input in the URL exist?
 			if(Input::exists('get')) {
-
+					// Define Variables
+					$pageHTML = '';	
+					$tableHeadHTML = '';
+					// Get New DB
+					$_db = DB::getInstance();
+					
 					// Grab Inputs
 					$tableName = Input::get('tableName');
 
@@ -30,11 +35,7 @@
 						Redirect::to("admin/dbmanage/edittableentries.php?tableName={$tableName}");
 					}
 
-					// Define Variables
-					$pageHTML = '';	
-					$tableHeadHTML = '';
-					// Get New DB
-					$_db = DB::getInstance();
+					
 
 					// Check and see if table exists
 					if($_db->tableExists($tableName)) { // Table exists

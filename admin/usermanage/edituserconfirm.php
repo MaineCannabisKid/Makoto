@@ -40,7 +40,7 @@
 							), $userEditID);
 							// Flash Message
 							Session::flash('admin-user-manage', 'User information has been updated successfully.', 'success');
-							Redirect::to('admin/usermanage.php');
+							Redirect::to('admin/usermanage');
 
 						} catch(Exception $e) {
 							die($e->getMessage());
