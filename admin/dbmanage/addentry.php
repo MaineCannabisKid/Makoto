@@ -55,9 +55,11 @@
 						}
 
 						if($_db->insert($tableName, $fieldArr)) {
+							echo "success";
 							Session::flash('admin-edit-table-entries', 'You have successfully added an entry', 'success');
 							Redirect::to("admin/dbmanage/edittableentries.php?tableName={$tableName}");
 						} else {
+							echo "fail";
 							Session::flash('admin-edit-table-entries', 'Something went wrong while entering your data. Contact an Administrator.', 'danger');
 							Redirect::to("admin/dbmanage/edittableentries.php?tableName={$tableName}");
 						}
@@ -125,7 +127,7 @@
 
 
 		<div class="container">
-			<form class='form-horizontal'>
+			<form class='form-horizontal' action="" method="post">
 			
 				<?php
 					

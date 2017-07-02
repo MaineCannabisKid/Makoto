@@ -19,6 +19,17 @@
 
 					// Grab Inputs
 					$tableName = Input::get('tableName');
+
+					// Check if id is valid
+					$entryID = Input::get('id');
+
+					// Check to see if entry exists
+					if(!$_db->get($tableName, array('id', '=', $entryID))->count()) { // If entry does not exist
+						// error out
+						Session::flash('admin-edit-table-entries', 'The id ' . $entryID . ' does not exist!', 'danger');
+						Redirect::to("admin/dbmanage/edittableentries.php?tableName={$tableName}");
+					}
+
 					// Define Variables
 					$pageHTML = '';	
 					$tableHeadHTML = '';
@@ -28,12 +39,49 @@
 					// Check and see if table exists
 					if($_db->tableExists($tableName)) { // Table exists
 						
-						// Check if id is valid
-						$entryID = Input::get('id');
-						if(!$_db->get($tableName, array('id', '=', $entryID))->count()) {
-							Session::flash('admin-edit-table-entries', 'The id ' . $entryID . ' does not exist!', 'danger');
-							Redirect::to("admin/dbmanage/edittableentries.php?tableName={$tableName}");
+
+						// Grab the Table Fields Array
+						$tableFields = $_db->getTableFields($tableName);
+						// See if there are any entries in the Table by grabbing the info
+						$tableInfo = $_db->getAll($tableName); // if info exists return true
+
+						if($tableInfo) { // If there are entries in the table (To Debug add ! before $)
+							
+							// Loop through each field and grab just the name
+							foreach($tableFields as $column){
+								$fieldName = $column->Field; // Grab the Field Name
+								$tableHeadHTML .= "<th>{$fieldName}</th>";
+							}
+
+							// Table Header
+							$pageHTML .= "
+								<table class='table table-bordered table-hover'>
+									<thead>
+										<tr>
+											{$tableHeadHTML}
+										</tr>
+									</thead>
+							";
+
+							// Grab the Entry that should be deleted
+							$tableData = $_db->get($tableName, array('id', '=', $entryID))->first();
+
+							$pageHTML .= "<tr>";
+
+							// Grab each field value in the entry
+							foreach($tableData as $fieldName => $value) {
+								$pageHTML .= "
+									<td>{$value}</td>
+								";
+							}
+																
+							// End the Table Row and Table itself
+							$pageHTML .= "</tr></table>";
+
+
 						}
+
+						
 
 						// Check if the form was submitted
 						if(Input::exists('post') && Token::check(Input::get('token'))) {
@@ -112,10 +160,16 @@
 				<p class="text-danger">Are you sure you want to delete?</p>
 			</div>
 		</div>
+	
+		<div class="container">
+			<?php
 
+			echo $pageHTML;
 
+			?>
+		</div>
 
-			<form action="" method="post">
+		<form action="" method="post">
 			<!-- Generate Token -->
 			<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 			<!-- The Table Name -->
