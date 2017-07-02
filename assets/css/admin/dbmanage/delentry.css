@@ -1,0 +1,27 @@
+/* Import Global */
+@import url('../../global.css');
+
+/* Page Specific CSS */
+.col-sm-6 {
+	text-align: center;
+}
+
+/* Table Stuff */
+.table th, .table td, .table tr {
+	text-align: center;
+}
+
+.table th {
+	background-color: #cccccc;
+}
+
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
+
+td a, table a:not(.btn), .table a:not(.btn) {
+	text-decoration: none;
+}
+td a:hover, table a:not(.btn):hover, .table a:not(.btn):hover {
+	text-decoration: none;
+}

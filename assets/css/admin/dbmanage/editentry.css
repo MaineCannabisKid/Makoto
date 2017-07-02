@@ -1,0 +1,8 @@
+/* Import Global */
+@import url('../../global.css');
+
+/* Page Specific CSS */
+.form-horizontal {
+	margin: 0 auto;
+	width: 50%;
+}

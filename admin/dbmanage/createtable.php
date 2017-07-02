@@ -28,8 +28,8 @@
 						Redirect::to('admin/dbmanage');
 					}
 					// Check to see if numFields is greater then 25
-					if($numFields > 25) {
-						Session::flash('admin-dbmanage', 'The table <strong>' . $tableName . '</strong> can not have more then twenty-five (25) fields.', 'warning');
+					if($numFields > 10) {
+						Session::flash('admin-dbmanage', 'The table <strong>' . $tableName . '</strong> can not have more then ten (10) fields. Use PHPMyAdmin instead.', 'warning');
 						Redirect::to('admin/dbmanage');
 					}
 

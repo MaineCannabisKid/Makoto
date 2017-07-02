@@ -50,6 +50,12 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 auto 0.5%;
 }
 
+/* Text Warning */
+.text-warning, .text-danger {
+    font-family: 'Josefin Sans' !important;
+    font-weight: 600 !important;
+}
+
 /* Links */
 a {
     text-decoration: none;

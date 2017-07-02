@@ -23,10 +23,10 @@
 					// Delete User From Database
 					if($user->delete($userDelID)) {
 						Session::flash('admin-user-manage', 'Deleted User without any problems', 'success');
-						Redirect::to('admin/usermanage.php');
+						Redirect::to('admin/usermanage');
 					} else { // If Unsuccessful, then display error message
 						Session::flash('admin-user-manage', 'Something went wrong', 'danger');
-						Redirect::to('admin/usermanage.php');
+						Redirect::to('admin/usermanage');
 					}
 
 				}
