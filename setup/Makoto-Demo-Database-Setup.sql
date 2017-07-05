@@ -22,8 +22,10 @@ SET time_zone = "+00:00";
 -- Database: `Makoto`
 --
 
-CREATE DATABASE IF NOT EXISTS Makoto;
-USE Makoto;
+-- Use these settings if you're using a default database installation
+
+-- CREATE DATABASE IF NOT EXISTS Makoto;
+-- USE Makoto;
 
 -- --------------------------------------------------------
 
