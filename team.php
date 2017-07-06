@@ -67,26 +67,30 @@
 		<h1>Administrators</h1>
 		<hr />
 		<?php
-			foreach($adminUsers as $admin) {
-				$picture = $admin->picture;
-				$name = $admin->name;
-				$id = $admin->id;
+			if(!$adminUsers) {
+				echo "<h4>No users in this role.</h4>";
+			} else {
+				foreach($adminUsers as $admin) {
+					$picture = $admin->picture;
+					$name = $admin->name;
+					$id = $admin->id;
 
-				if(!$picture) {
-					$picture = Config::get('links/app_root') . 'assets/imgs/profile/default.png';
+					if(!$picture) {
+						$picture = Config::get('links/app_root') . 'assets/imgs/profile/default.png';
+					}
+					echo "	<div class='media'>
+								<div class='media-left'>
+									<a href='profile.php?user={$id}'>
+										<img class='media-object' src='{$picture}' alt='{$name}'>
+									</a>
+								</div>
+								<div class='media-body media-middle'>
+									<h4 class='media-heading'>{$name}</h4>
+									Bio will go here (first 100 characters)
+								</div>
+							</div>
+						";
 				}
-				echo "	<div class='media'>
-							<div class='media-left'>
-								<a href='profile.php?user={$id}'>
-									<img class='media-object' src='{$picture}' alt='{$name}'>
-								</a>
-							</div>
-							<div class='media-body media-middle'>
-								<h4 class='media-heading'>{$name}</h4>
-								Bio will go here (first 100 characters)
-							</div>
-						</div>
-					";
 			}
 		?>
 	</div>
@@ -96,28 +100,31 @@
 		<h1>Moderators</h1>
 		<hr />
 		<?php
-			foreach($modUsers as $mod) {
-				$picture = $mod->picture;
-				$name = $mod->name;
-				$id = $mod->id;
+			if(!$modUsers) {
+				echo "<h4>No users in this role.</h4>";
+			} else {
+				foreach($modUsers as $mod) {
+					$picture = $mod->picture;
+					$name = $mod->name;
+					$id = $mod->id;
 
-				// Check to see if picture is null
-				if(!$picture) {
-					$picture = Config::get('links/app_root') . 'assets/imgs/profile/default.png';
+					// Check to see if picture is null
+					if(!$picture) {
+						$picture = Config::get('links/app_root') . 'assets/imgs/profile/default.png';
+					}
+					echo "	<div class='media'>
+								<div class='media-left'>
+									<a href='profile.php?user={$id}'>
+										<img class='media-object' src='{$picture}' alt='{$name}'>
+									</a>
+								</div>
+								<div class='media-body media-middle'>
+									<h4 class='media-heading'>{$name}</h4>
+									Bio will go here (first 100 characters)
+								</div>
+							</div>
+						";
 				}
-
-				echo "	<div class='media'>
-							<div class='media-left'>
-								<a href='profile.php?user={$id}'>
-									<img class='media-object' src='{$picture}' alt='{$name}'>
-								</a>
-							</div>
-							<div class='media-body media-middle'>
-								<h4 class='media-heading'>{$name}</h4>
-								Bio will go here (first 100 characters)
-							</div>
-						</div>
-					";
 			}
 		?>
 	</div>
