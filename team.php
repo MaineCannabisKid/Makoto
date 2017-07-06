@@ -72,6 +72,9 @@
 				$name = $admin->name;
 				$id = $admin->id;
 
+				if(!$picture) {
+					$picture = Config::get('links/app_root') . 'assets/imgs/profile/default.png';
+				}
 				echo "	<div class='media'>
 							<div class='media-left'>
 								<a href='profile.php?user={$id}'>
