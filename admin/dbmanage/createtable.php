@@ -16,7 +16,7 @@
 		} else { // Authorization correct
 			// Does input in the URL exist?
 			if(Input::exists()) {
-				if(Token::check(Input::get('token'))) {
+				// if(Token::check(Input::get('token'))) {
 				 
 					// Grab Inputs
 					$tableName = Input::get('tableName');
@@ -43,11 +43,11 @@
 						Redirect::to('admin/dbmanage');
 					}
 				
-				} else {
-					Session::flash('admin-dbmanage', 'Something went wrong when creating the table <strong>' . $tableName . '</strong>. Please try again. <strong>Error Code:</strong> createtable', 'danger');
-					Session::flash('admin-dbmanage2', 'We have detected that you might have refreshed the page. Thats not allowed. Please use the \'Go Back\' button instead.');
-					Redirect::to('admin/dbmanage');
-				}
+				// } else {
+				// 	Session::flash('admin-dbmanage', 'Something went wrong when creating the table <strong>' . $tableName . '</strong>. Please try again. <strong>Error Code:</strong> createtable', 'danger');
+				// 	Session::flash('admin-dbmanage2', 'We have detected that you might have refreshed the page. Thats not allowed. Please use the \'Go Back\' button instead.');
+				// 	Redirect::to('admin/dbmanage');
+				// }
 
 
 			} else { // Input does not exist
@@ -110,7 +110,7 @@ $user = new User;
 
 		<div class="container form-wrapper">
 			<h3>Table Fields & Values</h3>
-			<form class="form-horizontal" action="createtablesummary.php" method="post">
+			<form class="form-horizontal" name="form" action="createtablesummary.php" method="post">
 				<!-- Generate Token -->
 				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 				<!-- number of fields wanted in the table -->
@@ -177,12 +177,14 @@ $user = new User;
 
 				?>
 
-				<div class="row">
-					<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
-					<div class="col-sm-6"><button class="btn btn-block btn-info hvr-pop" type="submit">Go To Summary Page</button></div>
-				</div>
-
+				
+				
 			</form>
+			<div class="row">
+					<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+					<div class="col-sm-6"><button class="btn btn-block btn-info hvr-pop" id="submit">Go To Summary Page</button></div>
+			</div>
+			<script src="<?php echo Config::get('links/app_root'); ?>/assets/js/admin/dbmanage/createtable.js"></script>
 		</div>
 		
 
