@@ -18,12 +18,7 @@ $GLOBALS['config'] =
 				'default' => dirname(__FILE__) . '/includes/navbar/default.php',
 				'admin' => dirname(__FILE__) . '/includes/navbar/admin.php'
 			)
-		),
-		'links' => array(
-			// Application Root Folder
-			'app_root' =>  dirname(substr(dirname(__FILE__),strlen($_SERVER['DOCUMENT_ROOT']))) . '/',
-			'css_root' =>  dirname(substr(dirname(__FILE__),strlen($_SERVER['DOCUMENT_ROOT']))) . '/assets/css/'
-		),
+		)
 	);
 
 // Load Config for Production vs. Development

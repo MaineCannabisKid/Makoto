@@ -16,7 +16,7 @@ class GoogleAuth {
 			// Set Client ID, Client Secret, Redirect URI, & Scope
 			$this->_client->setClientId('320697062223-8bp9flv9i4c8j2vn69vpnfqc73ab1qak.apps.googleusercontent.com');
 			$this->_client->setClientSecret('tOMCk8znGQ33tqn9pWtGkNKi');
-			$this->_client->setRedirectURI('http://localhost/Makoto/googleAuthRedirect.php');
+			$this->_client->setRedirectURI(Config::get('google/redirectURI'));
 			$this->_client->addScope('https://www.googleapis.com/auth/userinfo.email');
 			$this->_client->addScope('https://www.googleapis.com/auth/userinfo.profile');
 		}
