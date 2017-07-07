@@ -11,5 +11,5 @@ input[type='text'] {
 }
 
 .alert {
-	text-align: center;
+	top: 0;
 }

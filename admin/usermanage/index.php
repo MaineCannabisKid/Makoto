@@ -30,96 +30,91 @@
 
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
+	<?php
+		// Session Flash Message
+		if(Session::exists('admin-user-manage')) {
+			echo Session::flash('admin-user-manage');
+		}
+	?>
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+			<li><a href="../">Admin</a></li>
+			<li class="active">User Management</li>
+		</ol>	
+	</div>
+	
 
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
-				<li><a href="../">Admin</a></li>
-				<li class="active">User Management</li>
-			</ol>	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>User Management</h1>
+			<p>This is the User Management Page. Please select a user, and decide what to do.</p>
 		</div>
-		
-		<?php
-			// Session Flash Message
-			if(Session::exists('admin-user-manage')) {
-				echo Session::flash('admin-user-manage');
-			}
-		?>
-		
+	</div>
 
-		
-
-		
-		<div class="container">
-			<div class="jumbotron">
-				<h1>User Management</h1>
-				<p>This is the User Management Page. Please select a user, and decide what to do.</p>
-			</div>
-		</div>
-
-		<div class="container">
-			<table class="table table-bordered table-hover">
-				<thead>
-					<tr>
-						<th>Username</th>
-						<th>Name</th>
-						<th>Date Joined</th>
-						<th>Role</th>
-						<th>Action</th>
-					</tr>
-				</thead>
+	<div class="container">
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Username</th>
+					<th>Name</th>
+					<th>Date Joined</th>
+					<th>Role</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+			
 				
-				<tbody>
-				
-					
-					<?php
+				<?php
 
-					// Get a New Database Instance
-					$_db = DB::getInstance();
-					// Grab all users
-					$users = $_db->getAll('users');
+				// Get a New Database Instance
+				$_db = DB::getInstance();
+				// Grab all users
+				$users = $_db->getAll('users');
 
 
-					// Echo Out all the Users
-					foreach($users as $user) {
-						// Assign the correct table cell for corresponding role
-						switch($user->groups) {
-							case "3":
-								$role = "<td class='danger'>Administrator</td>";
-							break;
-							case "2":
-								$role = "<td class='success'>Moderator</td>";
-							break;
-							default:
-								$role = "<td>User</td>";
-							break;
-						}
-						// Echo out the rest of the table row
-						echo "
-							<tr>
-								<td><a href='" . Config::get('links/app_root') . "profile.php?user={$user->id}'>@{$user->username}</a></td>
-								<td>{$user->name}</td>
-								<td>{$user->joined}</td>
-								{$role}
-								<td>
-									<a href='edituser.php?id={$user->id}' class='btn btn-info btn-xs hvr-grow'><i class='fa fa-pencil' aria-hidden='true'></i></a>
-									<a href='deluser.php?id={$user->id}' class='btn btn-danger btn-xs hvr-grow'><i class='fa fa-trash' aria-hidden='true'></i></a>
-								</td>
-							</tr>
-						";
+				// Echo Out all the Users
+				foreach($users as $user) {
+					// Assign the correct table cell for corresponding role
+					switch($user->groups) {
+						case "3":
+							$role = "<td class='danger'>Administrator</td>";
+						break;
+						case "2":
+							$role = "<td class='success'>Moderator</td>";
+						break;
+						default:
+							$role = "<td>User</td>";
+						break;
 					}
+					// Echo out the rest of the table row
+					echo "
+						<tr>
+							<td><a href='" . Config::get('links/app_root') . "profile.php?user={$user->id}'>@{$user->username}</a></td>
+							<td>{$user->name}</td>
+							<td>{$user->joined}</td>
+							{$role}
+							<td>
+								<a href='edituser.php?id={$user->id}' class='btn btn-info btn-xs hvr-grow'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+								<a href='deluser.php?id={$user->id}' class='btn btn-danger btn-xs hvr-grow'><i class='fa fa-trash' aria-hidden='true'></i></a>
+							</td>
+						</tr>
+					";
+				}
 
 
-					
+				
 
-					?>
-					
+				?>
+				
 
-				</tbody>
+			</tbody>
 
 
-			</table>
-		</div>
+		</table>
+	</div>
 
 </body>
 </html>

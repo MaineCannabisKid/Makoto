@@ -70,51 +70,52 @@ $user = new User;
 
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
+	<?php
+		// Session Flash Message
+		if(Session::exists('admin-user-del')) {
+			echo Session::flash('admin-user-del');
+		}
 
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
-				<li><a href="../">Admin</a></li>
-				<li><a href="./">Database Management</a></li>
-				<li class="active">Delete Database</li>
-			</ol>	
-		</div>
+		// If 404 Error Occurs
+		if(isset($error404)) {
+			Redirect::to(404);
+		}
+	?>
 	
-		<?php
-			// Session Flash Message
-			if(Session::exists('admin-user-del')) {
-				echo Session::flash('admin-user-del');
-			}
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+			<li><a href="../">Admin</a></li>
+			<li><a href="./">Database Management</a></li>
+			<li class="active">Delete Database</li>
+		</ol>	
+	</div>
 
-			// If 404 Error Occurs
-			if(isset($error404)) {
-				Redirect::to(404);
-			}
-		?>
+	
 
-		
-		
+	
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Delete Table '<?php echo $tableToDel; ?>'?</h1>
+			<p>Please confirm that this is the table you would like to delete.</p>
+			<p class="text-danger"><strong>All changes are final and are not recoverable</strong></p>
+		</div>
+	</div>
+
+	<form action="deltableconfirm.php" method="post">
+		<!-- Generate Token -->
+		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+		<!-- ID of User to Delete -->
+		<input type="hidden" name="tableToDel" value="<?php echo $tableToDel; ?>">
+
 		<div class="container">
-			<div class="jumbotron">
-				<h1>Delete Table '<?php echo $tableToDel; ?>'?</h1>
-				<p>Please confirm that this is the table you would like to delete.</p>
-				<p class="text-danger"><strong>All changes are final and are not recoverable</strong></p>
+			<div class="row">
+				<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+				<div class="col-sm-6"><button class="btn btn-block btn-danger hvr-pop" type="submit">Delete</button></div>
 			</div>
 		</div>
-
-		<form action="deltableconfirm.php" method="post">
-			<!-- Generate Token -->
-			<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-			<!-- ID of User to Delete -->
-			<input type="hidden" name="tableToDel" value="<?php echo $tableToDel; ?>">
-
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
-					<div class="col-sm-6"><button class="btn btn-block btn-danger hvr-pop" type="submit">Delete</button></div>
-				</div>
-			</div>
-		</form>
+	</form>
 
 </body>
 </html>

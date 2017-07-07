@@ -57,52 +57,50 @@ $user = new User;
 
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
+	<?php
+		// Session Flash Message
+		if(Session::exists('admin-user-del')) {
+			echo Session::flash('admin-user-del');
+		}
+
+		// If 404 Error Occurs
+		if(isset($error404)) {
+			Redirect::to(404);
+		}
+	?>	
+
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+			<li><a href="../">Admin</a></li>
+			<li><a href="./">User Management</a></li>
+			<li class="active">Delete User</li>
+		</ol>	
+	</div>
+
 		
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
-				<li><a href="../">Admin</a></li>
-				<li><a href="./">User Management</a></li>
-				<li class="active">Delete User</li>
-			</ol>	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Delete <a target="_blank" href="<?php echo Config::get('links/app_root');?>profile.php?user=<?php echo $userToDel->username; ?>">@<?php echo $userToDel->username; ?></a>?</h1>
+			<p>Please confirm that this is the user you would like to delete</p>
 		</div>
-	
-		<?php
-			// Session Flash Message
-			if(Session::exists('admin-user-del')) {
-				echo Session::flash('admin-user-del');
-			}
+	</div>
 
-			// If 404 Error Occurs
-			if(isset($error404)) {
-				Redirect::to(404);
-			}
-		?>
 
-		
-		
+
+	<form action="deluserconfirm.php" method="post">
+		<!-- Generate Token -->
+		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+		<!-- ID of User to Delete -->
+		<input type="hidden" name="idToDel" value="<?php echo $userDelID; ?>">
+
 		<div class="container">
-			<div class="jumbotron">
-				<h1>Delete <a target="_blank" href="<?php echo Config::get('links/app_root');?>profile.php?user=<?php echo $userToDel->username; ?>">@<?php echo $userToDel->username; ?></a>?</h1>
-				<p>Please confirm that this is the user you would like to delete</p>
+			<div class="row">
+				<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+				<div class="col-sm-6"><button class="btn btn-block btn-danger hvr-pop" type="submit">Delete</button></div>
 			</div>
 		</div>
-
-		
-
-		<form action="deluserconfirm.php" method="post">
-			<!-- Generate Token -->
-			<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-			<!-- ID of User to Delete -->
-			<input type="hidden" name="idToDel" value="<?php echo $userDelID; ?>">
-
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
-					<div class="col-sm-6"><button class="btn btn-block btn-danger hvr-pop" type="submit">Delete</button></div>
-				</div>
-			</div>
-		</form>
+	</form>
 
 </body>
 </html>

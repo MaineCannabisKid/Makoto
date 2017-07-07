@@ -27,6 +27,12 @@
 
 	<!-- Navbar -->
 	<?php include(Config::get('file/navbar/default')); ?>
+	<?php
+		// Session Flash Message
+		if(Session::exists('users')) {
+			echo Session::flash('users');
+		}
+	?>
 	
 	<div class="container">
 		<ol class="breadcrumb">
@@ -34,13 +40,6 @@
 			<li class="active">The Team</li>
 		</ol>	
 	</div>
-	
-	<?php
-		// Session Flash Message
-		if(Session::exists('users')) {
-			echo Session::flash('users');
-		}
-	?>
 
 	
 	<?php

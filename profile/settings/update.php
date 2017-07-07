@@ -5,7 +5,13 @@
 	$cssFileName = Config::get('links/css_root') . 'profile/settings/' . basename(__FILE__, '.php') . '.css';
 	// Load User
 	$user = new User;
-	
+	// Define error
+	$error = false;
+	// If user isn't logged in
+	if(!$user->isLoggedIn()) {
+		$error = true;
+	}
+
 	// Did User Change Name
 	if(Input::exists()) {
 		if(Token::check(Input::get('token'))) {
@@ -72,6 +78,11 @@
 
 	
 		<?php
+			// If there is an error grabbing the user
+			if($error === true) {
+				// Redirect to 404
+				Redirect::to(404);
+			}
 			// Display the Flash Message
 			if(Session::exists('update')) {
 				echo Session::flash('update');

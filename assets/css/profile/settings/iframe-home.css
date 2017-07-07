@@ -9,3 +9,7 @@
 	font-family: 'Josefin Sans';
 	font-weight: 300;
 }
+/* Alert */
+.alert {
+	top: 0;
+}

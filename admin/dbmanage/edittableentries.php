@@ -134,47 +134,50 @@
 
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
+	<?php
+		// Session Flash Message
+		if(Session::exists('admin-edit-table-entries')) {
+			echo Session::flash('admin-edit-table-entries');
+		}
 
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
-				<li><a href="../">Admin</a></li>
-				<li><a href="./">Database Management</a></li>
-				<li class="active">Edit Table Entries</li>
-			</ol>	
-		</div>
+		// If 404 Error Occurs
+		if(isset($error404)) {
+			Redirect::to(404);
+		}
+	?>
+
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+			<li><a href="../">Admin</a></li>
+			<li><a href="./">Database Management</a></li>
+			<li class="active">Edit Table Entries</li>
+		</ol>	
+	</div>
+
 	
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Edit Entries - '<?php if(isset($tableName)) { echo $tableName; } ?>'</h1>
+			<p>Please choose an action below.</p>
+			<p class="text-info">This section will edit the raw table entry data, no pretty frilly things here.</p>
+		</div>
+	</div>
+
+
+	<div class="container">
+
+
 		<?php
-			// Session Flash Message
-			if(Session::exists('admin-edit-table-entries')) {
-				echo Session::flash('admin-edit-table-entries');
-			}
-
-			// If 404 Error Occurs
-			if(isset($error404)) {
-				Redirect::to(404);
-			}
+			
+			echo $pageHTML;
+			
 		?>
-		
-		<div class="container">
-			<div class="jumbotron">
-				<h1>Edit Entries - '<?php if(isset($tableName)) { echo $tableName; } ?>'</h1>
-				<p>Please choose an action below.</p>
-				<p class="text-info">This section will edit the raw table entry data, no pretty frilly things here.</p>
-			</div>
-		</div>
 
 
-		<div class="container">
+	</div>
 
-
-			<?php
-				
-				echo $pageHTML;
-				
-			?>
-
-
-		</div>
+	
 </body>
 </html>

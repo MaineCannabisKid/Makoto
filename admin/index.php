@@ -36,64 +36,65 @@
 <body>
 
 	<?php include(Config::get('file/navbar/default')); ?>
+	<?php
+		// Session Flash Message
+		if(Session::exists('admin-home')) {
+			echo Session::flash('admin-home');
+		}
+	?>
+	
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+			<li class="active">Admin</li>
+		</ol>	
+	</div>
+		
+		
+		
+		
 
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
-				<li class="active">Admin</li>
-			</ol>	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Admin Home</h1>
+			<p>This is the Administration Home Page.</p>
 		</div>
-		
-		<?php
-			// Session Flash Message
-			if(Session::exists('admin-home')) {
-				echo Session::flash('admin-home');
-			}
-		?>
-		
-		
+	</div>
 
-		<div class="container">
-			<div class="jumbotron">
-				<h1>Admin Home</h1>
-				<p>This is the Administration Home Page.</p>
-			</div>
-		</div>
+	<div class="container">
+		<div class="row">
+			<?php
+				$appRoot = Config::get('links/app_root');
 
-		<div class="container">
-			<div class="row">
-				<?php
-					$appRoot = Config::get('links/app_root');
+				// If user has admin permission
+				if($user->hasPermission(array('admin'))) {
+					echo "
+					<div class='col-sm-3 hvr-grow-shadow' id='usermanage'>
+						<img class='img-sm' src='{$appRoot}assets/imgs/icons/users.png'>
+						<p>User Management</p>
+					</div>
 
-					// If user has admin permission
-					if($user->hasPermission(array('admin'))) {
-						echo "
-						<div class='col-sm-3 hvr-grow-shadow' id='usermanage'>
-							<img class='img-sm' src='{$appRoot}assets/imgs/icons/users.png'>
-							<p>User Management</p>
+					<div class='col-sm-3 hvr-grow-shadow' id='dbmanage'>
+						<img class='img-sm' src='{$appRoot}assets/imgs/icons/database.png'>
+						<p>Database Management</p>
+					</div>
+					";
+				}
+
+				// If user is only a moderator
+				if($user->hasPermission(array('moderator'))) {
+					echo "
+						<div class='col-sm-3 hvr-grow-shadow' id='#'>
+							<img class='img-sm' src='{$appRoot}assets/imgs/icons/placeholder.png'>
+							<p>Placeholder</p>
 						</div>
+					";
+				}
 
-						<div class='col-sm-3 hvr-grow-shadow' id='dbmanage'>
-							<img class='img-sm' src='{$appRoot}assets/imgs/icons/database.png'>
-							<p>Database Management</p>
-						</div>
-						";
-					}
-
-					// If user is only a moderator
-					if($user->hasPermission(array('moderator'))) {
-						echo "
-							<div class='col-sm-3 hvr-grow-shadow' id='#'>
-								<img class='img-sm' src='{$appRoot}assets/imgs/icons/placeholder.png'>
-								<p>Placeholder</p>
-							</div>
-						";
-					}
-
-				?>
-				
-			</div>
+			?>
+			
 		</div>
+	</div>
 
 
 <!-- jQuery Click Handlers -->

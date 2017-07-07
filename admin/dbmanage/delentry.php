@@ -133,59 +133,59 @@
 
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
+	<?php
+		// Session Flash Message
+		if(Session::exists('admin-del-table-entry')) {
+			echo Session::flash('admin-del-table-entry');
+		}
 
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
-				<li><a href="../">Admin</a></li>
-				<li><a href="./">Database Management</a></li>
-				<li class="active">Delete Table Entry</li>
-			</ol>	
-		</div>
+		// If 404 Error Occurs
+		if(isset($error404)) {
+			Redirect::to(404);
+		}
+	?>
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+			<li><a href="../">Admin</a></li>
+			<li><a href="./">Database Management</a></li>
+			<li class="active">Delete Table Entry</li>
+		</ol>	
+	</div>
+
 	
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Delete Entry - ID: <?php if(isset($entryID)) { echo $entryID; } ?></h1>
+			<p class="text-danger">Are you sure you want to delete?</p>
+		</div>
+	</div>
+
+	<div class="container">
 		<?php
-			// Session Flash Message
-			if(Session::exists('admin-del-table-entry')) {
-				echo Session::flash('admin-del-table-entry');
-			}
 
-			// If 404 Error Occurs
-			if(isset($error404)) {
-				Redirect::to(404);
-			}
+		echo $pageHTML;
+
 		?>
-		
+	</div>
+
+	<form action="" method="post">
+		<!-- Generate Token -->
+		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+		<!-- The Table Name -->
+		<input type="hidden" name="tableName" value="<?php echo $tableName; ?>">
+		<!-- ID Of the Entry to delete -->
+		<input type="hidden" name="entryIDConfirmed" value="<?php echo $entryID; ?>">
+
+		<!-- Buttons -->
 		<div class="container">
-			<div class="jumbotron">
-				<h1>Delete Entry - ID: <?php if(isset($entryID)) { echo $entryID; } ?></h1>
-				<p class="text-danger">Are you sure you want to delete?</p>
+			<div class="row">
+				<div class="col-sm-6"><a href="edittableentries.php?tableName=<?php echo $tableName; ?>" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+				<div class="col-sm-6"><button class="btn btn-block btn-danger hvr-pop" type="submit">Delete</button></div>
 			</div>
 		</div>
-	
-		<div class="container">
-			<?php
-
-			echo $pageHTML;
-
-			?>
-		</div>
-
-		<form action="" method="post">
-			<!-- Generate Token -->
-			<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-			<!-- The Table Name -->
-			<input type="hidden" name="tableName" value="<?php echo $tableName; ?>">
-			<!-- ID Of the Entry to delete -->
-			<input type="hidden" name="entryIDConfirmed" value="<?php echo $entryID; ?>">
-
-			<!-- Buttons -->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6"><a href="edittableentries.php?tableName=<?php echo $tableName; ?>" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
-					<div class="col-sm-6"><button class="btn btn-block btn-danger hvr-pop" type="submit">Delete</button></div>
-				</div>
-			</div>
-		</form>
+	</form>
 
 
 </body>

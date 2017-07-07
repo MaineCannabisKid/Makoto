@@ -54,6 +54,12 @@
 
 	<!-- Navbar -->
 	<?php include(Config::get('file/navbar/default')); ?>
+	<?php
+		// Session Flash Message
+		if(Session::exists('login')) {
+			echo Session::flash('login');
+		}
+	?>
 	
 	<div class="container">
 		<ol class="breadcrumb">
@@ -62,12 +68,7 @@
 		</ol>	
 	</div>
 	
-	<?php
-		// Session Flash Message
-		if(Session::exists('login')) {
-			echo Session::flash('login');
-		}
-	?>
+	
 
 	
 

@@ -90,57 +90,57 @@
 <body>
 
 	<?php include(Config::get('file/navbar/default')); ?>
-		
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
-				<li class="active">New User Registration</li>
-			</ol>	
-		</div>
+	<?php
+		// Session Flash Message
+		if(Session::exists('register')) {
+			echo Session::flash('register');
+		}
+	?>
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+			<li class="active">New User Registration</li>
+		</ol>	
+	</div>
 	
-		<?php
-			// Session Flash Message
-			if(Session::exists('register')) {
-				echo Session::flash('register');
-			}
-		?>
+		
 
 		
 		
-		<div class="container register-form">
-			<h2>Sign Up</h2>
-			<form action="" method="post">
-				<div class="form-group">
-					<label for="username">Username</label>
-					<input type="text" class="form-control" placeholder="Username" name="username" id="username" value="<?php  echo escape(Input::get('username')); ?>" autocomplete="off" required>
-				</div>
+	<div class="container register-form">
+		<h2>Sign Up</h2>
+		<form action="" method="post">
+			<div class="form-group">
+				<label for="username">Username</label>
+				<input type="text" class="form-control" placeholder="Username" name="username" id="username" value="<?php  echo escape(Input::get('username')); ?>" autocomplete="off" required>
+			</div>
 
-				<div class="form-group">
-					<label for="password">Choose a Password</label>
-					<input type="password" placeholder="Choose a password..." class="form-control" name="password" id="password" required>
-				</div>
+			<div class="form-group">
+				<label for="password">Choose a Password</label>
+				<input type="password" placeholder="Choose a password..." class="form-control" name="password" id="password" required>
+			</div>
 
-				<div class="form-group">
-					<label for="password_again">Enter your password again</label>
-					<input type="password" placeholder="Enter the password again..." class="form-control" name="password_again" id="password_again" required>
-				</div>
-				
-				<div class="form-group">
-					<label for="email">Email</label>
-					<p class="text-info">If you want to link your account with Google, enter your gMail address below. Once registered, login via the "Log in with Google" button.</p>
-					<input type="email" placeholder="E-mail" class="form-control" name="email" id="email" required>
-				</div>
+			<div class="form-group">
+				<label for="password_again">Enter your password again</label>
+				<input type="password" placeholder="Enter the password again..." class="form-control" name="password_again" id="password_again" required>
+			</div>
+			
+			<div class="form-group">
+				<label for="email">Email</label>
+				<p class="text-info">If you want to link your account with Google, enter your gMail address below. Once registered, login via the "Log in with Google" button.</p>
+				<input type="email" placeholder="E-mail" class="form-control" name="email" id="email" required>
+			</div>
 
-				<div class="form-group">
-					<label for="name">Your Name</label>
-					<input type="text" placeholder="Your First Name" class="form-control" name="name" id="name" value="<?php echo escape(Input::get('name')); ?>" required>
-				</div>
+			<div class="form-group">
+				<label for="name">Your Name</label>
+				<input type="text" placeholder="Your First Name" class="form-control" name="name" id="name" value="<?php echo escape(Input::get('name')); ?>" required>
+			</div>
 
-				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-				<button type="submit" class="btn btn-primary hvr-float-shadow">Register</button>
-			</form>
+			<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+			<button type="submit" class="btn btn-primary hvr-float-shadow">Register</button>
+		</form>
 
-		</div>
+	</div>
 
 </body>
 </html>

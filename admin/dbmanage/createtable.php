@@ -78,114 +78,115 @@ $user = new User;
 
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
+	<?php
+		// Session Flash Message
+		if(Session::exists('admin-create-table')) {
+			echo Session::flash('admin-create-table');
+		}
 
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
-				<li><a href="../">Admin</a></li>
-				<li><a href="./">Database Management</a></li>
-				<li class="active">Create Table</li>
-			</ol>	
-		</div>
+		// If 404 Error Occurs
+		if(isset($error404)) {
+			Redirect::to(404);
+		}
+	?>
 	
-		<?php
-			// Session Flash Message
-			if(Session::exists('admin-create-table')) {
-				echo Session::flash('admin-create-table');
-			}
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+			<li><a href="../">Admin</a></li>
+			<li><a href="./">Database Management</a></li>
+			<li class="active">Create Table</li>
+		</ol>	
+	</div>
 
-			// If 404 Error Occurs
-			if(isset($error404)) {
-				Redirect::to(404);
-			}
-		?>
-		
-		<div class="container">
-			<div class="jumbotron">
-				<h1>'<?php if(isset($tableName)) { echo $tableName; } ?>' Information</h1>
-				<p>Please fill out the information below, and then click 'Go To Summary Page' to confirm the information you provide.</p>
-			</div>
+	
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>'<?php if(isset($tableName)) { echo $tableName; } ?>' Information</h1>
+			<p>Please fill out the information below, and then click 'Go To Summary Page' to confirm the information you provide.</p>
 		</div>
+	</div>
 
 
-		<div class="container form-wrapper">
-			<h3>Table Fields & Values</h3>
-			<form class="form-horizontal" name="form" action="createtablesummary.php" method="post">
-				<!-- Generate Token -->
-				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-				<!-- number of fields wanted in the table -->
-				<input type="hidden" name="numFields" value="<?php echo $numFields; ?>">
-				<!-- Table Name -->
-				<input type="hidden" name="tableName" value="<?php echo $tableName; ?>">
+	<div class="container form-wrapper">
+		<h3>Table Fields & Values</h3>
+		<form class="form-horizontal" name="form" action="createtablesummary.php" method="post">
+			<!-- Generate Token -->
+			<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+			<!-- number of fields wanted in the table -->
+			<input type="hidden" name="numFields" value="<?php echo $numFields; ?>">
+			<!-- Table Name -->
+			<input type="hidden" name="tableName" value="<?php echo $tableName; ?>">
 
 
-				<div class="form-group">
-					<label for="tableID" class="col-sm-2 control-label">ID</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="tableID" placeholder="Automatically Set Upon Submission" disabled>
-					</div>
+			<div class="form-group">
+				<label for="tableID" class="col-sm-2 control-label">ID</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="tableID" placeholder="Automatically Set Upon Submission" disabled>
 				</div>
+			</div>
 
-				<div class="form-group">
-					<label for="tableName" class="col-sm-2 control-label">Date/Time</label>
-					<div class="col-sm-10">
-						<label class="radio-inline">
-							<input type="radio" name="dateTime" value="true" required> <span class="text-info">Add a Date/Time field</span>
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="dateTime" value="false"> <span class="text-danger">Don't add a Date/Time field</span>
-						</label>
-					</div>
+			<div class="form-group">
+				<label for="tableName" class="col-sm-2 control-label">Date/Time</label>
+				<div class="col-sm-10">
+					<label class="radio-inline">
+						<input type="radio" name="dateTime" value="true" required> <span class="text-info">Add a Date/Time field</span>
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="dateTime" value="false"> <span class="text-danger">Don't add a Date/Time field</span>
+					</label>
 				</div>
+			</div>
 
 
-				<?php
-					// Dynamically generate number of fields and type
+			<?php
+				// Dynamically generate number of fields and type
+				
+				for($i = 1; $i <= $numFields; $i++) {
 					
-					for($i = 1; $i <= $numFields; $i++) {
-						
-						
+					
 
-						echo "
+					echo "
 
-							<div class='form-group'>
-								<label for='tableName' class='col-sm-2 control-label'>Field {$i}</label>
-								<div class='col-sm-10'>
-									<div class='col-sm-6'>
-										<input type='text' class='form-control' id='field{$i}' name='field{$i}name' placeholder='Name of Field' pattern='^\S+$' title='No Spaces are allowed' required>
-									</div>
-									<div class='col-sm-6'>
-										<select name='field{$i}type' class='form-control' required>
-											<option value='' disabled selected hidden>Type of Field</option>
-											<option value='' disabled>Hover Each Type For Description</option>
-											<option value='' disabled>-------------------------------</option>
-											<option value='text' title='Holds a string with a maximum length of 65,535 characters'>Text</option>
-											<option value='int' title='-2147483648 to 2147483647 normal. 0 to 4294967295 UNSIGNED*.'>Integer</option>
-											<option value='varchar32' title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (32)</option>
-											<option value='varchar64' title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (64)</option>
-											<option value='varchar128' title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (128)</option>
-											<option value='varchar255' title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (255)</option>
-										</select>
-									</div>
+						<div class='form-group'>
+							<label for='tableName' class='col-sm-2 control-label'>Field {$i}</label>
+							<div class='col-sm-10'>
+								<div class='col-sm-6'>
+									<input type='text' class='form-control' id='field{$i}' name='field{$i}name' placeholder='Name of Field' pattern='^\S+$' title='No Spaces are allowed' required>
+								</div>
+								<div class='col-sm-6'>
+									<select name='field{$i}type' class='form-control' required>
+										<option value='' disabled selected hidden>Type of Field</option>
+										<option value='' disabled>Hover Each Type For Description</option>
+										<option value='' disabled>-------------------------------</option>
+										<option value='text' title='Holds a string with a maximum length of 65,535 characters'>Text</option>
+										<option value='int' title='-2147483648 to 2147483647 normal. 0 to 4294967295 UNSIGNED*.'>Integer</option>
+										<option value='varchar32' title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (32)</option>
+										<option value='varchar64' title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (64)</option>
+										<option value='varchar128' title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (128)</option>
+										<option value='varchar255' title='Holds a string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis. Can store up to 255 Characters.'>Varchar (255)</option>
+									</select>
 								</div>
 							</div>
+						</div>
 
-						";
+					";
 
-					}
+				}
 
 
-				?>
+			?>
 
-				
-				
-			</form>
-			<div class="row">
-					<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
-					<div class="col-sm-6"><button class="btn btn-block btn-info hvr-pop" id="submit">Go To Summary Page</button></div>
-			</div>
-			<script src="<?php echo Config::get('links/app_root'); ?>/assets/js/admin/dbmanage/createtable.js"></script>
+			
+			
+		</form>
+		<div class="row">
+				<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+				<div class="col-sm-6"><button class="btn btn-block btn-info hvr-pop" id="submit">Go To Summary Page</button></div>
 		</div>
+		<script src="<?php echo Config::get('links/app_root'); ?>/assets/js/admin/dbmanage/createtable.js"></script>
+	</div>
 		
 
 </body>

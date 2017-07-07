@@ -5,7 +5,12 @@
 	$cssFileName = Config::get('links/css_root') . 'profile/settings/' . basename(__FILE__, '.php') . '.css';
 	// Grab User
 	$user = new User;
-
+	// Define error
+	$error = false;
+	// If user isn't logged in
+	if(!$user->isLoggedIn()) {
+		$error = true;
+	}
 
 ?>
 <!DOCTYPE html>
@@ -20,6 +25,11 @@
 <body>
 
 		<?php
+			// If there is an error grabbing the user
+			if($error === true) {
+				// Redirect to 404
+				Redirect::to(404);
+			}
 			// Session Flash Message
 			if(Session::exists('iframe-home')) {
 				echo Session::flash('iframe-home');

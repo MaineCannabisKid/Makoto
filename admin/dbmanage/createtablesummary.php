@@ -178,73 +178,74 @@
 
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
+	<?php
+		// Session Flash Message
+		if(Session::exists('admin-create-table')) {
+			echo Session::flash('admin-create-table');
+		}
 
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
-				<li><a href="../">Admin</a></li>
-				<li><a href="./">Database Management</a></li>
-				<li class="active">Create Table</li>
-			</ol>	
+		// If 404 Error Occurs
+		if(isset($error404)) {
+			Redirect::to(404);
+		}
+	?>
+	
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+			<li><a href="../">Admin</a></li>
+			<li><a href="./">Database Management</a></li>
+			<li class="active">Create Table</li>
+		</ol>	
+	</div>
+	
+	
+
+	
+	
+	<div class="container">
+		<div class="jumbotron bg-primary">
+			<h1>'<?php if(isset($tableName)) { echo $tableName; } ?>' Table Summary</h1>
+			<p>Please confirm the information below. Once you're done so, please click "Create Table"</p>
 		</div>
-		
-		<?php
-			// Session Flash Message
-			if(Session::exists('admin-create-table')) {
-				echo Session::flash('admin-create-table');
-			}
+	</div>
 
-			// If 404 Error Occurs
-			if(isset($error404)) {
-				Redirect::to(404);
-			}
-		?>
 
-		
-		
-		<div class="container">
-			<div class="jumbotron bg-primary">
-				<h1>'<?php if(isset($tableName)) { echo $tableName; } ?>' Table Summary</h1>
-				<p>Please confirm the information below. Once you're done so, please click "Create Table"</p>
+	<div class="container form-wrapper">
+		<h3>Fields & Values</h3>
+		<form class="form-horizontal" action="createtableconfirm.php" method="post">
+			<!-- Generate Token -->
+			<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+			<!-- number of fields wanted in the table -->
+			<input type="hidden" name="numFields" value="<?php echo $numFields; ?>">
+			<!-- number of fields wanted in the table -->
+			<input type="hidden" name="tableName" value="<?php echo $tableName; ?>">
+
+			<div class="form-group">
+				<label for="tableID" class="col-sm-2 control-label">ID</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="tableID" placeholder="Automatically Set Upon Submission" disabled>
+				</div>
 			</div>
-		</div>
 
+			<?php
 
-		<div class="container form-wrapper">
-			<h3>Fields & Values</h3>
-			<form class="form-horizontal" action="createtableconfirm.php" method="post">
-				<!-- Generate Token -->
-				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-				<!-- number of fields wanted in the table -->
-				<input type="hidden" name="numFields" value="<?php echo $numFields; ?>">
-				<!-- number of fields wanted in the table -->
-				<input type="hidden" name="tableName" value="<?php echo $tableName; ?>">
+				// Display the date time Form Information
+				echo $dateTimeHTML;
 
-				<div class="form-group">
-					<label for="tableID" class="col-sm-2 control-label">ID</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="tableID" placeholder="Automatically Set Upon Submission" disabled>
-					</div>
-				</div>
+				
+				// Display The Field Information
+				echo $fieldHTML;
 
-				<?php
+			?>
 
-					// Display the date time Form Information
-					echo $dateTimeHTML;
+			<div class="row">
+				<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
+				<div class="col-sm-6"><button class="btn btn-block btn-success hvr-pop" type="submit">Create Table</button></div>
+			</div>
 
-					
-					// Display The Field Information
-					echo $fieldHTML;
-
-				?>
-
-				<div class="row">
-					<div class="col-sm-6"><a href="./" class="btn btn-block btn-warning hvr-pop">Go Back</a></div>
-					<div class="col-sm-6"><button class="btn btn-block btn-success hvr-pop" type="submit">Create Table</button></div>
-				</div>
-
-			</form>
-		</div>
+		</form>
+	</div>
 		
 
 </body>

@@ -103,82 +103,83 @@
 
 	<!-- Navigation Bar -->
 	<?php include(Config::get('file/navbar/default')); ?>
+	<?php
+		// Session Flash Message
+		if(Session::exists('admin-edit-entry')) {
+			echo Session::flash('admin-edit-entry');
+		}
 
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
-				<li><a href="../">Admin</a></li>
-				<li><a href="./">Database Management</a></li>
-				<li class="active">Edit Table Entry</li>
-			</ol>	
-		</div>
+		// If 404 Error Occurs
+		if(isset($error404)) {
+			Redirect::to(404);
+		}
+	?>
 	
-		<?php
-			// Session Flash Message
-			if(Session::exists('admin-edit-entry')) {
-				echo Session::flash('admin-edit-entry');
-			}
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+			<li><a href="../">Admin</a></li>
+			<li><a href="./">Database Management</a></li>
+			<li class="active">Edit Table Entry</li>
+		</ol>	
+	</div>
 
-			// If 404 Error Occurs
-			if(isset($error404)) {
-				Redirect::to(404);
-			}
-		?>
+	
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Edit Entry - '<?php if(isset($tableName)) { echo $tableName; } ?>'</h1>
+			<p>Fill out the information below.</p>
+			<p class="text-warning">Note: Integer fields only accept integers. If you enter a non-integer, it will not be entered.</p>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<form class='form-horizontal' action="" method="post">
 		
-		<div class="container">
-			<div class="jumbotron">
-				<h1>Edit Entry - '<?php if(isset($tableName)) { echo $tableName; } ?>'</h1>
-				<p>Fill out the information below.</p>
-				<p class="text-warning">Note: Integer fields only accept integers. If you enter a non-integer, it will not be entered.</p>
-			</div>
-		</div>
+			<?php
+				
+				// Define $i
+				$i = 1;
+				
+				// Loop through each field and grab just the name
+				foreach($tableFields as $column){
 
+					$fieldName = $column->Field; // Grab the Field Name
+					$value = $entryData->$fieldName; // grab the value of the field from the entryData object by the field name
 
-		<div class="container">
-			<form class='form-horizontal' action="" method="post">
-			
-				<?php
-					
-					// Define $i
-					$i = 1;
-					
-					// Loop through each field and grab just the name
-					foreach($tableFields as $column){
-
-						$fieldName = $column->Field; // Grab the Field Name
-						$value = $entryData->$fieldName; // grab the value of the field from the entryData object by the field name
-
-						// Skip Fields if field is ID or DateTime
-						if($fieldName == 'id' || $fieldName == 'datetime') {
-							continue;
-						} else { // Display Form fields for that field
-							echo "
-								<div class='form-group'>
-									<label for='field{$i}' class='col-sm-4 control-label'>{$fieldName}</label>
-									<div class='col-sm-8'>
-										<input type='text' class='form-control' id='field{$i}' name='field{$i}' value='{$value}' required>
-									</div>
+					// Skip Fields if field is ID or DateTime
+					if($fieldName == 'id' || $fieldName == 'datetime') {
+						continue;
+					} else { // Display Form fields for that field
+						echo "
+							<div class='form-group'>
+								<label for='field{$i}' class='col-sm-4 control-label'>{$fieldName}</label>
+								<div class='col-sm-8'>
+									<input type='text' class='form-control' id='field{$i}' name='field{$i}' value='{$value}' required>
 								</div>
-							";
-						}
-						$i++;
+							</div>
+						";
 					}
-					
-				?>
+					$i++;
+				}
+				
+			?>
 
 
-				<!-- Generate Token -->
-				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-				<!-- number of fields wanted in the table -->
-				<input type="hidden" name="tableName" value="<?php echo $tableName; ?>">
-				<!-- Submit Button -->
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-success btn-block hvr-pop">Save Changes</button>
-					</div>
+			<!-- Generate Token -->
+			<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+			<!-- number of fields wanted in the table -->
+			<input type="hidden" name="tableName" value="<?php echo $tableName; ?>">
+			<!-- Submit Button -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-success btn-block hvr-pop">Save Changes</button>
 				</div>
+			</div>
 
-			</form>
-		</div>
+		</form>
+	</div>
 </body>
 </html>
