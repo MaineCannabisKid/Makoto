@@ -11,20 +11,20 @@ class Session {
 			// Switch on $type, and display properly formatted alert box
 			switch($type) {
 				case 'success':
-					$msg .= '<div class="container"><div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img src="' . Config::get('links/app_root') . 'assets/imgs/icons/alert-success.png" style="padding-right: 1%;"><strong>Success:</strong> ';
+					$msg .= '<div class="alert alert-success animated" role="alert" id="alert"><p><strong>Success</strong></p><p> ';
 				break;
 				case 'info':
-					$msg .= '<div class="container"><div class="alert alert-info alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img src="' . Config::get('links/app_root') . 'assets/imgs/icons/alert-info.png" style="padding-right: 1%;"><strong>Information:</strong> ';
+					$msg .= '<div class="alert alert-info animated" role="alert" id="alert"><p><strong>Information</strong></p><p> ';
 				break;
 				case 'warning':
-					$msg .= '<div class="container"><div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img src="' . Config::get('links/app_root') . 'assets/imgs/icons/alert-warning.png" style="padding-right: 1%;"><strong>Warning:</strong> ';
+					$msg .= '<div class="alert alert-warning animated" role="alert" id="alert"><p><strong>Warning</strong></p><p> ';
 				break;
 				case 'danger':
-					$msg .= '<div class="container"><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img src="' . Config::get('links/app_root') . 'assets/imgs/icons/alert-danger.png" style="padding-right: 1%;"><strong>Error:</strong> ';
+					$msg .= '<div class="alert alert-danger animated" role="alert" id="alert"><p><strong>Critical Error</strong></p><p> ';
 				break;
 				default:
 					$msg .= "Alert Error: Contact an Administrator<br>";
-					$msg .= '<div class="container"><div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><img src="' . Config::get('links/app_root') . 'assets/imgs/icons/alert-warning.png" style="padding-right: 1%;"><strong>Warning:</strong> ';
+					$msg .= '<div class="alert alert-warning animated" role="alert" id="alert"><p><strong>Warning</strong></p><p> ';
 				break;
 
 			}
@@ -33,7 +33,7 @@ class Session {
 			$msg .= $value;
 
 			// End HTML
-			$msg .= '</p></div></div>';
+			$msg .= '</p></div>';
 
 			// Store Message into Session
 			return $_SESSION[$name] = $msg;

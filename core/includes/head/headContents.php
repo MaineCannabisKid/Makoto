@@ -28,3 +28,8 @@ Example: <div class="row flex"><div class="col-lg-12"></div></div>
 <link rel="stylesheet" type="Stylesheet" href="https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css">
 <!-- Favicon  -->
 <link rel="icon" type="image/x-icon" href="<?php echo Config::get('links/app_root') . '/assets/imgs/favicon.ico'?>" />
+<!-- Load Global Javascript -->
+<script src="<?php echo Config::get('links/app_root'); ?>/assets/js/global.js"></script>
+<!-- Load animate.css -->
+<!-- daneden/animate.css -->
+<link rel="stylesheet" href="<?php echo Config::get('links/app_root'); ?>/assets/css/animate.css">

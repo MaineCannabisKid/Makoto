@@ -37,14 +37,6 @@
 
 	<?php include(Config::get('file/navbar/default')); ?>
 		
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
-				<li><a href="../">Admin</a></li>
-				<li class="active">Database Management</li>
-			</ol>	
-		</div>
-	
 		<?php
 			// Session Flash Message
 			if(Session::exists('admin-dbmanage')) {
@@ -54,6 +46,16 @@
 				echo Session::flash('admin-dbmanage2');
 			}
 		?>
+
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
+				<li><a href="../">Admin</a></li>
+				<li class="active">Database Management</li>
+			</ol>	
+		</div>
+	
+		
 
 		
 		

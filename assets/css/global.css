@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* Navbar */
 .navbar-default {
-	margin: 0 auto 0.5%;
+	margin: 0 auto;
 	border-radius: 0;
     z-index: 100;
 }
@@ -41,13 +41,42 @@ h1, h2, h3, h4, h5, h6 {
 /* Bread Crumbs */
 .breadcrumb {
     background: #ededed;
-    margin-bottom: 0.5%;
+    margin: 0.5% auto;
 }
 
 
 /* Alerts */
 .alert {
-	margin: 0 auto 0.5%;
+    margin: 0;
+    text-align: center;
+    border-radius: initial;
+    border: 1px solid rgba(0,0,0,0.2);
+    box-shadow: 0 4px 2px -2px gray;
+    font-weight: 400;
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 52px;
+    left: 0;
+}
+.alert p strong {
+    font-size: 1.5em;
+}
+.alert-success {
+    background: #2ecc71;
+    color: white;
+}
+.alert-warning {
+    background: #f1c40f;
+    color: black;
+}
+.alert-info {
+    background: #3498db;
+    color: white;
+}
+.alert-danger {
+    background: #e74c3c;
+    color: white;
 }
 
 /* Horitonztal Rule */

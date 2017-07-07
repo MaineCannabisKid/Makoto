@@ -43,7 +43,7 @@
 				$picture = "<img class='profile-img' src='{$data->picture}'>";
 			} else {
 				// Display Default Profile Image
-				$picture = "<img class='profile-img' src='assets/imgs/profile/default.png'>";
+				$picture = "<img class='profile-img' src='" . Config::get('links/app_root') . "assets/imgs/profile/default.png'>";
 			}
 		}
 	}
@@ -67,6 +67,19 @@
 	<!-- Navbar -->
 	<?php include(Config::get('file/navbar/default')); ?>
 	
+	<?php
+		// If there is an error grabbing the user
+		if($error === true) {
+			// Redirect to 404
+			Redirect::to(404);
+		}
+
+		// Session Flash Message
+		if(Session::exists('profile')) {
+			echo Session::flash('profile');
+		}
+	?>
+	
 	<div class="container">
 		<ol class="breadcrumb">
 			<li><a href="<?php echo Config::get('links/app_root'); ?>">Home</a></li>
@@ -74,17 +87,7 @@
 		</ol>	
 	</div>
 	
-	<?php
-		// If there is an error grabbing the user
-		if($error === true) {
-			// Redirect to 404
-			Redirect::to(404);
-		}
-		// Session Flash Message
-		if(Session::exists('profile')) {
-			echo Session::flash('profile');
-		}
-	?>
+
 	
 	
 

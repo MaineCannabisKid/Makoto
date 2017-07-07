@@ -16,7 +16,7 @@
 		} else { // Authorization correct
 			// Does input in the URL exist?
 			if(Input::exists()) {
-				// if(Token::check(Input::get('token'))) {
+				if(Token::check(Input::get('token'))) {
 				 
 					// Grab Inputs
 					$tableName = Input::get('tableName');
@@ -43,11 +43,11 @@
 						Redirect::to('admin/dbmanage');
 					}
 				
-				// } else {
-				// 	Session::flash('admin-dbmanage', 'Something went wrong when creating the table <strong>' . $tableName . '</strong>. Please try again. <strong>Error Code:</strong> createtable', 'danger');
-				// 	Session::flash('admin-dbmanage2', 'We have detected that you might have refreshed the page. Thats not allowed. Please use the \'Go Back\' button instead.');
-				// 	Redirect::to('admin/dbmanage');
-				// }
+				} else {
+					Session::flash('admin-dbmanage', 'Something went wrong when creating the table <strong>' . $tableName . '</strong>. Please try again. <strong>Error Code:</strong> createtable', 'danger');
+					Session::flash('admin-dbmanage2', 'We have detected that you might have refreshed the page. Thats not allowed. Please use the \'Go Back\' button instead.');
+					Redirect::to('admin/dbmanage');
+				}
 
 
 			} else { // Input does not exist
