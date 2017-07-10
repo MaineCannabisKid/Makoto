@@ -2,6 +2,7 @@
 	"require": {
 		"google/apiclient":"^2.0",
 		"phpmailer/phpmailer": "~5.2",
-		"kint-php/kint":"2.*"
+		"kint-php/kint":"2.*",
+		"daneden/animate.css":"~3.5"
 	}
 }

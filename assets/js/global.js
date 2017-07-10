@@ -9,6 +9,7 @@ if(appRoot.includes("localhost")) {
 	appRoot += '/';
 }
 
+// Show the App Root in the Log
 console.log(appRoot);
 
 // On Page Load Events
@@ -88,4 +89,4 @@ $(document).ready(function(){
 
 });
 
-// End Document Ready
+// End On Page Load Events

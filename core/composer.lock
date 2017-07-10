@@ -4,8 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "984e83c75e2950cec38cf4fbe148a955",
+    "content-hash": "3b9736fe2504a1f460b4a97de5afe7e0",
     "packages": [
+        {
+            "name": "daneden/animate.css",
+            "version": "3.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ange187/animate.css.git",
+                "reference": "79a73464c3424b4f17a64d78092800d676e25b25"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ange187/animate.css/zipball/79a73464c3424b4f17a64d78092800d676e25b25",
+                "reference": "79a73464c3424b4f17a64d78092800d676e25b25",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2017-04-21T12:02:21+00:00"
+        },
         {
             "name": "firebase/php-jwt",
             "version": "v4.0.0",
@@ -376,16 +394,16 @@
         },
         {
             "name": "kint-php/kint",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kint-php/kint.git",
-                "reference": "df63cec9406b44e10a316138ce47d8da7e9868d5"
+                "reference": "1a1104729f10277b06d7db742d3c98d1881d4d7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kint-php/kint/zipball/df63cec9406b44e10a316138ce47d8da7e9868d5",
-                "reference": "df63cec9406b44e10a316138ce47d8da7e9868d5",
+                "url": "https://api.github.com/repos/kint-php/kint/zipball/1a1104729f10277b06d7db742d3c98d1881d4d7e",
+                "reference": "1a1104729f10277b06d7db742d3c98d1881d4d7e",
                 "shasum": ""
             },
             "require": {
@@ -430,7 +448,7 @@
                 "kint",
                 "php"
             ],
-            "time": "2017-06-20T18:21:30+00:00"
+            "time": "2017-07-03T20:08:05+00:00"
         },
         {
             "name": "monolog/monolog",

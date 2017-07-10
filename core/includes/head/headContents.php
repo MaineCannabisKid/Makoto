@@ -32,4 +32,4 @@ Example: <div class="row flex"><div class="col-lg-12"></div></div>
 <script src="<?php echo Config::get('links/app_root'); ?>/assets/js/global.js"></script>
 <!-- Load animate.css -->
 <!-- daneden/animate.css -->
-<link rel="stylesheet" href="<?php echo Config::get('links/app_root'); ?>/assets/css/animate.css">
+<link rel="stylesheet" href="<?php echo Config::get('links/app_root'); ?>/core/vendor/daneden/animate.css/animate.css">
