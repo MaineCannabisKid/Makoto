@@ -1,4 +1,4 @@
-console.log("Connected Global.js");
+// console.log("Connected Global.js");
 
 // Get the base URL/App Root
 var appRoot = location.protocol + '//' + location.host;
@@ -9,7 +9,8 @@ if(appRoot.includes("localhost")) {
 	appRoot += '/';
 }
 
-console.log(appRoot);
+// Show the App Root in the Log
+// console.log(appRoot);
 
 // On Page Load Events
 $(document).ready(function(){
@@ -88,4 +89,4 @@ $(document).ready(function(){
 
 });
 
-// End Document Ready
+// End On Page Load Events
