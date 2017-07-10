@@ -1,4 +1,4 @@
-console.log("Navbar.js Connected");
+// console.log("Navbar.js Connected");
 
 // ******************
 // * Click Handlers *
@@ -6,14 +6,14 @@ console.log("Navbar.js Connected");
 
 // When Search Users is clicked on
 $('#searchForm-users').on('click', function() {
-	$('#searchType').val('users');
-	$('#searchInput').attr("placeholder", "Search Users");
+	$('#searchTable').val('users');
+	$('#searchKeywords').attr("placeholder", "Search Users");
 });
 
 // When Another Search is clicked on
-$('#searchForm-another').on('click', function() {
-	$('#searchType').val('another');
-	$('#searchInput').attr("placeholder", "Search Something Else");
+$('#searchForm-test').on('click', function() {
+	$('#searchTable').val('test');
+	$('#searchKeywords').attr("placeholder", "Search Test");
 });
 
 
@@ -24,7 +24,7 @@ $('#searchForm-another').on('click', function() {
 // Search Form Validate Function
 function searchFormValidate() {
 	// Check is Search Input value is null, if so return false (Validation didn't pass)
-	return $('#searchInput').val() == "" ? false : true;
+	return $('#searchKeywords').val() == "" ? false : true;
 }
 
 // When Search is clicked Submit Form
@@ -34,7 +34,7 @@ $("#searchFormSubmit").on('click', function() {
 		document.searchForm.submit();
 	} else { // Errors
 		// Do some Animation
-		$("#searchInput").animateCss('flash');
+		$("#searchKeywords").animateCss('flash');
 	}
 });
 

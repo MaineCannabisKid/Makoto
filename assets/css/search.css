@@ -1,0 +1,63 @@
+/* Import Global CSS File */
+@import url('global.css');
+
+/* Page Specific CSS */
+
+
+
+/************************/
+/* Search Users Classes */
+/************************/
+
+/* Each Row */
+.search-users {
+	width: 100%;
+	margin: 0 auto;
+}
+
+/* Each User */
+.search-users .user {
+	margin: .25% auto;
+	padding: 1%;
+}
+
+/* Profile Image Column */
+.search-users .profile-img {
+	text-align: right;
+}
+
+/* Profile Image Itself */
+.search-users .profile-img img {
+	width: 94px;
+}
+
+/* Global Role Adapters */
+.img-admin, .img-mod, .img-user {
+	border-radius: 50%;
+}
+/* Admin Role Border */
+.img-admin {
+	background: rgba(198, 113, 113, 1);
+	border: 3px solid rgba(198, 113, 113, 1);
+}
+
+.img-mod {
+	background: rgba(131, 196, 104, 1);
+	border: 3px solid rgba(131, 196, 104, 1);
+}
+
+
+/* Wrappers */
+.search-users .user-wrapper {
+	height: 47px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+.search-users .username {
+	font-size: 2em;
+}
+.search-users .name {
+	font-size: 1.2em;
+}
+

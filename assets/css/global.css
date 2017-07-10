@@ -3,10 +3,18 @@
 /* Import Hover.css from IanLunn/Hover */
 @import url('hover.css');
 
+/* COLORS */
+
 /* Ubuntu Orange */
 /* #e95420 */
 /* Dark Hover Orange */
 /* #ac3911 */
+/* Darker Colors are -30 on the Shadow from Regular Colors */
+/* Hexcolortool.com */
+/* Darker Danger Color */
+/* rgba(198, 113, 113, 1) */
+/* Darker Success Color */
+/* rgba(131, 196, 104, 1) */
 
 body {
     font-family: 'Josefin Sans';
@@ -31,15 +39,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Search Button */
 .search-form .btn-default {
-    background: #ac3911;
-    border-color: rgba(149, 48, 15, 1);
+    background: #c33f13;
+    border-color: rgba(149, 48, 15, 0.4);
 }
 .search-form .btn-default:hover {
-    background: #c84114;
+    background: #e95625;
 }
 /* Drop Down Button */
 .search-form .btn-default.dropdown-toggle {
-    border-left: 1px solid rgba(149, 48, 15, 1);
+    border-left: 1px solid rgba(149, 48, 15, 0.4);
 }
 
 /* End Navbar Search*/

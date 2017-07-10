@@ -28,11 +28,11 @@
 			
 
 			<ul class="nav navbar-nav navbar-right">
-				<form class="navbar-form navbar-nav search-form" method="get" action="search.php" name="searchForm" id="searchForm">
+				<form class="navbar-form navbar-nav search-form" method="get" action="<?php echo Config::get('links/app_root'); ?>search.php" name="searchForm" id="searchForm">
 					<!-- hidden type input -->
-					<input type="hidden" name="searchType" id="searchType" value="users">
+					<input type="hidden" name="t" id="searchTable" value="users">
 					<div class="input-group">
-						<input type="text" id="searchInput" name="searchInput" class="form-control" aria-label="Search the site" placeholder="Search Users">
+						<input type="text" id="searchKeywords" name="k" class="form-control" aria-label="Search the site" placeholder="Search Users">
 						<div class="input-group-btn">
 							<button type="button" class="btn btn-default" id="searchFormSubmit">Search</button>
 							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,8 +40,9 @@
 								<span class="sr-only">Toggle Dropdown</span>
 							</button>
 							<ul class="dropdown-menu">
+								<!-- When Adding Choice, Please Update Search Class and Navbar.js File -->
 								<li><a href="#" id="searchForm-users">Users</a></li>
-								<li><a href="#" id="searchForm-another">Another Search</a></li>
+								<li><a href="#" id="searchForm-test">Test</a></li>
 							</ul>
 						</div>
 					</div>
