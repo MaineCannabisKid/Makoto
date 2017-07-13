@@ -1,15 +1,9 @@
 // console.log("Connected Global.js");
 
-// Get the base URL/App Root
-var appRoot = location.protocol + '//' + location.host;
-// Check if App Root is on Dev Server or Produuction Server
-if(appRoot.includes("localhost")) {
-	appRoot += '/makoto/';
-} else {
-	appRoot += '/';
-}
 
-// Show the App Root in the Log
+// appRoot is defined in the init.php file  ([root]/core/init.php)
+
+// Debug appRoot
 // console.log(appRoot);
 
 // On Page Load Events

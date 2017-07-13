@@ -32,7 +32,7 @@
 }
 
 /* Global Role Adapters */
-.img-admin, .img-mod, .img-user {
+.search-users .profile-img img {
 	border-radius: 50%;
 }
 /* Admin Role Border */
@@ -55,7 +55,8 @@
   	justify-content: center;
 }
 .search-users .username {
-	font-size: 2em;
+	font-size: 1.2em;
+	font-weight: 600;
 }
 .search-users .name {
 	font-size: 1.2em;

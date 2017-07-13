@@ -23,6 +23,10 @@
 	
 	
 		<?php
+			// Session::flash('home', 'App Root: ' . Config::get('links/app_root') , 'success');
+			// Session::flash('home', 'Test <strong>warning</strong> Alert!', 'warning');
+			// Session::flash('home', 'Test <strong>danger</strong> Alert!', 'danger');
+			// Session::flash('home', 'Test <strong>info</strong> Alert!', 'info');
 			// Session Flash Message
 			if(Session::exists('home')) {
 				echo Session::flash('home');

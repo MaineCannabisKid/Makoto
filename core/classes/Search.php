@@ -9,7 +9,7 @@ Class Search {
 
 
 	// Construct
-	public function __construct(string $t, string $k) {
+	public function __construct($t, $k) {
 		// Grab New Instance of DB and store it in _db
 		$this->_db = DB::getInstance();
 		// Table

@@ -71,3 +71,12 @@ $mail = new PHPMailer;
 require_once('vendor/kint-php/kint/init.php');
 
 ?>
+<!-- 
+
+	Handle the Javascript appRoot Variable here.
+	Pass in the app_root from the config files 
+
+-->
+<script type="text/javascript">
+	var appRoot = "<?php echo Config::get('links/app_root'); ?>";
+</script>

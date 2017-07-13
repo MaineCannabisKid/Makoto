@@ -22,7 +22,7 @@
 		// Instanciate the Search Class
 		$search = new Search($t, $k);
 		// Search
-		$searchResults = $search->execute($t, $k);
+		$searchResults = $search->execute();
 		
 
 	} else {
